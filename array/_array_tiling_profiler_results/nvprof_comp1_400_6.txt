@@ -1,0 +1,19 @@
+==15798== NVPROF is profiling process 15798, command: ./array/tiling
+==15798== Profiling application: ./array/tiling
+==15798== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   55.65%  1.3440ms         1  1.3440ms  1.3440ms  1.3440ms  convolution(float[400][400]*, float[5][5][1]*, float[396][396]*)
+                   42.18%  1.0188ms         1  1.0188ms  1.0188ms  1.0188ms  [CUDA memcpy DtoH]
+                    2.17%  52.448us         2  26.224us  1.2160us  51.232us  [CUDA memcpy HtoD]
+      API calls:   96.80%  111.10ms         3  37.035ms  3.2870us  111.04ms  cudaMalloc
+                    2.76%  3.1683ms         3  1.0561ms  59.267us  3.0231ms  cudaMemcpy
+                    0.24%  279.68us         3  93.227us  4.8770us  165.38us  cudaFree
+                    0.16%  180.87us        94  1.9240us     170ns  73.583us  cuDeviceGetAttribute
+                    0.02%  21.660us         1  21.660us  21.660us  21.660us  cuDeviceGetName
+                    0.02%  20.074us         1  20.074us  20.074us  20.074us  cudaLaunch
+                    0.00%  1.8880us         3     629ns     175ns  1.4180us  cuDeviceGetCount
+                    0.00%     974ns         2     487ns     234ns     740ns  cuDeviceGet
+                    0.00%     721ns         3     240ns     132ns     387ns  cudaSetupArgument
+                    0.00%     589ns         1     589ns     589ns     589ns  cudaConfigureCall
+                    0.00%     381ns         1     381ns     381ns     381ns  cuDeviceTotalMem
+                    0.00%     235ns         1     235ns     235ns     235ns  cudaGetLastError

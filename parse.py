@@ -1,3 +1,4 @@
+from cmath import log
 import csv
 import os
 import re
@@ -53,19 +54,19 @@ if __name__ == '__main__':
     of_n = [6, 6, 3, 6, 9, 12, 6, 9, 12, 6, 16, 16, 16, 16, 16,
             16, 16, 32, 16, 32, 16, 32, 32, 64, 32, 64, 32, 64, 64]
 
-    for i in range(0, len(if_n)):
-        log_file = 'naive_profiler_results/nvprof_comp_naive_' + \
-            str(if_n[i]) + '_' + str(input_s[i]) + '_' + str(of_n[i]) + '.txt'
-        parser = Parse(log_file, int(if_n[i]), int(
-            input_s[i]), int(of_n[i]), 'naive_summary.csv')
-        parser.parse_file()
+    methods = [
+        'array_naive_sum.csv', 'array_tiling_sum.csv', 'pointer_naive_sum.csv', 'pointer_tiling_sum.csv']
+    confs = ['array/_array_naive_', 'array/_array_tiling_',
+             'pointer/_pointer_naive_', 'pointer/_pointer_tiling_', ]
 
-    print("Naive parsing finished")
-
-    for i in range(0, len(if_n)-2):
-        log_file = 'tiling_profiler_results/nvprof_comp_tiling_' + \
-            str(if_n[i]) + '_' + str(input_s[i]) + '_' + str(of_n[i]) + '.txt'
-        parser = Parse(log_file, int(if_n[i]), int(
-            input_s[i]), int(of_n[i]), 'tiling_summary.csv')
-        parser.parse_file()
-    print("Tiling parsing finished")
+    for j in range(0, len(methods)):
+        for i in range(0, len(if_n)):
+            if(j % 2 == 1 and len(if_n) - i == 2):
+                break
+            log_file = confs[j] + 'profiler_results/nvprof_comp' + \
+                str(if_n[i]) + '_' + str(input_s[i]) + \
+                '_' + str(of_n[i]) + '.txt'
+            parser = Parse(log_file, int(if_n[i]), int(
+                input_s[i]), int(of_n[i]), methods[j])
+            parser.parse_file()
+        print(methods[j] + " parsing finished")
