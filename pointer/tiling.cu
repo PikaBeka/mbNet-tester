@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #define IF_N 32
-#define INPUT_S 32
+#define INPUT_S 8
 #define OF_N 64
 #define K_S 5
 #define OUTPUT_S (INPUT_S - K_S + 1)

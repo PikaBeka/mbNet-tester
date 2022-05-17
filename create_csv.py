@@ -50,7 +50,7 @@ for i in range(0, len(methods)):  # for each kernel method
         header = ['Configuration']
 
         for file in files:
-            with open(nvprof_paths[i]+'/'+files[i], 'r') as log:
+            with open(nvprof_paths[i]+'/'+file, 'r') as log:
                 data = log.readlines()
                 header = findHeaders(data, header)
 
@@ -58,3 +58,4 @@ for i in range(0, len(methods)):  # for each kernel method
         header.append('Total_time')
         header.append('Kernel_time')
         writer.writerow(header)
+    print('Created csv file ' + methods[i])

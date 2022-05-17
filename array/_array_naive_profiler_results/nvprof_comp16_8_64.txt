@@ -1,0 +1,19 @@
+==25168== NVPROF is profiling process 25168, command: ./array/naive
+==25168== Profiling application: ./array/naive
+==25168== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   87.75%  96.545us         1  96.545us  96.545us  96.545us  convolution(float[8][8]*, float[5][5][16]*, float[4][4]*)
+                   10.73%  11.808us         2  5.9040us  1.4720us  10.336us  [CUDA memcpy HtoD]
+                    1.51%  1.6640us         1  1.6640us  1.6640us  1.6640us  [CUDA memcpy DtoH]
+      API calls:   99.62%  95.792ms         3  31.931ms  1.3840us  95.788ms  cudaMalloc
+                    0.15%  143.47us         3  47.823us  10.429us  113.98us  cudaMemcpy
+                    0.11%  107.86us        94  1.1470us     105ns  46.730us  cuDeviceGetAttribute
+                    0.08%  78.623us         3  26.207us  2.0750us  69.416us  cudaFree
+                    0.02%  18.456us         1  18.456us  18.456us  18.456us  cudaLaunch
+                    0.02%  14.722us         1  14.722us  14.722us  14.722us  cuDeviceGetName
+                    0.00%  1.2730us         3     424ns     103ns     940ns  cuDeviceGetCount
+                    0.00%     939ns         2     469ns     113ns     826ns  cuDeviceGet
+                    0.00%     742ns         3     247ns     121ns     416ns  cudaSetupArgument
+                    0.00%     697ns         1     697ns     697ns     697ns  cudaConfigureCall
+                    0.00%     247ns         1     247ns     247ns     247ns  cuDeviceTotalMem
+                    0.00%     157ns         1     157ns     157ns     157ns  cudaGetLastError
