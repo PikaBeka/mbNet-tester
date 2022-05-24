@@ -1,0 +1,19 @@
+==22658== NVPROF is profiling process 22658, command: ./mbnet
+==22658== Profiling application: ./mbnet
+==22658== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   81.13%  39.616us         1  39.616us  39.616us  39.616us  convolution_tiling(float[32][32]*, float[5][5][3]*, float[28][28]*)
+                   10.62%  5.1840us         1  5.1840us  5.1840us  5.1840us  [CUDA memcpy DtoH]
+                    8.26%  4.0320us         2  2.0160us  1.4080us  2.6240us  [CUDA memcpy HtoD]
+      API calls:   99.70%  171.33ms         3  57.111ms  2.3740us  171.33ms  cudaMalloc
+                    0.14%  238.26us        94  2.5340us     183ns  91.809us  cuDeviceGetAttribute
+                    0.06%  104.27us         3  34.755us  9.6610us  75.183us  cudaMemcpy
+                    0.05%  84.487us         3  28.162us  1.9510us  72.653us  cudaFree
+                    0.03%  49.775us         1  49.775us  49.775us  49.775us  cuDeviceGetName
+                    0.01%  21.838us         1  21.838us  21.838us  21.838us  cudaLaunch
+                    0.00%  6.7240us         3  2.2410us     505ns  4.2070us  cuDeviceGetCount
+                    0.00%  2.2850us         2  1.1420us     487ns  1.7980us  cuDeviceGet
+                    0.00%     785ns         3     261ns     132ns     449ns  cudaSetupArgument
+                    0.00%     727ns         1     727ns     727ns     727ns  cudaConfigureCall
+                    0.00%     668ns         1     668ns     668ns     668ns  cuDeviceTotalMem
+                    0.00%     187ns         1     187ns     187ns     187ns  cudaGetLastError

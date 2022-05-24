@@ -1,0 +1,21 @@
+==28945== NVPROF is profiling process 28945, command: ./mbnet
+==28945== Profiling application: ./mbnet
+==28945== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   95.37%  871.27us         1  871.27us  871.27us  871.27us  gemm_global_kernel(float[400]*, float[144]*, float[144]*)
+                    1.67%  15.233us         1  15.233us  15.233us  15.233us  ker2row_kernel(float[400]*, float[5][5][16]*)
+                    1.46%  13.312us         2  6.6560us  3.0080us  10.304us  [CUDA memcpy HtoD]
+                    1.00%  9.1520us         1  9.1520us  9.1520us  9.1520us  im2col_gpu_kernel(int, float const *, int, int, int, int, int, int, int, float*)
+                    0.50%  4.5760us         1  4.5760us  4.5760us  4.5760us  [CUDA memcpy DtoH]
+      API calls:   98.95%  118.44ms         6  19.740ms  1.3040us  118.43ms  cudaMalloc
+                    0.80%  957.21us         3  319.07us  12.344us  922.53us  cudaMemcpy
+                    0.17%  207.15us        94  2.2030us     186ns  79.713us  cuDeviceGetAttribute
+                    0.02%  29.278us         3  9.7590us  4.7080us  19.691us  cudaFree
+                    0.02%  27.100us         3  9.0330us  3.4310us  18.397us  cudaLaunch
+                    0.02%  25.609us         1  25.609us  25.609us  25.609us  cuDeviceGetName
+                    0.00%  2.9280us         3     976ns     220ns  2.4300us  cuDeviceGetCount
+                    0.00%  2.1020us        15     140ns      91ns     386ns  cudaSetupArgument
+                    0.00%  1.1470us         2     573ns     206ns     941ns  cuDeviceGet
+                    0.00%     922ns         3     307ns     126ns     566ns  cudaConfigureCall
+                    0.00%     354ns         1     354ns     354ns     354ns  cuDeviceTotalMem
+                    0.00%     308ns         1     308ns     308ns     308ns  cudaGetLastError

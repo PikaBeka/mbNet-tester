@@ -1,54 +1,65 @@
 #!/bin/bash
 
-methods=(array/naive.cu array/tiling.cu pointer/naive.cu pointer/tiling.cu)
-confs=(_array_naive_ _array_tiling_ _pointer_naive_ _pointer_tiling_)
-exe=(array/naive array/tiling pointer/naive pointer/tiling)
-path=(array/ array/ pointer/ pointer/)
+out_path=(array_naive array_tiling direct_shared direct_global unroll_global unroll_cublass) # folder names created, output path for created txt files
 
-# 1_256_3
-# 1_400_6
-# 1_320_6
-# 1_256_6
-# 1_128_6
-# 1_32_6
-# 1_256_9
-# 1_64_9
-# 1_256_12
-# 1_64_12
-# 3_150_16
-# 3_64_16
-# 3_32_16
-# 6_150_16
-# 6_128_16
-# 6_70_16
-# 6_32_16
-# 6_16_16
-# 6_8_16
-# 6_32_32
-# 6_16_32
-# 6_8_32
-# 16_32_32
-# 16_16_32
-# 16_8_32
-# 16_32_64
-# 16_16_64
-# 16_8_64
-# 32_32_64
-# 32_8_64
+# configuratin files in the format (C, HW, K)
+C=(1 1 1 1 1 1 1 1 1 1 3 3 3 6 6 6 6 6 6 6 6 6 16 16 16 16 16 16 32 32) # 30
+HW=(256 400 320 256 128 32 256 64 256 64 150 64 32 150 128 70 32 16 8 32 16 8 32 16 8 32 16 8 32 8) # 30
+K=(3 6 6 6 6 6 9 9 12 12 16 16 16 16 16 16 16 16 16 32 32 32 32 32 32 64 64 64 64 64) # 30
 
-if_n=(1 1 1 1 1 1 1 1 1 1 3 3 3 6 6 6 6 6 6 6 6 6 16 16 16 16 16 16 32 32) # 30
-input_s=(256 400 320 256 128 32 256 64 256 64 150 64 32 150 128 70 32 16 8 32 16 8 32 16 8 32 16 8 32 8) # 30
-of_n=(3 6 6 6 6 6 9 9 12 12 16 16 16 16 16 16 16 16 16 32 32 32 32 32 32 64 64 64 64 64)
+#input file to change macro define
+in_file=mbnet.h
+
+# This block of code required to clear all macro defines
+sed -i 's/define ARRAY_NAIVE .*/define ARRAY_NAIVE 0/' $in_file
+sed -i 's/define ARRAY_TILING .*/define ARRAY_TILING 0/' $in_file
+sed -i 's/define DIRECT .*/define DIRECT 0/' $in_file
+sed -i 's/define CONV_SHARED .*/define CONV_SHARED 0/' $in_file
+sed -i 's/define GEMM_GLOBAL .*/define GEMM_GLOBAL 0/' $in_file
 
 #to change the nvprof files, please change the 'conf'
-for j in ${!methods[@]}; do
-    for i in ${!if_n[@]}; do
-        sed -i 's/define IF_N .*/define IF_N '${if_n[$i]}'/' ${methods[$j]}
-        sed -i 's/define INPUT_S .*/define INPUT_S '${input_s[$i]}'/' ${methods[$j]}
-        sed -i 's/define OF_N .*/define OF_N '${of_n[$i]}'/' ${methods[$j]}
+for j in ${!out_path[@]}; do
+    
+    if [[ ! -d ${out_path[$j]} ]] # Create folder if it does not exist
+    then
+        echo "File doesn't exist. Creating now"
+        mkdir -p "${out_path[$j]}"
+        echo "File created"
+    else
+        echo "File exists"
+    fi
+    
+    case "$j" in # changes macro define values according to the method required
+        #case 1
+        0) sed -i 's/define ARRAY_NAIVE .*/define ARRAY_NAIVE 1/' ${in_file};;
+        #case 2
+        1) sed -i 's/define ARRAY_TILING .*/define ARRAY_TILING 1/' $in_file;;
+        #case 3
+        2) sed -i 's/define DIRECT .*/define DIRECT 1/' $in_file;;
+        #case 4
+        3) sed -i 's/define DIRECT .*/define DIRECT 1/' $in_file 
+        sed -i 's/define CONV_SHARED .*/define CONV_SHARED 1/' $in_file;;
+        #case 5
+        4) sed -i 's/define GEMM_GLOBAL .*/define GEMM_GLOBAL 1/' $in_file;;
+    esac
 
-        nvcc ${methods[$j]} -o ${exe[$j]}
-        nvprof --log-file ${path[$j]}${confs[$j]}profiler_results/nvprof_comp${if_n[$i]}_${input_s[$i]}_${of_n[$i]}.txt ./${exe[$j]}
+    
 
+    for i in ${!C[@]}; do # loop to place all configuration files into use
+        sed -i 's/define C .*/define C '${C[$i]}'/' ${in_file} # change C
+        sed -i 's/define HW .*/define HW '${HW[$i]}'/' ${in_file} # change HW
+        sed -i 's/define K .*/define K '${K[$i]}'/' ${in_file} # change K
+
+        nvcc mbnet.cu -o mbnet -lcublas # compile it
+        nvprof --log-file ${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt ./mbnet # stroe nvprof into the txt file
     done
+
+    echo ' '
+
+    # clears values after every iteration
+    sed -i 's/define ARRAY_NAIVE .*/define ARRAY_NAIVE 0/' $in_file
+    sed -i 's/define ARRAY_TILING .*/define ARRAY_TILING 0/' $in_file
+    sed -i 's/define DIRECT .*/define DIRECT 0/' $in_file
+    sed -i 's/define CONV_SHARED .*/define CONV_SHARED 0/' $in_file
+    sed -i 's/define GEMM_GLOBAL .*/define GEMM_GLOBAL 0/' $in_file
 done

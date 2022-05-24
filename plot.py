@@ -1,41 +1,32 @@
 import matplotlib.pyplot as plt
 import numpy as np
-
-methods = [
-    'array_naive_sum.csv', 'array_tiling_sum.csv', 'pointer_naive_sum.csv', 'pointer_tiling_sum.csv']
+methods = ['array_naive', 'array_tiling',
+           'direct_global', 'direct_shared', 'unroll_cublass', 'unroll_global']
 labels = []
 times = []
 
 for method in methods:
     height = []
-    with open(method, 'r') as csv_file:
-        data = csv_file.readlines()
-        for record in data[1:]:
-            vals = record.split(',')
-            if vals[0] not in labels:
+    with open(method + '_sum.csv', 'r') as csv_file:
+        data = csv_file.readlines()  # read data
+        for record in data[1:]:  # for every record
+            vals = record.split(',')  # split records into vals
+            if vals[0] not in labels:  # if label not added to list then add
                 labels.append(vals[0])
-            height.append(float(vals[4]))
+            height.append(float(vals[-2]))  # append time
         times.append(height)
 
-w = 0.2
+w = 1/(len(methods)+1)  # width of the bar
 
-bar1 = np.arange(len(labels))
-
-print(labels)
-print(times[0])
+bar = np.arange(len(labels))  # places of the labels
 
 for i in range(0, len(times)):
-    if i == 0:
-        bar = bar1
-    else:
-        bar = [i + w for i in bar]
-    while len(times[i]) < len(bar):
-        times[i].append(0.0)
-    plt.bar(bar, times[i], w, label=methods[i])
+    # print(str(len(bar)) + " " + str(len(times[i])))
+    plt.bar(bar + w * i, times[i], w, label=methods[i])  # plots abar on x axis
 
-plt.xlabel("Configurations (IF_N, INPUT_S, OF_N)")
-plt.ylabel("Time(ms)")
-plt.title("Execution time of different configurations")
-plt.xticks(bar1, labels, rotation='vertical')
+plt.xlabel("Configurations (IF_N, INPUT_S, OF_N)")  # xlabel
+plt.ylabel("Time(ms)")  # ylabel
+plt.title("Execution time of different configurations")  # title
+plt.xticks(bar + w * len(times)/2, labels, rotation='vertical')  # xtrics
 plt.legend()
 plt.show()

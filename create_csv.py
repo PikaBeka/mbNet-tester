@@ -1,61 +1,69 @@
 import csv
 import os
 
-methods = [
-    'array_naive_sum.csv', 'array_tiling_sum.csv', 'pointer_naive_sum.csv', 'pointer_tiling_sum.csv']
-
-nvprof_paths = ['array/_array_naive_profiler_results', 'array/_array_tiling_profiler_results',
-                'pointer/_pointer_naive_profiler_results', 'pointer/_pointer_tiling_profiler_results']
+nvprof_paths = ['array_naive', 'array_tiling',
+                'direct_global', 'direct_shared', 'unroll_cublass', 'unroll_global']  # folder paths
 
 
+# this function finds a name of the kernel
 def takeName(possible_header):
-    if possible_header == '[CUDA memcpy DtoH] ':
+    if possible_header == '[CUDA memcpy DtoH]':
         return 'DtoH'
-    if possible_header == '[CUDA memcpy HtoD] ':
+    if possible_header == '[CUDA memcpy HtoD]':
         return 'HtoD'
+    if possible_header == '[CUDA memset]':
+        return 'memset'
     word = ''
     for ch in possible_header:
-        if ch == '(':
+        if ch == ' ':  # only one word required
+            word = ''
+            continue
+        if ch == '(' or ch == '<':  # in case we find parameters we stop
             break
         word += ch
     return word
 
 
+# function looks for all unique column names
 def findHeaders(data, headers):
     toStart = 0
     for elem in data:
-        elem = elem.split()
+        elem = elem.split()  # split lines to words
 
-        if elem[0] == 'API':
+        if elem[0] == 'API':  # if we reach the API, we already looked GPU kernels
             break
 
-        if elem[0] == 'GPU':
+        if elem[0] == 'GPU':  # after this kernel starts
             toStart = 1
 
         if toStart == 1:
             possibleHeader = ''
+            # go from backward since the kernel name is the last columns
             for word in reversed(elem):
                 if word[0].isdigit():
                     break
                 possibleHeader = word + " " + possibleHeader
-            header = takeName(possibleHeader)
-            if header not in headers:
+            # function retrieves only name without conf
+            header = takeName(possibleHeader.strip())
+            if header not in headers:  # add only if unique
                 headers.append(header)
     return headers
 
 
-for i in range(0, len(methods)):  # for each kernel method
-    with open(methods[i], 'w', newline='') as fopen:  # create csv file
+for i in range(0, len(nvprof_paths)):  # for each kernel method
+    method = nvprof_paths[i] + '_sum.csv'
+    with open(method, 'w', newline='') as fopen:  # create csv file
         files = os.listdir(nvprof_paths[i])
-        header = ['Configuration']
+        header = ['Configuration']  # first column to indicate configuration
 
-        for file in files:
+        for file in files:  # for every file in folders
             with open(nvprof_paths[i]+'/'+file, 'r') as log:
                 data = log.readlines()
+                # function returns all found headers
                 header = findHeaders(data, header)
 
         writer = csv.writer(fopen)
-        header.append('Total_time')
-        header.append('Kernel_time')
+        header.append('Total_time')  # column for total time
+        header.append('Kernel_time')  # column for toal time - HtoD - DtoH
         writer.writerow(header)
-    print('Created csv file ' + methods[i])
+    print('Created csv file ' + method)
