@@ -412,7 +412,9 @@ void pass(float *input, float *weight, float *output)
         cudaError_t status = (cudaError_t)cublasSgemm(handle, CUBLAS_OP_N, CUBLAS_OP_N,
                                                       n, m, k, &alpha, b, n, a, k, &beta, c, n);
 #endif
-
+	cudaFree(im2col_A);
+	cudaFree(gemm_B);
+	cudaFree(gemm_C);
 #endif
     }
     cudaMemcpy(output, d_output, PQ * PQ * K * sizeof(float), cudaMemcpyDeviceToHost);
