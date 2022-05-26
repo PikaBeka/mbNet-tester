@@ -1,6 +1,8 @@
 from cmath import log
 import csv
 import os
+
+from pyparsing import Char
 import create_csv as csv_file
 
 
@@ -17,17 +19,17 @@ class Parse:
     def parse_time(self, timestamp):
         unit = timestamp[-1]  # retreive first unit, mostly (s)
         time = timestamp[0:-1]  # remove the unit
-        if isinstance(time[-1], str):  # if there is still unit like (m, n, u)
+        if not time[-1].isdigit():  # if there is still unit like (m, n, u)
             unit = time[-1] + unit  # remove it and add to unit
             time = time[0:-1]
         # transform time to ms
-        if unit == 's':
+        if unit == "s":
             time = float(time) * 1000
-        if unit == 'us':
+        if unit == "us":
             time = round(float(time) * 0.001, 4)
-        if unit == 'ns':
+        if unit == "ns":
             time = float(time) * 1e-6
-        return time
+        return float(time)
 
     def takeRecord(self, elem, dict, total_time):
         # First need to find value
@@ -48,7 +50,7 @@ class Parse:
             time = self.parse_time(elem[1])  # obtains time
 
         dict[header] = time  # add it to header
-        total_time += float(time)  # sum all times
+        total_time = total_time + time  # sum all times
         return total_time
 
     def parse_file(self):
@@ -77,7 +79,7 @@ class Parse:
 
                     if toStart == 1:
                         # takes a record of the kernel time
-                        total_time += self.takeRecord(elem, record, total_time)
+                        total_time = self.takeRecord(elem, record, total_time)
 
             record['Total_time'] = "{:.3f}".format(total_time)
             record['Kernel_time\n'] = "{:.3f}".format(float(record['Total_time']) -
