@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
-methods = ['direct_global', 'unroll_cublass']
+methods = ['direct_shared', 'array_naive', 'array_tiling', 'unroll_cublass']
 labels = []
 times = []
-isNormalized = True
+isNormalized = False
 
 for method in methods:
     height = []
@@ -25,6 +25,7 @@ if not isNormalized:
     for i in range(0, len(times)):
         # print(str(len(bar)) + " " + str(len(times[i])))
         # plots abar on x axis
+        print(times[i])
         plt.bar(bar + w * i, times[i], w, label=methods[i])
     plt.ylabel("Time(ms)")  # ylabel
 
@@ -39,6 +40,7 @@ else:
         plt.bar(bar + w * i, times[i], w, label=methods[i])
 
     plt.ylabel("Speedup")  # ylabel
+    #plt.setp(plt.gca(), ylim=(0, 7))
 
 plt.xlabel("Configurations (C, HW, K)")  # xlabel
 plt.title("Execution time of different configurations")  # title

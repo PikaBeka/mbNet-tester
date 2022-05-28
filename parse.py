@@ -2,7 +2,6 @@ from cmath import log
 import csv
 import os
 
-from pyparsing import Char
 import create_csv as csv_file
 
 
@@ -61,7 +60,7 @@ class Parse:
         with open(self.sum, 'r') as csv_file:
             headers = csv_file.readlines()[0].split(',')  # get all headers
 
-        with open(self.sum, 'a', newline='') as csv_file:
+        with open(self.sum, 'a') as csv_file:
             csv_writer = csv.DictWriter(csv_file, fieldnames=headers)
             record = {
                 'Configuration': '(' + str(self.C) + '_' + str(self.HW) + '_' + str(self.K) + ')'}  # add first configuration value
