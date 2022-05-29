@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
-methods = ['direct_shared', 'array_naive', 'array_tiling', 'unroll_cublass']
+methods = ['direct_shared', 'unroll_cublass']
 labels = []
 times = []
-isNormalized = False
+isNormalized = True
 
 for method in methods:
     height = []

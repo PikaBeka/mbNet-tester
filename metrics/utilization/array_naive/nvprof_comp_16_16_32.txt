@@ -1,0 +1,6 @@
+==23387== NVPROF is profiling process 23387, command: ./mbnet
+==23387== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==23387== Profiling application: ./mbnet
+==23387== Profiling result:
+No events/metrics were profiled.
+==23387== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
