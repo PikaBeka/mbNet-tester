@@ -1,19 +1,19 @@
-==22295== NVPROF is profiling process 22295, command: ./mbnet
-==22295== Warning: Unified Memory Profiling is not supported on the underlying platform. System requirements for unified memory can be found at: http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#um-requirements
-==22295== Profiling application: ./mbnet
-==22295== Profiling result:
+==30880== NVPROF is profiling process 30880, command: ./mbnet
+==30880== Warning: Unified Memory Profiling is not supported on the underlying platform. System requirements for unified memory can be found at: http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#um-requirements
+==30880== Profiling application: ./mbnet
+==30880== Profiling result:
             Type  Time(%)      Time     Calls       Avg       Min       Max  Name
- GPU activities:  100.00%  202.091s     10000  20.209ms  19.743ms  26.207ms  convolution_naive(float[32][32]*, float[5][5][32]*, float[28][28]*)
-                    0.00%  23.616us         2  11.808us  11.200us  12.416us  [CUDA memcpy HtoD]
-                    0.00%  12.000us         1  12.000us  12.000us  12.000us  [CUDA memcpy DtoH]
-      API calls:   89.30%  180.712s     10000  18.071ms  24.864us  143.26ms  cudaLaunchKernel
-                   10.56%  21.3655s         3  7.12185s  119.74us  21.3650s  cudaMemcpy
-                    0.15%  293.51ms         3  97.838ms  9.0880us  293.49ms  cudaMalloc
-                    0.00%  360.10us         3  120.03us  16.096us  234.43us  cudaFree
-                    0.00%  109.44us        97  1.1280us     448ns  37.920us  cuDeviceGetAttribute
-                    0.00%  12.352us         1  12.352us  12.352us  12.352us  cuDeviceTotalMem
-                    0.00%  6.4320us         3  2.1440us     928ns  3.0080us  cuDeviceGetCount
-                    0.00%  5.9520us         1  5.9520us  5.9520us  5.9520us  cudaGetLastError
-                    0.00%  2.8160us         2  1.4080us  1.1840us  1.6320us  cuDeviceGet
+ GPU activities:  100.00%  200.681s     10000  20.068ms  19.756ms  24.089ms  convolution_naive(float[32][32]*, float[5][5][32]*, float[28][28]*)
+                    0.00%  23.232us         2  11.616us  10.592us  12.640us  [CUDA memcpy HtoD]
+                    0.00%  11.840us         1  11.840us  11.840us  11.840us  [CUDA memcpy DtoH]
+      API calls:   89.54%  179.921s     10000  17.992ms  24.640us  140.58ms  cudaLaunchKernel
+                   10.32%  20.7453s         3  6.91509s  122.21us  20.7450s  cudaMemcpy
+                    0.14%  272.07ms         3  90.690ms  9.6000us  272.05ms  cudaMalloc
+                    0.00%  251.62us         3  83.872us  13.760us  177.79us  cudaFree
+                    0.00%  109.06us        97  1.1240us     448ns  40.768us  cuDeviceGetAttribute
+                    0.00%  13.760us         1  13.760us  13.760us  13.760us  cuDeviceTotalMem
+                    0.00%  6.2400us         1  6.2400us  6.2400us  6.2400us  cudaGetLastError
+                    0.00%  5.7920us         3  1.9300us     896ns  2.4960us  cuDeviceGetCount
+                    0.00%  2.7840us         2  1.3920us  1.2160us  1.5680us  cuDeviceGet
                     0.00%  2.1120us         1  2.1120us  2.1120us  2.1120us  cuDeviceGetName
-                    0.00%     864ns         1     864ns     864ns     864ns  cuDeviceGetUuid
+                    0.00%     768ns         1     768ns     768ns     768ns  cuDeviceGetUuid

@@ -20,6 +20,6 @@
 #define CONV_NB (GRID * GRID)                           // 1369
 #define CONV_TPB MIN(1024, MAX(K *LIM *LIM, K *RS *RS)) // threads per block (150)
 
-#define UNROLL_TPB 64
-#define UNROLL_NB (PQ * PQ * C)
+#define UNROLL_TPB MIN(1024, K *RS *RS)
+#define UNROLL_NB ((PQ * PQ * C + UNROLL_TPB) / UNROLL_TPB)
 #define STRIDE 1

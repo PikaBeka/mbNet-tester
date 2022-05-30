@@ -1,28 +1,28 @@
-==26688== NVPROF is profiling process 26688, command: ./mbnet
-==26688== Warning: Unified Memory Profiling is not supported on the underlying platform. System requirements for unified memory can be found at: http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#um-requirements
-==26688== Warning: Profiling results might be incorrect with current version of nvcc compiler used to compile cuda app. Compile with nvcc compiler 9.0 or later version to get correct profiling results. Ignore this warning if code is already compiled with the recommended nvcc version 
-==26688== Profiling application: ./mbnet
-==26688== Profiling result:
+==1471== NVPROF is profiling process 1471, command: ./mbnet
+==1471== Warning: Unified Memory Profiling is not supported on the underlying platform. System requirements for unified memory can be found at: http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#um-requirements
+==1471== Warning: Profiling results might be incorrect with current version of nvcc compiler used to compile cuda app. Compile with nvcc compiler 9.0 or later version to get correct profiling results. Ignore this warning if code is already compiled with the recommended nvcc version 
+==1471== Profiling application: ./mbnet
+==1471== Profiling result:
             Type  Time(%)      Time     Calls       Avg       Min       Max  Name
- GPU activities:   58.06%  7.83211s     10000  783.21us  452.87us  1.3142ms  void gemmSN_NN_kernel<float, int=128, int=2, int=4, int=8, int=3, int=4, cublasGemvTensorStridedBatched<float const >, cublasGemvTensorStridedBatched<float>>(cublasGemmSmallNParams<float const , cublasGemvTensorStridedBatched<float const >, float>)
-                   41.55%  5.60522s     10000  560.52us  264.48us  627.20us  im2col_gpu_kernel(int, float const *, int, int, int, int, int, int, int, float*)
-                    0.39%  52.053ms     10000  5.2050us  2.7200us  8.9600us  ker2row_kernel(float[25]*, float[5][5][1]*)
-                    0.00%  102.40us         1  102.40us  102.40us  102.40us  [CUDA memcpy DtoH]
-                    0.00%  18.880us         3  6.2930us     320ns  17.440us  [CUDA memcpy HtoD]
-      API calls:   55.61%  19.0921s     30006  636.28us  2.5280us  1.00410s  cudaFree
-                   39.30%  13.4924s     30006  449.66us  14.240us  279.77ms  cudaMalloc
-                    4.94%  1.69616s     30000  56.538us  31.360us  1.4523ms  cudaLaunchKernel
-                    0.10%  34.176ms     10002  3.4160us  2.3360us  935.71us  cudaGetDevice
-                    0.05%  17.093ms     20002     854ns     416ns  757.09us  cudaGetLastError
-                    0.01%  1.8257ms         4  456.43us  60.256us  1.2449ms  cudaMemcpy
-                    0.00%  341.18us       285  1.1970us     416ns  55.264us  cuDeviceGetAttribute
-                    0.00%  87.840us         1  87.840us  87.840us  87.840us  cudaStreamCreate
-                    0.00%  48.160us         3  16.053us  11.456us  19.232us  cuDeviceTotalMem
-                    0.00%  44.544us        16  2.7840us  1.6320us  16.032us  cudaEventCreateWithFlags
-                    0.00%  15.360us        11  1.3960us     928ns  3.6160us  cudaDeviceGetAttribute
-                    0.00%  13.248us         2  6.6240us  4.9280us  8.3200us  cuInit
-                    0.00%  7.6480us         5  1.5290us     992ns  2.5280us  cuDeviceGetCount
-                    0.00%  5.5040us         3  1.8340us  1.5680us  2.1120us  cuDeviceGetName
-                    0.00%  4.6720us         2  2.3360us  2.2400us  2.4320us  cuDriverGetVersion
-                    0.00%  4.5760us         4  1.1440us     832ns  1.7280us  cuDeviceGet
-                    0.00%  2.7200us         3     906ns     832ns     960ns  cuDeviceGetUuid
+ GPU activities:   65.77%  11.4438s     10000  1.1444ms  646.88us  4.5410ms  im2col_gpu_kernel(int, float const *, int, int, int, int, int, int, int, float*)
+                   34.00%  5.91621s     10000  591.62us  371.84us  3.1157ms  void gemmSN_NN_kernel<float, int=128, int=2, int=4, int=8, int=3, int=4, cublasGemvTensorStridedBatched<float const >, cublasGemvTensorStridedBatched<float>>(cublasGemmSmallNParams<float const , cublasGemvTensorStridedBatched<float const >, float>)
+                    0.23%  39.740ms     10000  3.9730us  2.0800us  5.7920us  ker2row_kernel(float[25]*, float[5][5][1]*)
+                    0.00%  78.720us         1  78.720us  78.720us  78.720us  [CUDA memcpy DtoH]
+                    0.00%  17.888us         3  5.9620us     320ns  16.000us  [CUDA memcpy HtoD]
+      API calls:   59.54%  22.8508s     30006  761.54us  3.7760us  955.89ms  cudaFree
+                   35.90%  13.7755s     30006  459.09us  13.312us  272.95ms  cudaMalloc
+                    4.43%  1.69972s     30000  56.657us  31.200us  817.76us  cudaLaunchKernel
+                    0.08%  32.342ms     10002  3.2330us  2.1760us  669.99us  cudaGetDevice
+                    0.04%  15.995ms     20002     799ns     416ns  621.76us  cudaGetLastError
+                    0.00%  1.4868ms         4  371.70us  33.184us  1.2233ms  cudaMemcpy
+                    0.00%  317.41us       285  1.1130us     416ns  48.384us  cuDeviceGetAttribute
+                    0.00%  82.048us         1  82.048us  82.048us  82.048us  cudaStreamCreate
+                    0.00%  41.184us         3  13.728us  9.8240us  16.768us  cuDeviceTotalMem
+                    0.00%  33.088us        16  2.0680us  1.5680us  5.8880us  cudaEventCreateWithFlags
+                    0.00%  15.585us        11  1.4160us     960ns  3.3280us  cudaDeviceGetAttribute
+                    0.00%  9.9210us         2  4.9600us  4.6720us  5.2490us  cuInit
+                    0.00%  7.7440us         5  1.5480us     896ns  2.5600us  cuDeviceGetCount
+                    0.00%  4.7360us         3  1.5780us  1.4400us  1.7280us  cuDeviceGetName
+                    0.00%  4.3520us         4  1.0880us     800ns  1.6320us  cuDeviceGet
+                    0.00%  3.3920us         2  1.6960us  1.4080us  1.9840us  cuDriverGetVersion
+                    0.00%  2.1120us         3     704ns     640ns     768ns  cuDeviceGetUuid
