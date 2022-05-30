@@ -1,27 +1,28 @@
-==10423== NVPROF is profiling process 10423, command: ./mbnet
-==10423== Profiling application: ./mbnet
-==10423== Profiling result:
+==27524== NVPROF is profiling process 27524, command: ./mbnet
+==27524== Warning: Unified Memory Profiling is not supported on the underlying platform. System requirements for unified memory can be found at: http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#um-requirements
+==27524== Warning: Profiling results might be incorrect with current version of nvcc compiler used to compile cuda app. Compile with nvcc compiler 9.0 or later version to get correct profiling results. Ignore this warning if code is already compiled with the recommended nvcc version 
+==27524== Profiling application: ./mbnet
+==27524== Profiling result:
             Type  Time(%)      Time     Calls       Avg       Min       Max  Name
- GPU activities:   44.68%  20.705us         1  20.705us  20.705us  20.705us  sgemm_32x32x32_NN
-                   20.79%  9.6320us         1  9.6320us  9.6320us  9.6320us  im2col_gpu_kernel(int, float const *, int, int, int, int, int, int, int, float*)
-                   16.09%  7.4570us         3  2.4850us  1.2160us  3.9040us  [CUDA memcpy HtoD]
-                   12.09%  5.6000us         1  5.6000us  5.6000us  5.6000us  [CUDA memcpy DtoH]
-                    6.35%  2.9440us         1  2.9440us  2.9440us  2.9440us  ker2row_kernel(float[150]*, float[5][5][6]*)
-      API calls:   65.93%  198.31ms         7  28.331ms  1.9540us  198.27ms  cudaFree
-                   33.92%  102.04ms         9  11.337ms  1.9240us  102.01ms  cudaMalloc
-                    0.08%  235.02us       185  1.2700us      92ns  58.500us  cuDeviceGetAttribute
-                    0.03%  78.998us         4  19.749us  10.447us  42.427us  cudaMemcpy
-                    0.02%  48.697us         3  16.232us  5.6660us  22.644us  cudaLaunch
-                    0.01%  29.565us         2  14.782us  12.614us  16.951us  cuDeviceGetName
-                    0.01%  16.774us         1  16.774us  16.774us  16.774us  cudaStreamCreate
-                    0.00%  11.862us        16     741ns     346ns  5.8660us  cudaEventCreateWithFlags
-                    0.00%  9.0140us        25     360ns      90ns  4.0620us  cudaSetupArgument
-                    0.00%  3.3620us        11     305ns     199ns  1.0960us  cudaDeviceGetAttribute
-                    0.00%  3.3400us         3  1.1130us     898ns  1.4190us  cudaGetDevice
-                    0.00%  3.2160us         3  1.0720us     118ns  2.8610us  cuDeviceGet
-                    0.00%  1.9000us         4     475ns     110ns  1.1150us  cuDeviceGetCount
-                    0.00%  1.4730us         3     491ns     224ns     703ns  cudaConfigureCall
-                    0.00%  1.3950us         1  1.3950us  1.3950us  1.3950us  cuInit
-                    0.00%  1.2210us         4     305ns     179ns     673ns  cudaGetLastError
-                    0.00%     514ns         2     257ns     257ns     257ns  cuDeviceTotalMem
-                    0.00%     270ns         1     270ns     270ns     270ns  cuDriverGetVersion
+ GPU activities:   62.09%  1.85063s     10000  185.06us  177.13us  219.05us  sgemm_32x32x32_NN
+                   30.22%  900.55ms     10000  90.055us  83.940us  127.69us  im2col_gpu_kernel(int, float const *, int, int, int, int, int, int, int, float*)
+                    7.69%  229.15ms     10000  22.915us  21.122us  28.482us  ker2row_kernel(float[150]*, float[5][5][6]*)
+                    0.00%  24.802us         3  8.2670us  1.9840us  16.417us  [CUDA memcpy HtoD]
+                    0.00%  15.937us         1  15.937us  15.937us  15.937us  [CUDA memcpy DtoH]
+      API calls:   69.71%  5.18535s     30006  172.81us  2.8480us  1.22366s  cudaFree
+                   17.13%  1.27384s     30000  42.461us  25.953us  868.92us  cudaLaunchKernel
+                   12.59%  936.49ms     30006  31.209us  10.849us  296.97ms  cudaMalloc
+                    0.33%  24.645ms     10002  2.4630us  1.5360us  893.75us  cudaGetDevice
+                    0.22%  16.160ms     20002     807ns     416ns  606.86us  cudaGetLastError
+                    0.01%  1.0088ms         4  252.19us  63.906us  635.60us  cudaMemcpy
+                    0.00%  362.34us       285  1.2710us     416ns  46.849us  cuDeviceGetAttribute
+                    0.00%  82.178us         1  82.178us  82.178us  82.178us  cudaStreamCreate
+                    0.00%  46.210us         3  15.403us  12.512us  17.057us  cuDeviceTotalMem
+                    0.00%  34.752us        16  2.1720us  1.7600us  6.1760us  cudaEventCreateWithFlags
+                    0.00%  15.680us        11  1.4250us     896ns  3.9360us  cudaDeviceGetAttribute
+                    0.00%  9.2480us         5  1.8490us  1.0560us  3.1040us  cuDeviceGetCount
+                    0.00%  8.9610us         2  4.4800us  4.1600us  4.8010us  cuInit
+                    0.00%  5.6960us         3  1.8980us  1.6320us  2.2720us  cuDeviceGetName
+                    0.00%  4.3850us         4  1.0960us     800ns  1.7290us  cuDeviceGet
+                    0.00%  3.2320us         2  1.6160us  1.6000us  1.6320us  cuDriverGetVersion
+                    0.00%  2.6880us         3     896ns     736ns  1.0880us  cuDeviceGetUuid

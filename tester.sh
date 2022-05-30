@@ -10,7 +10,7 @@ K=(3 6 6 6 6 6 9 9 12 12 16 16 16 16 16 16 16 16 16 32 32 32 32 32 32 64 64 64 6
 #input file to change macro define
 in_file=mbnet.h
 
-is_metrics=true
+is_metrics=false
 
 # This block of code required to clear all macro defines
 sed -i 's/define ARRAY_NAIVE .*/define ARRAY_NAIVE 0/' $in_file
@@ -20,7 +20,6 @@ sed -i 's/define CONV_SHARED .*/define CONV_SHARED 0/' $in_file
 sed -i 's/define GEMM_GLOBAL .*/define GEMM_GLOBAL 0/' $in_file
 
 mkdir -p "metrics"
-mkdir -p "utilization"
 
 # to change the nvprof files, please change the 'conf'
 for j in ${!out_path[@]}; do
@@ -56,12 +55,11 @@ for j in ${!out_path[@]}; do
 
         nvcc mbnet.cu -o mbnet -lcublas # compile it
         if [[ "$is_metrics" = true ]]
-            nvprof --log-file metrics/utilization/${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --metrics all ./mbnet # stroe nvprof into the txt file 
         then
-            echo 'pass'
+            nvprof --log-file metrics/utilization/${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --metrics all ./mbnet # store nvprof into the txt file 
         else
-            nvprof --log-file ${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt ./mbnet # stroe nvprof into the txt file  
-            echo "it wors"
+	    echo 'no metrics'
+            nvprof --log-file ${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt ./mbnet # store nvprof into the txt file
         fi
     done
 
