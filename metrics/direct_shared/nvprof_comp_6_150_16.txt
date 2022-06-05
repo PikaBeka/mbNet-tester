@@ -1,0 +1,25 @@
+==11728== NVPROF is profiling process 11728, command: ./mbnet
+==11728== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==11728== Profiling application: ./mbnet
+==11728== Profiling result:
+==11728== Metric result:
+Invocations                               Metric Name                        Metric Description         Min         Max         Avg
+Device "NVIDIA Tegra X2 (0)"
+    Kernel: kernel_conv_filter(float[150][150]*, float[146][146]*, float[5][5][6]*)
+          1                             sm_efficiency                   Multiprocessor Activity      99.90%      99.90%      99.90%
+          1                        achieved_occupancy                        Achieved Occupancy    0.671601    0.671601    0.671601
+          1                 warp_execution_efficiency                 Warp Execution Efficiency      97.25%      97.25%      97.25%
+          1                             inst_per_warp                     Instructions per warp  425.615385  425.615385  425.615385
+          1                            gld_efficiency             Global Memory Load Efficiency      14.01%      14.01%      14.01%
+          1                            gst_efficiency            Global Memory Store Efficiency      39.67%      39.67%      39.67%
+          1                         shared_efficiency                  Shared Memory Efficiency      49.17%      49.17%      49.17%
+          1                        shared_utilization                 Shared Memory Utilization     Mid (4)     Mid (4)     Mid (4)
+          1                            l2_utilization                      L2 Cache Utilization     Mid (5)     Mid (5)     Mid (5)
+          1                           global_hit_rate         Global Hit Rate in unified l1/tex       0.00%       0.00%       0.00%
+          1                        tex_cache_hit_rate                    Unified Cache Hit Rate      48.73%      48.73%      48.73%
+          1                           tex_utilization                 Unified Cache Utilization    High (9)    High (9)    High (9)
+          1                                       ipc                              Executed IPC    1.830381    1.830381    1.830381
+          1                               inst_issued                       Instructions Issued     7574909     7574909     7574909
+          1                             inst_executed                     Instructions Executed     7574677     7574677     7574677
+          1                    issue_slot_utilization                    Issue Slot Utilization      35.12%      35.12%      35.12%
+          1                          dram_utilization                 Device Memory Utilization     Low (1)     Low (1)     Low (1)

@@ -1,4 +1,4 @@
-#define N 10000 // number of images in batch
+#define N 1 // number of images in batch
 #define C 32
 #define HW 8
 

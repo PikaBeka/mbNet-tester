@@ -36,6 +36,8 @@ for j in ${!out_path[@]}; do
 
    if [[ $j -eq 1 ]]
    then
+	echo 'skip array_tiling'
+	continue
        sed -i 's/define ARRAY_TILING .*/define ARRAY_TILING 1/' $in_file
    fi
 
@@ -53,11 +55,11 @@ for j in ${!out_path[@]}; do
        nvcc mbnet.cu -o mbnet -lcublas # compile it
        if [[ "$is_metrics" = true ]]
        then
-	   echo 'metrics run'
+	   #echo 'metrics run'
            nvprof --log-file metrics/${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --metrics sm_efficiency,achieved_occupancy,warp_execution_efficiency,inst_per_warp,gld_efficiency,gst_efficiency,shared_efficiency,shared_utilization,l2_utilization,global_hit_rate,tex_cache_hit_rate,tex_utilization,ipc,inst_issued,inst_executed,issue_slot_utilization,dram_utilization ./mbnet # stroe nvprof into the txt file
        else
            nvprof --log-file ${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt ./mbnet # stroe nvprof into the txt file 
-           echo "it wors"
+           #echo "it wors"
        fi
    done
 
