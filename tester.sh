@@ -56,7 +56,7 @@ for j in ${!out_path[@]}; do
        if [[ "$is_metrics" = true ]]
        then
 	   #echo 'metrics run'
-           nvprof --log-file metrics/${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --metrics sm_efficiency,achieved_occupancy,warp_execution_efficiency,inst_per_warp,gld_efficiency,gst_efficiency,shared_efficiency,shared_utilization,l2_utilization,global_hit_rate,tex_cache_hit_rate,tex_utilization,ipc,inst_issued,inst_executed,issue_slot_utilization,dram_utilization ./mbnet # stroe nvprof into the txt file
+           nvprof --aggregate-mode on --log-file metrics/${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --metrics sm_efficiency,achieved_occupancy,warp_execution_efficiency,inst_per_warp,gld_efficiency,gst_efficiency,shared_efficiency,shared_utilization,l2_utilization,global_hit_rate,tex_cache_hit_rate,tex_utilization,ipc,inst_issued,inst_executed,issue_slot_utilization,dram_utilization ./mbnet # stroe nvprof into the txt file
        else
            nvprof --log-file ${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt ./mbnet # stroe nvprof into the txt file 
            #echo "it wors"

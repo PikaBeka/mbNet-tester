@@ -1,62 +1,60 @@
-==13609== NVPROF is profiling process 13609, command: ./mbnet
-==13609== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
-==13609== Warning: Profiling results might be incorrect with current version of nvcc compiler used to compile cuda app. Compile with nvcc compiler 9.0 or later version to get correct profiling results. Ignore this warning if code is already compiled with the recommended nvcc version 
-==13609== Profiling application: ./mbnet
-==13609== Profiling result:
-==13609== Metric result:
+==4537== NVPROF is profiling process 4537, command: ./mbnet
+==4537== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==4537== Warning: Profiling results might be incorrect with current version of nvcc compiler used to compile cuda app. Compile with nvcc compiler 9.0 or later version to get correct profiling results. Ignore this warning if code is already compiled with the recommended nvcc version 
+==4537== Profiling application: ./mbnet
+==4537== Profiling result:
+==4537== Metric result:
 Invocations                               Metric Name                        Metric Description         Min         Max         Avg
 Device "NVIDIA Tegra X2 (0)"
     Kernel: sgemm_32x32x32_NN_vec
-          1                             sm_efficiency                   Multiprocessor Activity      45.45%      45.45%      45.45%
-          1                        achieved_occupancy                        Achieved Occupancy    0.062453    0.062453    0.062453
-          1                 warp_execution_efficiency                 Warp Execution Efficiency     100.00%     100.00%     100.00%
-          1                             inst_per_warp                     Instructions per warp  4.4790e+03  4.4790e+03  4.4790e+03
-          1                            gld_efficiency             Global Memory Load Efficiency     100.00%     100.00%     100.00%
-          1                            gst_efficiency            Global Memory Store Efficiency     100.00%     100.00%     100.00%
-          1                         shared_efficiency                  Shared Memory Efficiency      68.67%      68.67%      68.67%
-          1                        shared_utilization                 Shared Memory Utilization     Low (1)     Low (1)     Low (1)
-          1                            l2_utilization                      L2 Cache Utilization     Low (1)     Low (1)     Low (1)
-          1                           global_hit_rate         Global Hit Rate in unified l1/tex       0.00%       0.00%       0.00%
-          1                        tex_cache_hit_rate                    Unified Cache Hit Rate       2.53%       2.53%       2.53%
-          1                           tex_utilization                 Unified Cache Utilization     Low (1)     Low (1)     Low (1)
-          1                                       ipc                              Executed IPC    1.216376    1.216376    1.216376
-          1                               inst_issued                       Instructions Issued       17928       17928       17928
-          1                             inst_executed                     Instructions Executed       17916       17916       17916
-          1                    issue_slot_utilization                    Issue Slot Utilization      27.24%      27.24%      27.24%
-          1                          dram_utilization                 Device Memory Utilization     Low (1)     Low (1)     Low (1)
+       2500                             sm_efficiency                   Multiprocessor Activity       0.00%       0.00%       0.00%
+       2500                        achieved_occupancy                        Achieved Occupancy    0.062350    0.062437    0.062425
+       2500                 warp_execution_efficiency                 Warp Execution Efficiency     100.00%     100.00%     100.00%
+       2500                             inst_per_warp                     Instructions per warp    0.000001    0.000001    0.000001
+       2500                            gld_efficiency             Global Memory Load Efficiency     100.00%     100.00%     100.00%
+       2500                            gst_efficiency            Global Memory Store Efficiency       0.00%       0.00%       0.00%
+       2500                         shared_efficiency                  Shared Memory Efficiency      75.66%      79.77%      77.47%
+       2500                        shared_utilization                 Shared Memory Utilization     Low (1)     Low (1)     Low (1)
+       2500                            l2_utilization                      L2 Cache Utilization    Max (10)    Max (10)    Max (10)
+       2500                           global_hit_rate         Global Hit Rate in unified l1/tex      50.00%      50.00%      50.00%
+       2500                           tex_utilization                 Unified Cache Utilization    Max (10)    Max (10)    Max (10)
+       2500                                       ipc                              Executed IPC    2.007845    2.415858    2.180652
+       2500                               inst_issued                       Instructions Issued       17928       17944       17928
+       2500                             inst_executed                     Instructions Executed       17916       17916       17916
+       2500                    issue_slot_utilization                    Issue Slot Utilization      44.96%      54.10%      48.83%
+       2500                          dram_utilization                 Device Memory Utilization    Max (10)    Max (10)    Max (10)
     Kernel: ker2row_kernel(float[400]*, float[5][5][16]*)
-          1                             sm_efficiency                   Multiprocessor Activity      89.45%      89.45%      89.45%
-          1                        achieved_occupancy                        Achieved Occupancy    0.681929    0.681929    0.681929
-          1                 warp_execution_efficiency                 Warp Execution Efficiency      96.15%      96.15%      96.15%
-          1                             inst_per_warp                     Instructions per warp  106.000000  106.000000  106.000000
-          1                            gld_efficiency             Global Memory Load Efficiency      12.50%      12.50%      12.50%
-          1                            gst_efficiency            Global Memory Store Efficiency      12.50%      12.50%      12.50%
-          1                         shared_efficiency                  Shared Memory Efficiency       0.00%       0.00%       0.00%
-          1                        shared_utilization                 Shared Memory Utilization    Idle (0)    Idle (0)    Idle (0)
-          1                            l2_utilization                      L2 Cache Utilization     Low (3)     Low (3)     Low (3)
-          1                           global_hit_rate         Global Hit Rate in unified l1/tex       0.00%       0.00%       0.00%
-          1                        tex_cache_hit_rate                    Unified Cache Hit Rate       0.00%       0.00%       0.00%
-          1                           tex_utilization                 Unified Cache Utilization     Low (1)     Low (1)     Low (1)
-          1                                       ipc                              Executed IPC    1.114042    1.114042    1.114042
-          1                               inst_issued                       Instructions Issued       44283       44283       44283
-          1                             inst_executed                     Instructions Executed       44096       44096       44096
-          1                    issue_slot_utilization                    Issue Slot Utilization      27.97%      27.97%      27.97%
-          1                          dram_utilization                 Device Memory Utilization     Low (1)     Low (1)     Low (1)
+       2500                             sm_efficiency                   Multiprocessor Activity       0.00%       0.00%       0.00%
+       2500                        achieved_occupancy                        Achieved Occupancy    0.685912    0.760100    0.724868
+       2500                 warp_execution_efficiency                 Warp Execution Efficiency      96.15%      96.15%      96.15%
+       2500                             inst_per_warp                     Instructions per warp    0.000002    0.000002    0.000002
+       2500                            gld_efficiency             Global Memory Load Efficiency      12.50%      12.50%      12.50%
+       2500                            gst_efficiency            Global Memory Store Efficiency       0.00%       0.00%       0.00%
+       2500                         shared_efficiency                  Shared Memory Efficiency       0.00%       0.00%       0.00%
+       2500                        shared_utilization                 Shared Memory Utilization    Idle (0)    Idle (0)    Idle (0)
+       2500                            l2_utilization                      L2 Cache Utilization    Max (10)    Max (10)    Max (10)
+       2500                           global_hit_rate         Global Hit Rate in unified l1/tex      50.00%      50.00%      50.00%
+       2500                           tex_utilization                 Unified Cache Utilization    Max (10)    Max (10)    Max (10)
+       2500                                       ipc                              Executed IPC    1.769715    2.057868    1.907533
+       2500                               inst_issued                       Instructions Issued       44233       44363       44256
+       2500                             inst_executed                     Instructions Executed       44096       44096       44096
+       2500                    issue_slot_utilization                    Issue Slot Utilization      44.47%      51.62%      47.86%
+       2500                          dram_utilization                 Device Memory Utilization    Max (10)    Max (10)    Max (10)
     Kernel: im2col_gpu_kernel(int, float const *, int, int, int, int, int, int, int, float*)
-          1                             sm_efficiency                   Multiprocessor Activity      42.60%      42.60%      42.60%
-          1                        achieved_occupancy                        Achieved Occupancy    0.164728    0.164728    0.164728
-          1                 warp_execution_efficiency                 Warp Execution Efficiency     100.00%     100.00%     100.00%
-          1                             inst_per_warp                     Instructions per warp  195.880000  195.880000  195.880000
-          1                            gld_efficiency             Global Memory Load Efficiency      50.00%      50.00%      50.00%
-          1                            gst_efficiency            Global Memory Store Efficiency     100.00%     100.00%     100.00%
-          1                         shared_efficiency                  Shared Memory Efficiency       0.00%       0.00%       0.00%
-          1                        shared_utilization                 Shared Memory Utilization    Idle (0)    Idle (0)    Idle (0)
-          1                            l2_utilization                      L2 Cache Utilization     Low (1)     Low (1)     Low (1)
-          1                           global_hit_rate         Global Hit Rate in unified l1/tex       0.00%       0.00%       0.00%
-          1                        tex_cache_hit_rate                    Unified Cache Hit Rate      25.00%      25.00%      25.00%
-          1                           tex_utilization                 Unified Cache Utilization     Low (1)     Low (1)     Low (1)
-          1                                       ipc                              Executed IPC    0.540687    0.540687    0.540687
-          1                               inst_issued                       Instructions Issued        4947        4947        4947
-          1                             inst_executed                     Instructions Executed        4897        4897        4897
-          1                    issue_slot_utilization                    Issue Slot Utilization      13.48%      13.48%      13.48%
-          1                          dram_utilization                 Device Memory Utilization     Low (1)     Low (1)     Low (1)
+       2500                             sm_efficiency                   Multiprocessor Activity       0.00%       0.00%       0.00%
+       2500                        achieved_occupancy                        Achieved Occupancy    0.132456    0.146876    0.137694
+       2500                 warp_execution_efficiency                 Warp Execution Efficiency     100.00%     100.00%     100.00%
+       2500                             inst_per_warp                     Instructions per warp    0.000000    0.000000    0.000000
+       2500                            gld_efficiency             Global Memory Load Efficiency      50.00%      50.00%      50.00%
+       2500                            gst_efficiency            Global Memory Store Efficiency       0.00%       0.00%       0.00%
+       2500                         shared_efficiency                  Shared Memory Efficiency       0.00%       0.00%       0.00%
+       2500                        shared_utilization                 Shared Memory Utilization    Idle (0)    Idle (0)    Idle (0)
+       2500                            l2_utilization                      L2 Cache Utilization    Max (10)    Max (10)    Max (10)
+       2500                           global_hit_rate         Global Hit Rate in unified l1/tex      50.00%      50.00%      50.00%
+       2500                           tex_utilization                 Unified Cache Utilization    Max (10)    Max (10)    Max (10)
+       2500                                       ipc                              Executed IPC    0.779033    1.162079    0.885733
+       2500                               inst_issued                       Instructions Issued        4947        5003        4947
+       2500                             inst_executed                     Instructions Executed        4897        4897        4897
+       2500                    issue_slot_utilization                    Issue Slot Utilization      19.42%      28.97%      22.08%
+       2500                          dram_utilization                 Device Memory Utilization    Max (10)    Max (10)    Max (10)
+==4537== Warning: One or more events or metrics can't be profiled. Rerun with "--print-gpu-trace" for detail.

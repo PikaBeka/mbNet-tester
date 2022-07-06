@@ -1,25 +1,25 @@
-==11864== NVPROF is profiling process 11864, command: ./mbnet
-==11864== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
-==11864== Profiling application: ./mbnet
-==11864== Profiling result:
-==11864== Metric result:
+==21045== NVPROF is profiling process 21045, command: ./mbnet
+==21045== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==21045== Profiling application: ./mbnet
+==21045== Profiling result:
+==21045== Metric result:
 Invocations                               Metric Name                        Metric Description         Min         Max         Avg
 Device "NVIDIA Tegra X2 (0)"
     Kernel: kernel_conv_filter(float[32][32]*, float[28][28]*, float[5][5][6]*)
-          1                             sm_efficiency                   Multiprocessor Activity      95.55%      95.55%      95.55%
-          1                        achieved_occupancy                        Achieved Occupancy    0.500235    0.500235    0.500235
-          1                 warp_execution_efficiency                 Warp Execution Efficiency      99.65%      99.65%      99.65%
-          1                             inst_per_warp                     Instructions per warp  424.384615  424.384615  424.384615
-          1                            gld_efficiency             Global Memory Load Efficiency      14.10%      14.10%      14.10%
-          1                            gst_efficiency            Global Memory Store Efficiency      50.00%      50.00%      50.00%
-          1                         shared_efficiency                  Shared Memory Efficiency      50.50%      50.50%      50.50%
-          1                        shared_utilization                 Shared Memory Utilization     Mid (4)     Mid (4)     Mid (4)
-          1                            l2_utilization                      L2 Cache Utilization     Mid (4)     Mid (4)     Mid (4)
-          1                           global_hit_rate         Global Hit Rate in unified l1/tex       0.00%       0.00%       0.00%
-          1                        tex_cache_hit_rate                    Unified Cache Hit Rate      48.94%      48.94%      48.94%
-          1                           tex_utilization                 Unified Cache Utilization    High (8)    High (8)    High (8)
-          1                                       ipc                              Executed IPC    1.742207    1.742207    1.742207
-          1                               inst_issued                       Instructions Issued      270453      270453      270453
-          1                             inst_executed                     Instructions Executed      270333      270333      270333
-          1                    issue_slot_utilization                    Issue Slot Utilization      33.41%      33.41%      33.41%
-          1                          dram_utilization                 Device Memory Utilization     Low (1)     Low (1)     Low (1)
+       2500                             sm_efficiency                   Multiprocessor Activity      95.37%      97.67%      95.68%
+       2500                        achieved_occupancy                        Achieved Occupancy    0.496078    0.566675    0.501157
+       2500                 warp_execution_efficiency                 Warp Execution Efficiency       0.00%      99.65%      99.61%
+       2500                             inst_per_warp                     Instructions per warp    0.000000  424.384615  424.214862
+       2500                            gld_efficiency             Global Memory Load Efficiency      14.10%      14.10%      14.10%
+       2500                            gst_efficiency            Global Memory Store Efficiency      50.00%      50.00%      50.00%
+       2500                         shared_efficiency                  Shared Memory Efficiency      50.50%      50.50%      50.50%
+       2500                        shared_utilization                 Shared Memory Utilization     Mid (4)     Mid (4)     Mid (4)
+       2500                            l2_utilization                      L2 Cache Utilization     Low (2)     Mid (5)     Mid (4)
+       2500                           global_hit_rate         Global Hit Rate in unified l1/tex       0.00%       0.00%       0.00%
+       2500                        tex_cache_hit_rate                    Unified Cache Hit Rate      48.94%      89.23%      49.66%
+       2500                           tex_utilization                 Unified Cache Utilization    High (7)    High (8)    High (7)
+       2500                                       ipc                              Executed IPC    0.000000    1.806689    1.743399
+       2500                               inst_issued                       Instructions Issued           0      270558      270347
+       2500                             inst_executed                     Instructions Executed           0      270333      270224
+       2500                    issue_slot_utilization                    Issue Slot Utilization       0.00%      34.65%      33.44%
+       2500                          dram_utilization                 Device Memory Utilization     Low (1)     Low (1)     Low (1)
