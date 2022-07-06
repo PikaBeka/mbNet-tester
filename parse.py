@@ -1,6 +1,7 @@
 from cmath import log
 import csv
 import os
+from tkinter import END
 
 import create_csv as csv_file
 
@@ -87,6 +88,51 @@ class Parse:
             csv_file.close()
 
 
+class metricsParse(Parse):
+    def __init__(self, log_file, C, HW, K):
+        super(metricsParse, self).__init__(log_file, C, HW, K, 'simple')
+
+    def parse_file(self, dict, metric):
+        if not os.path.exists(self.log_file):
+            print('Path to log file is invalid\n')
+            return
+
+        with open("metrics/" + metric + "_sum.csv", 'a') as csv_file:
+            with open(self.log_file, 'r') as log:
+                data = log.readlines()
+
+                for elem in data:
+                    elem = elem.split()
+
+                    if elem[0] == 'Kernel:':
+
+                        if elem[1] == 'void':
+                            header = elem[2]
+                        else:
+                            header = elem[1]
+
+                        end = 0
+                        for ch in header:
+                            end += 1
+                            if ch == '(' or ch == '<':
+                                break
+                        header = header[0:end]
+
+                        if header[-1] == '(' or header[-1] == '<':
+                            header = header[0:-1]
+                        if header == 'gemmSN_NN_kernel':
+                            header += '\n'
+
+                    if elem[1] == metric:
+                        val = elem[-1]
+                        if not val[-1].isdigit():
+                            val = val[0:-1]
+                        if not val[0].isdigit():
+                            val = val[1:]
+                        dict[header] = val
+        return dict
+
+
 if __name__ == '__main__':
     C = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 6, 6, 6,
          6, 6, 6, 6, 6, 6, 16, 16, 16, 16, 16, 16, 32, 32]
@@ -95,12 +141,38 @@ if __name__ == '__main__':
     K = [3, 6, 6, 6, 6, 6, 9, 9, 12, 12, 16, 16, 16, 16, 16,
          16, 16, 16, 16, 32, 32, 32, 32, 32, 32, 64, 64, 64, 64, 64]
 
-    for j in range(0, len(csv_file.nvprof_paths)):
+    # for j in range(0, len(csv_file.nvprof_paths)):
+    #     for i in range(0, len(C)):
+    #         log_file = csv_file.nvprof_paths[j] + '/nvprof_comp_' + \
+    #             str(C[i]) + '_' + str(HW[i]) + \
+    #             '_' + str(K[i]) + '.txt'
+    #         parser = Parse(log_file, int(C[i]), int(
+    #             HW[i]), int(K[i]), csv_file.nvprof_paths[j]+'_sum.csv')
+    #         parser.parse_file()
+    #     print(csv_file.nvprof_paths[j] + " parsing finished")
+
+    for metric in csv_file.metrics:
         for i in range(0, len(C)):
-            log_file = csv_file.nvprof_paths[j] + '/nvprof_comp_' + \
-                str(C[i]) + '_' + str(HW[i]) + \
-                '_' + str(K[i]) + '.txt'
-            parser = Parse(log_file, int(C[i]), int(
-                HW[i]), int(K[i]), csv_file.nvprof_paths[j]+'_sum.csv')
-            parser.parse_file()
-        print(csv_file.nvprof_paths[j] + " parsing finished")
+
+            with open('metrics/'+metric+'_sum.csv', 'a') as output:
+                with open("metrics/" + metric + "_sum.csv", 'r') as file:
+                    headers = file.readlines()[0].split(
+                        ',')  # get all headers
+                csv_writer = csv.DictWriter(output, fieldnames=headers)
+
+                dict = {'Configuration': '(' + str(
+                        C[i])+'_'+str(HW[i])+'_'+str(K[i]) + ')'}
+
+                for path in csv_file.nvprof_paths:
+                    if path == 'direct_shared' or path == 'unroll_cublass':
+                        log_file = 'metrics/'+path+'/nvprof_comp_' + \
+                            str(C[i])+'_'+str(HW[i])+'_'+str(K[i])+'.txt'
+
+                        parser = metricsParse(log_file, int(
+                            C[i]), int(HW[i]), int(K[i]))
+
+                        dict = parser.parse_file(dict, metric)
+
+                csv_writer.writerow(dict)
+                output.close()
+        print(metric + " parsing finished")
