@@ -1,1 +1,1 @@
-Configuration,convolution_tiling,HtoD,DtoH,Total_time,Kernel_time
+Configuration,convolution_tiling,DtoH,HtoD,Total_time,Kernel_time

@@ -1,26 +1,8 @@
-==20073== NVPROF is profiling process 20073, command: ./mbnet
-==20073== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
-==20073== Profiling application: ./mbnet
-==20073== Profiling result:
-==20073== Metric result:
+==23204== NVPROF is profiling process 23204, command: ./mbnet
+==23204== Profiling application: ./mbnet
+==23204== Profiling result:
+==23204== Metric result:
 Invocations                               Metric Name                        Metric Description         Min         Max         Avg
 Device "NVIDIA Tegra X2 (0)"
     Kernel: kernel_conv_filter(float[64][64]*, float[60][60]*, float[5][5][3]*)
-       2500                             sm_efficiency                   Multiprocessor Activity      97.65%      99.21%      98.78%
-       2500                        achieved_occupancy                        Achieved Occupancy    0.513503    0.695760    0.528751
-       2500                 warp_execution_efficiency                 Warp Execution Efficiency      99.39%      99.39%      99.39%
-       2500                             inst_per_warp                     Instructions per warp  246.076923  246.076923  246.076923
-       2500                            gld_efficiency             Global Memory Load Efficiency      14.09%      14.09%      14.09%
-       2500                            gst_efficiency            Global Memory Store Efficiency      50.00%      50.00%      50.00%
-       2500                         shared_efficiency                  Shared Memory Efficiency      12.09%      50.50%      50.48%
-       2499                        shared_utilization                 Shared Memory Utilization     Mid (4)     Mid (4)     Mid (4)
-       2500                            l2_utilization                      L2 Cache Utilization     Low (3)     Mid (4)     Low (3)
-       2500                           global_hit_rate         Global Hit Rate in unified l1/tex       0.00%       0.00%       0.00%
-       2500                        tex_cache_hit_rate                    Unified Cache Hit Rate      48.28%      62.49%      48.46%
-       2500                           tex_utilization                 Unified Cache Utilization    High (7)    High (8)    High (7)
-       2500                                       ipc                              Executed IPC    1.666914    1.926495    1.806834
-       2500                               inst_issued                       Instructions Issued      719895      720023      719908
-       2500                             inst_executed                     Instructions Executed      719775      719775      719775
-       2500                    issue_slot_utilization                    Issue Slot Utilization      33.04%      38.19%      35.82%
-       2500                          dram_utilization                 Device Memory Utilization     Low (1)     Low (1)     Low (1)
-==20073== Warning: One or more events or metrics can't be profiled. Rerun with "--print-gpu-trace" for detail.
+      10000                             sm_efficiency                   Multiprocessor Activity      97.70%      99.19%      98.59%

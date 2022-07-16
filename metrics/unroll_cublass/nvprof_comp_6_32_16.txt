@@ -1,60 +1,13 @@
-==1223== NVPROF is profiling process 1223, command: ./mbnet
-==1223== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
-==1223== Warning: Profiling results might be incorrect with current version of nvcc compiler used to compile cuda app. Compile with nvcc compiler 9.0 or later version to get correct profiling results. Ignore this warning if code is already compiled with the recommended nvcc version 
-==1223== Profiling application: ./mbnet
-==1223== Profiling result:
-==1223== Metric result:
+==25870== NVPROF is profiling process 25870, command: ./mbnet
+==25870== Warning: Profiling results might be incorrect with current version of nvcc compiler used to compile cuda app. Compile with nvcc compiler 9.0 or later version to get correct profiling results. Ignore this warning if code is already compiled with the recommended nvcc version 
+==25870== Profiling application: ./mbnet
+==25870== Profiling result:
+==25870== Metric result:
 Invocations                               Metric Name                        Metric Description         Min         Max         Avg
 Device "NVIDIA Tegra X2 (0)"
     Kernel: im2col_gpu_kernel(int, float const *, int, int, int, int, int, int, int, float*)
-       2500                             sm_efficiency                   Multiprocessor Activity       0.00%       0.00%       0.00%
-       2500                        achieved_occupancy                        Achieved Occupancy    0.196118    0.200110    0.198415
-       2500                 warp_execution_efficiency                 Warp Execution Efficiency      96.08%      96.08%      96.08%
-       2500                             inst_per_warp                     Instructions per warp    0.000004    0.000004    0.000004
-       2500                            gld_efficiency             Global Memory Load Efficiency      75.70%      75.70%      75.70%
-       2500                            gst_efficiency            Global Memory Store Efficiency       0.00%       0.00%       0.00%
-       2500                         shared_efficiency                  Shared Memory Efficiency       0.00%       0.00%       0.00%
-       2500                        shared_utilization                 Shared Memory Utilization    Idle (0)    Idle (0)    Idle (0)
-       2500                            l2_utilization                      L2 Cache Utilization    Max (10)    Max (10)    Max (10)
-       2500                           global_hit_rate         Global Hit Rate in unified l1/tex      50.00%      50.00%      50.00%
-       2500                           tex_utilization                 Unified Cache Utilization    Max (10)    Max (10)    Max (10)
-       2500                                       ipc                              Executed IPC    1.130790    1.235256    1.199691
-       2500                               inst_issued                       Instructions Issued       88516       88585       88518
-       2500                             inst_executed                     Instructions Executed       88490       88490       88490
-       2500                    issue_slot_utilization                    Issue Slot Utilization      27.89%      30.46%      29.59%
-       2500                          dram_utilization                 Device Memory Utilization    Max (10)    Max (10)    Max (10)
+      10000                             sm_efficiency                   Multiprocessor Activity      48.96%      49.38%      49.08%
     Kernel: ker2row_kernel(float[150]*, float[5][5][6]*)
-       2500                             sm_efficiency                   Multiprocessor Activity       0.00%       0.00%       0.00%
-       2500                        achieved_occupancy                        Achieved Occupancy    0.460554    0.537960    0.497496
-       2500                 warp_execution_efficiency                 Warp Execution Efficiency      93.75%      93.75%      93.75%
-       2500                             inst_per_warp                     Instructions per warp    0.000000    0.000000    0.000000
-       2500                            gld_efficiency             Global Memory Load Efficiency      12.53%      12.53%      12.53%
-       2500                            gst_efficiency            Global Memory Store Efficiency       0.00%       0.00%       0.00%
-       2500                         shared_efficiency                  Shared Memory Efficiency       0.00%       0.00%       0.00%
-       2500                        shared_utilization                 Shared Memory Utilization    Idle (0)    Idle (0)    Idle (0)
-       2500                            l2_utilization                      L2 Cache Utilization    Max (10)    Max (10)    Max (10)
-       2500                           global_hit_rate         Global Hit Rate in unified l1/tex      50.00%      50.00%      50.00%
-       2500                           tex_utilization                 Unified Cache Utilization    Max (10)    Max (10)    Max (10)
-       2500                                       ipc                              Executed IPC    1.692144    2.221185    1.965864
-       2500                               inst_issued                       Instructions Issued        9628        9742        9659
-       2500                             inst_executed                     Instructions Executed        9520        9520        9520
-       2500                    issue_slot_utilization                    Issue Slot Utilization      43.05%      56.26%      49.86%
-       2500                          dram_utilization                 Device Memory Utilization    Max (10)    Max (10)    Max (10)
+      10000                             sm_efficiency                   Multiprocessor Activity      57.67%      71.05%      60.39%
     Kernel: sgemm_32x32x32_NN
-       2500                             sm_efficiency                   Multiprocessor Activity       0.00%       0.00%       0.00%
-       2500                        achieved_occupancy                        Achieved Occupancy    0.175034    0.179636    0.177103
-       2500                 warp_execution_efficiency                 Warp Execution Efficiency     100.00%     100.00%     100.00%
-       2500                             inst_per_warp                     Instructions per warp    0.000008    0.000008    0.000008
-       2500                            gld_efficiency             Global Memory Load Efficiency      23.92%      23.92%      23.92%
-       2500                            gst_efficiency            Global Memory Store Efficiency       0.00%       0.00%       0.00%
-       2500                         shared_efficiency                  Shared Memory Efficiency      74.65%      78.83%      76.54%
-       2500                        shared_utilization                 Shared Memory Utilization     Low (1)     Low (1)     Low (1)
-       2500                            l2_utilization                      L2 Cache Utilization    Max (10)    Max (10)    Max (10)
-       2500                           global_hit_rate         Global Hit Rate in unified l1/tex      50.00%      50.00%      50.00%
-       2500                           tex_utilization                 Unified Cache Utilization    Max (10)    Max (10)    Max (10)
-       2500                                       ipc                              Executed IPC    2.515731    3.126337    2.968390
-       2500                               inst_issued                       Instructions Issued      211969      212120      211973
-       2500                             inst_executed                     Instructions Executed      211900      211900      211900
-       2500                    issue_slot_utilization                    Issue Slot Utilization      54.31%      67.49%      64.08%
-       2500                          dram_utilization                 Device Memory Utilization    Max (10)    Max (10)    Max (10)
-==1223== Warning: One or more events or metrics can't be profiled. Rerun with "--print-gpu-trace" for detail.
+      10000                             sm_efficiency                   Multiprocessor Activity      89.47%      97.15%      93.14%
