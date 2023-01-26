@@ -1,8 +1,8 @@
 #define N 10000 // number of images in batch
-#define C 32
-#define HW 8
+#define C 1
+#define HW 128
 
-#define K 64
+#define K 6
 #define RS 5 // kernel height and width
 
 #define PQ (HW - RS + 1) // output height and width (146)

@@ -141,38 +141,39 @@ if __name__ == '__main__':
     K = [3, 6, 6, 6, 6, 6, 9, 9, 12, 12, 16, 16, 16, 16, 16,
          16, 16, 16, 16, 32, 32, 32, 32, 32, 32, 64, 64, 64, 64, 64]
 
-    # for j in range(0, len(csv_file.nvprof_paths)):
-    #     for i in range(0, len(C)):
-    #         log_file = csv_file.nvprof_paths[j] + '/nvprof_comp_' + \
-    #             str(C[i]) + '_' + str(HW[i]) + \
-    #             '_' + str(K[i]) + '.txt'
-    #         parser = Parse(log_file, int(C[i]), int(
-    #             HW[i]), int(K[i]), csv_file.nvprof_paths[j]+'_sum.csv')
-    #         parser.parse_file()
-    #     print(csv_file.nvprof_paths[j] + " parsing finished")
-
-    for metric in csv_file.metrics:
+    for j in range(0, len(csv_file.nvprof_paths)):
         for i in range(0, len(C)):
+            if j == 2:
+                log_file = csv_file.nvprof_paths[j] + '/nvprof_comp_' + \
+                    str(C[i]) + '_' + str(HW[i]) + \
+                    '_' + str(K[i]) + '.txt'
+                parser = Parse(log_file, int(C[i]), int(
+                    HW[i]), int(K[i]), csv_file.nvprof_paths[j]+'_sum.csv')
+                parser.parse_file()
+        print(csv_file.nvprof_paths[j] + " parsing finished")
 
-            with open('metrics/'+metric+'_sum.csv', 'a') as output:
-                with open("metrics/" + metric + "_sum.csv", 'r') as file:
-                    headers = file.readlines()[0].split(
-                        ',')  # get all headers
-                csv_writer = csv.DictWriter(output, fieldnames=headers)
+    # for metric in csv_file.metrics:
+    #     for i in range(0, len(C)):
 
-                dict = {'Configuration': '(' + str(
-                        C[i])+'_'+str(HW[i])+'_'+str(K[i]) + ')'}
+    #         with open('metrics/'+metric+'_sum.csv', 'a') as output:
+    #             with open("metrics/" + metric + "_sum.csv", 'r') as file:
+    #                 headers = file.readlines()[0].split(
+    #                     ',')  # get all headers
+    #             csv_writer = csv.DictWriter(output, fieldnames=headers)
 
-                for path in csv_file.nvprof_paths:
-                    if path == 'direct_shared' or path == 'unroll_cublass':
-                        log_file = 'metrics/'+path+'/nvprof_comp_' + \
-                            str(C[i])+'_'+str(HW[i])+'_'+str(K[i])+'.txt'
+    #             dict = {'Configuration': '(' + str(
+    #                     C[i])+'_'+str(HW[i])+'_'+str(K[i]) + ')'}
 
-                        parser = metricsParse(log_file, int(
-                            C[i]), int(HW[i]), int(K[i]))
+    #             for path in csv_file.nvprof_paths:
+    #                 if path == 'direct_shared' or path == 'unroll_cublass':
+    #                     log_file = 'metrics/'+path+'/nvprof_comp_' + \
+    #                         str(C[i])+'_'+str(HW[i])+'_'+str(K[i])+'.txt'
 
-                        dict = parser.parse_file(dict, metric)
+    #                     parser = metricsParse(log_file, int(
+    #                         C[i]), int(HW[i]), int(K[i]))
 
-                csv_writer.writerow(dict)
-                output.close()
-        print(metric + " parsing finished")
+    #                     dict = parser.parse_file(dict, metric)
+
+    #             csv_writer.writerow(dict)
+    #             output.close()
+    #     print(metric + " parsing finished")

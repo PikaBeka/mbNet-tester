@@ -1,1 +1,1 @@
-Configuration,gemm_global_kernel,im2col_gpu_kernel,ker2row_kernel,DtoH,HtoD,Total_time,Kernel_time
+Configuration,gemm_global_kernel,im2col_gpu_kernel,ker2row_kernel,HtoD,DtoH,Total_time,Kernel_time

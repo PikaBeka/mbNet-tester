@@ -1,1 +1,1 @@
-Configuration,kernel_conv_filter,DtoH,HtoD,Total_time,Kernel_time
+Configuration,kernel_conv_filter,HtoD,DtoH,Total_time,Kernel_time

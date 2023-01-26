@@ -1,8 +1,8 @@
 import csv
 import os
 
-nvprof_paths = ['array_naive', 'array_tiling',
-                'direct_global', 'direct_shared', 'unroll_cublass', 'unroll_global']  # folder paths
+nvprof_paths = ['direct_shared',
+                'unroll_cublass', 'tenssort']  # folder paths
 
 
 # this function finds a name of the kernel
@@ -85,7 +85,7 @@ for i in range(0, len(nvprof_paths)):  # for each kernel method
         writer.writerow(header)
     print('Created csv file ' + method)
 
-AreMetrics = True
+AreMetrics = False
 
 metrics = ['sm_efficiency', 'achieved_occupancy', 'warp_execution_efficiency', 'inst_per_warp', 'gld_efficiency', 'gst_efficiency', 'shared_efficiency', 'shared_utilization',
            'l2_utilization', 'global_hit_rate', 'tex_cache_hit_rate', 'tex_utilization', 'ipc', 'inst_issued', 'inst_executed', 'issue_slot_utilization', 'dram_utilization']
