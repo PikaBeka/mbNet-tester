@@ -1,0 +1,8 @@
+==21057== NVPROF is profiling process 21057, command: ./mbnet
+==21057== Profiling application: ./mbnet
+==21057== Profiling result:
+==21057== Metric result:
+Invocations                               Metric Name                        Metric Description         Min         Max         Avg
+Device "NVIDIA Tegra X2 (0)"
+    Kernel: convolution_naive(float[16][16]*, float[5][5][16]*, float[12][12]*)
+      10000                        achieved_occupancy                        Achieved Occupancy    0.867548    0.907412    0.882785

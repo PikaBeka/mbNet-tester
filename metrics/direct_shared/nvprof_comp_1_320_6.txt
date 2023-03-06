@@ -1,8 +1,8 @@
-==22743== NVPROF is profiling process 22743, command: ./mbnet
-==22743== Profiling application: ./mbnet
-==22743== Profiling result:
-==22743== Metric result:
+==24145== NVPROF is profiling process 24145, command: ./mbnet
+==24145== Profiling application: ./mbnet
+==24145== Profiling result:
+==24145== Metric result:
 Invocations                               Metric Name                        Metric Description         Min         Max         Avg
 Device "NVIDIA Tegra X2 (0)"
     Kernel: kernel_conv_filter(float[320][320]*, float[316][316]*, float[5][5][1]*)
-      10000                             sm_efficiency                   Multiprocessor Activity      99.76%      99.86%      99.85%
+      10000                        achieved_occupancy                        Achieved Occupancy    0.855898    0.869654    0.863460

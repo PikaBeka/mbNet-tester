@@ -1,1 +1,1 @@
-Configuration,im2col_gpu_kernel,sgemm_32x32x32_NN,ker2row_kernel,HtoD,DtoH,sgemm_32x32x32_NN_vec,gemmSN_NN_kernel,maxwell_sgemm_64x64_nn,Total_time,Kernel_time
+Configuration,im2col_gpu_kernel,gemmSN_NN_kernel,ker2row_kernel,DtoH,HtoD,sgemm_32x32x32_NN,sgemm_32x32x32_NN_vec,maxwell_sgemm_64x64_nn,Total_time,Kernel_time

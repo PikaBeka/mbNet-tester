@@ -1,0 +1,8 @@
+==20178== NVPROF is profiling process 20178, command: ./mbnet
+==20178== Profiling application: ./mbnet
+==20178== Profiling result:
+==20178== Metric result:
+Invocations                               Metric Name                        Metric Description         Min         Max         Avg
+Device "NVIDIA Tegra X2 (0)"
+    Kernel: convolution_naive(float[150][150]*, float[5][5][3]*, float[146][146]*)
+      10000                        achieved_occupancy                        Achieved Occupancy    0.938100    0.945765    0.942474

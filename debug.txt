@@ -1,2 +1,998 @@
 skip array_naive
 skip array_tiling
+skip direct_shared
+skip cublas_unroll
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-17:43:05] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-17:43:17] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 407, GPU 5127 (MiB)
+[03/03/2023-17:43:17] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 407 MiB, GPU 5127 MiB
+[03/03/2023-17:43:17] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-17:43:17] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-17:43:17] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-17:43:18] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +324, now: CPU 629, GPU 5451 (MiB)
+[03/03/2023-17:43:20] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +444, now: CPU 956, GPU 5895 (MiB)
+[03/03/2023-17:43:30] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-17:43:30] [I] [TRT] Total Host Persistent Memory: 1664
+[03/03/2023-17:43:30] [I] [TRT] Total Device Persistent Memory: 381952
+[03/03/2023-17:43:30] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-17:43:30] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 6 MiB
+[03/03/2023-17:43:30] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1272, GPU 6481 (MiB)
+[03/03/2023-17:43:30] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +1, now: CPU 1272, GPU 6482 (MiB)
+[03/03/2023-17:43:30] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1272, GPU 6482 (MiB)
+[03/03/2023-17:43:30] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1050, GPU 6488 (MiB)
+[03/03/2023-17:43:30] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1050 MiB, GPU 6488 MiB
+[03/03/2023-17:43:30] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1050, GPU 6488 (MiB)
+[03/03/2023-17:43:30] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-17:43:30] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1050 MiB, GPU 6488 MiB
+[03/03/2023-17:43:31] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +2, now: CPU 1272, GPU 6490 (MiB)
+[03/03/2023-17:43:31] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1272, GPU 6490 (MiB)
+[03/03/2023-17:43:31] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1052, GPU 6490 (MiB)
+[03/03/2023-17:43:31] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1052 MiB, GPU 6490 MiB
+[03/03/2023-17:43:31] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1053 MiB, GPU 6490 MiB
+[03/03/2023-17:43:32] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +219, GPU +0, now: CPU 1272, GPU 6490 (MiB)
+[03/03/2023-17:43:32] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1273, GPU 6490 (MiB)
+[03/03/2023-17:43:32] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1273 MiB, GPU 6490 MiB
+The configuration is 1_256_3
+[03/03/2023-17:45:08] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1059, GPU 6503 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-17:45:43] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-17:45:47] [I] [TRT] [MemUsageChange] Init CUDA: CPU +390, GPU +0, now: CPU 411, GPU 5576 (MiB)
+[03/03/2023-17:45:47] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 411 MiB, GPU 5576 MiB
+[03/03/2023-17:45:47] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-17:45:47] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-17:45:47] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-17:45:48] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +226, now: CPU 633, GPU 5802 (MiB)
+[03/03/2023-17:45:50] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +325, now: CPU 959, GPU 6127 (MiB)
+[03/03/2023-17:46:04] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-17:46:04] [I] [TRT] Total Host Persistent Memory: 4224
+[03/03/2023-17:46:04] [I] [TRT] Total Device Persistent Memory: 942080
+[03/03/2023-17:46:04] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-17:46:04] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 9 MiB
+[03/03/2023-17:46:04] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1276, GPU 6488 (MiB)
+[03/03/2023-17:46:04] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1276, GPU 6488 (MiB)
+[03/03/2023-17:46:04] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1276, GPU 6488 (MiB)
+[03/03/2023-17:46:04] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1054, GPU 6488 (MiB)
+[03/03/2023-17:46:04] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1054 MiB, GPU 6488 MiB
+[03/03/2023-17:46:04] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1055, GPU 6488 (MiB)
+[03/03/2023-17:46:04] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-17:46:04] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1055 MiB, GPU 6488 MiB
+[03/03/2023-17:46:05] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +1, now: CPU 1277, GPU 6489 (MiB)
+[03/03/2023-17:46:05] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1277, GPU 6489 (MiB)
+[03/03/2023-17:46:05] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1056, GPU 6489 (MiB)
+[03/03/2023-17:46:05] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1056 MiB, GPU 6489 MiB
+[03/03/2023-17:46:05] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1060 MiB, GPU 6489 MiB
+[03/03/2023-17:46:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +220, GPU +4, now: CPU 1280, GPU 6493 (MiB)
+[03/03/2023-17:46:06] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1280, GPU 6493 (MiB)
+[03/03/2023-17:46:06] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1280 MiB, GPU 6493 MiB
+The configuration is 1_400_6
+[03/03/2023-17:48:12] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1067, GPU 6544 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-17:48:48] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-17:48:51] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 409, GPU 5589 (MiB)
+[03/03/2023-17:48:51] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 409 MiB, GPU 5589 MiB
+[03/03/2023-17:48:51] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-17:48:51] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-17:48:51] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-17:48:52] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +224, now: CPU 631, GPU 5813 (MiB)
+[03/03/2023-17:48:53] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +324, now: CPU 957, GPU 6137 (MiB)
+[03/03/2023-17:49:06] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-17:49:06] [I] [TRT] Total Host Persistent Memory: 2176
+[03/03/2023-17:49:06] [I] [TRT] Total Device Persistent Memory: 600064
+[03/03/2023-17:49:06] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-17:49:06] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 7 MiB
+[03/03/2023-17:49:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1274, GPU 6495 (MiB)
+[03/03/2023-17:49:06] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +1, now: CPU 1274, GPU 6496 (MiB)
+[03/03/2023-17:49:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1274, GPU 6496 (MiB)
+[03/03/2023-17:49:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1052, GPU 6496 (MiB)
+[03/03/2023-17:49:06] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1052 MiB, GPU 6496 MiB
+[03/03/2023-17:49:06] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1052, GPU 6495 (MiB)
+[03/03/2023-17:49:06] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-17:49:06] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1052 MiB, GPU 6495 MiB
+[03/03/2023-17:49:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +5, now: CPU 1274, GPU 6500 (MiB)
+[03/03/2023-17:49:06] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1274, GPU 6500 (MiB)
+[03/03/2023-17:49:07] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6500 (MiB)
+[03/03/2023-17:49:07] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1057 MiB, GPU 6500 MiB
+[03/03/2023-17:49:07] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1059 MiB, GPU 6500 MiB
+[03/03/2023-17:49:07] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +217, GPU +3, now: CPU 1276, GPU 6503 (MiB)
+[03/03/2023-17:49:07] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1277, GPU 6503 (MiB)
+[03/03/2023-17:49:07] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1277 MiB, GPU 6503 MiB
+The configuration is 1_320_6
+[03/03/2023-17:50:36] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1063, GPU 6514 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-17:51:12] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-17:51:18] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 408, GPU 5590 (MiB)
+[03/03/2023-17:51:18] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 408 MiB, GPU 5590 MiB
+[03/03/2023-17:51:18] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-17:51:18] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-17:51:18] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-17:51:19] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +220, now: CPU 630, GPU 5810 (MiB)
+[03/03/2023-17:51:20] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +327, now: CPU 956, GPU 6137 (MiB)
+[03/03/2023-17:51:28] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-17:51:28] [I] [TRT] Total Host Persistent Memory: 2176
+[03/03/2023-17:51:28] [I] [TRT] Total Device Persistent Memory: 381952
+[03/03/2023-17:51:28] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 9 MiB
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +1, GPU +0, now: CPU 1273, GPU 6496 (MiB)
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1273, GPU 6496 (MiB)
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1272, GPU 6496 (MiB)
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1050, GPU 6496 (MiB)
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1050 MiB, GPU 6496 MiB
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1051, GPU 6496 (MiB)
+[03/03/2023-17:51:28] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1051 MiB, GPU 6496 MiB
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +5, now: CPU 1273, GPU 6501 (MiB)
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1273, GPU 6501 (MiB)
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1056, GPU 6501 (MiB)
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1056 MiB, GPU 6501 MiB
+[03/03/2023-17:51:28] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1057 MiB, GPU 6501 MiB
+[03/03/2023-17:51:29] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +218, GPU +0, now: CPU 1275, GPU 6501 (MiB)
+[03/03/2023-17:51:29] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1275, GPU 6501 (MiB)
+[03/03/2023-17:51:29] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1275 MiB, GPU 6501 MiB
+The configuration is 1_256_6
+[03/03/2023-17:52:41] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1061, GPU 6512 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-17:53:17] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-17:53:21] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 407, GPU 5595 (MiB)
+[03/03/2023-17:53:21] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 407 MiB, GPU 5595 MiB
+[03/03/2023-17:53:21] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-17:53:21] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-17:53:21] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-17:53:22] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +224, now: CPU 629, GPU 5819 (MiB)
+[03/03/2023-17:53:24] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +328, now: CPU 955, GPU 6147 (MiB)
+[03/03/2023-17:53:27] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-17:53:27] [I] [TRT] Total Host Persistent Memory: 3200
+[03/03/2023-17:53:27] [I] [TRT] Total Device Persistent Memory: 93184
+[03/03/2023-17:53:27] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-17:53:27] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 5 MiB
+[03/03/2023-17:53:27] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1271, GPU 6503 (MiB)
+[03/03/2023-17:53:27] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6503 (MiB)
+[03/03/2023-17:53:27] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1271, GPU 6503 (MiB)
+[03/03/2023-17:53:27] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1049, GPU 6503 (MiB)
+[03/03/2023-17:53:27] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1049 MiB, GPU 6503 MiB
+[03/03/2023-17:53:27] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1049, GPU 6503 (MiB)
+[03/03/2023-17:53:27] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-17:53:27] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1049 MiB, GPU 6503 MiB
+[03/03/2023-17:53:28] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +5, now: CPU 1271, GPU 6508 (MiB)
+[03/03/2023-17:53:28] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6508 (MiB)
+[03/03/2023-17:53:28] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1053, GPU 6508 (MiB)
+[03/03/2023-17:53:28] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1053 MiB, GPU 6508 MiB
+[03/03/2023-17:53:28] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1053 MiB, GPU 6508 MiB
+[03/03/2023-17:53:29] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +218, GPU +0, now: CPU 1271, GPU 6508 (MiB)
+[03/03/2023-17:53:29] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6508 (MiB)
+[03/03/2023-17:53:29] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1271 MiB, GPU 6508 MiB
+The configuration is 1_128_6
+[03/03/2023-17:54:24] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1058, GPU 6518 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-17:54:55] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-17:55:00] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5595 (MiB)
+[03/03/2023-17:55:00] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5595 MiB
+[03/03/2023-17:55:00] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-17:55:00] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-17:55:00] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-17:55:01] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +224, now: CPU 628, GPU 5819 (MiB)
+[03/03/2023-17:55:03] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +327, now: CPU 955, GPU 6146 (MiB)
+[03/03/2023-17:55:06] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-17:55:06] [I] [TRT] Total Host Persistent Memory: 2176
+[03/03/2023-17:55:06] [I] [TRT] Total Device Persistent Memory: 5632
+[03/03/2023-17:55:06] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-17:55:06] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 4 MiB
+[03/03/2023-17:55:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6510 (MiB)
+[03/03/2023-17:55:06] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6510 (MiB)
+[03/03/2023-17:55:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6510 (MiB)
+[03/03/2023-17:55:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6510 (MiB)
+[03/03/2023-17:55:06] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6510 MiB
+[03/03/2023-17:55:06] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6510 (MiB)
+[03/03/2023-17:55:06] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-17:55:06] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6510 MiB
+[03/03/2023-17:55:07] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +4, now: CPU 1270, GPU 6514 (MiB)
+[03/03/2023-17:55:07] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6514 (MiB)
+[03/03/2023-17:55:07] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1052, GPU 6514 (MiB)
+[03/03/2023-17:55:07] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1052 MiB, GPU 6514 MiB
+[03/03/2023-17:55:07] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1052 MiB, GPU 6514 MiB
+[03/03/2023-17:55:08] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +0, now: CPU 1274, GPU 6514 (MiB)
+[03/03/2023-17:55:08] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1274, GPU 6514 (MiB)
+[03/03/2023-17:55:08] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1274 MiB, GPU 6514 MiB
+The configuration is 1_32_6
+[03/03/2023-17:56:01] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1058, GPU 6521 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-17:56:30] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-17:56:43] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 409, GPU 5601 (MiB)
+[03/03/2023-17:56:43] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 409 MiB, GPU 5601 MiB
+[03/03/2023-17:56:43] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-17:56:43] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-17:56:43] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-17:56:44] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +224, now: CPU 631, GPU 5825 (MiB)
+[03/03/2023-17:56:46] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +326, now: CPU 957, GPU 6151 (MiB)
+[03/03/2023-17:56:55] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-17:56:55] [I] [TRT] Total Host Persistent Memory: 3200
+[03/03/2023-17:56:55] [I] [TRT] Total Device Persistent Memory: 382464
+[03/03/2023-17:56:55] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-17:56:55] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 11 MiB
+[03/03/2023-17:56:55] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1273, GPU 6511 (MiB)
+[03/03/2023-17:56:55] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1273, GPU 6511 (MiB)
+[03/03/2023-17:56:55] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1273, GPU 6511 (MiB)
+[03/03/2023-17:56:55] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1051, GPU 6511 (MiB)
+[03/03/2023-17:56:55] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1051 MiB, GPU 6511 MiB
+[03/03/2023-17:56:55] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1052, GPU 6511 (MiB)
+[03/03/2023-17:56:55] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-17:56:55] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1052 MiB, GPU 6511 MiB
+[03/03/2023-17:56:56] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +0, now: CPU 1273, GPU 6511 (MiB)
+[03/03/2023-17:56:56] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1274, GPU 6511 (MiB)
+[03/03/2023-17:56:56] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1052, GPU 6511 (MiB)
+[03/03/2023-17:56:56] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1052 MiB, GPU 6511 MiB
+[03/03/2023-17:56:56] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1054 MiB, GPU 6511 MiB
+[03/03/2023-17:56:56] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +1, now: CPU 1275, GPU 6512 (MiB)
+[03/03/2023-17:56:56] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1276, GPU 6512 (MiB)
+[03/03/2023-17:56:56] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1276 MiB, GPU 6512 MiB
+The configuration is 1_256_9
+[03/03/2023-17:58:13] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1062, GPU 6527 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-17:58:48] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-17:58:53] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5597 (MiB)
+[03/03/2023-17:58:53] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5597 MiB
+[03/03/2023-17:58:53] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-17:58:53] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-17:58:53] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-17:58:56] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +225, now: CPU 628, GPU 5822 (MiB)
+[03/03/2023-17:59:00] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +330, now: CPU 955, GPU 6152 (MiB)
+[03/03/2023-17:59:03] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-17:59:03] [I] [TRT] Total Host Persistent Memory: 1664
+[03/03/2023-17:59:03] [I] [TRT] Total Device Persistent Memory: 23040
+[03/03/2023-17:59:03] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-17:59:03] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 4 MiB
+[03/03/2023-17:59:03] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6509 (MiB)
+[03/03/2023-17:59:03] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1271, GPU 6509 (MiB)
+[03/03/2023-17:59:03] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6509 (MiB)
+[03/03/2023-17:59:03] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6509 (MiB)
+[03/03/2023-17:59:03] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6509 MiB
+[03/03/2023-17:59:03] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6509 (MiB)
+[03/03/2023-17:59:03] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-17:59:03] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6509 MiB
+[03/03/2023-17:59:04] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +5, now: CPU 1270, GPU 6514 (MiB)
+[03/03/2023-17:59:04] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6514 (MiB)
+[03/03/2023-17:59:04] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1053, GPU 6514 (MiB)
+[03/03/2023-17:59:04] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1053 MiB, GPU 6514 MiB
+[03/03/2023-17:59:04] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1053 MiB, GPU 6514 MiB
+[03/03/2023-17:59:05] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +0, now: CPU 1275, GPU 6514 (MiB)
+[03/03/2023-17:59:05] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1275, GPU 6514 (MiB)
+[03/03/2023-17:59:05] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1275 MiB, GPU 6514 MiB
+The configuration is 1_64_9
+[03/03/2023-17:59:55] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6522 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:00:23] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:00:27] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 409, GPU 5599 (MiB)
+[03/03/2023-18:00:27] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 410 MiB, GPU 5599 MiB
+[03/03/2023-18:00:27] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:00:27] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:00:27] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:00:28] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +222, now: CPU 631, GPU 5821 (MiB)
+[03/03/2023-18:00:30] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +329, now: CPU 958, GPU 6150 (MiB)
+[03/03/2023-18:00:37] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:00:37] [I] [TRT] Total Host Persistent Memory: 2176
+[03/03/2023-18:00:37] [I] [TRT] Total Device Persistent Memory: 382464
+[03/03/2023-18:00:37] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 13 MiB
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1276, GPU 6510 (MiB)
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1277, GPU 6510 (MiB)
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1276, GPU 6510 (MiB)
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1054, GPU 6510 (MiB)
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1054 MiB, GPU 6510 MiB
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1055, GPU 6510 (MiB)
+[03/03/2023-18:00:37] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1055 MiB, GPU 6510 MiB
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +0, now: CPU 1277, GPU 6510 (MiB)
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1277, GPU 6510 (MiB)
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1055, GPU 6510 (MiB)
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1055 MiB, GPU 6510 MiB
+[03/03/2023-18:00:37] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1057 MiB, GPU 6510 MiB
+[03/03/2023-18:00:38] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +5, now: CPU 1279, GPU 6515 (MiB)
+[03/03/2023-18:00:38] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1280, GPU 6515 (MiB)
+[03/03/2023-18:00:38] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1280 MiB, GPU 6515 MiB
+The configuration is 1_256_12
+[03/03/2023-18:01:51] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1066, GPU 6528 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:02:19] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:02:30] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5600 (MiB)
+[03/03/2023-18:02:30] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 407 MiB, GPU 5600 MiB
+[03/03/2023-18:02:30] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:02:30] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:02:30] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:02:31] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +223, now: CPU 628, GPU 5823 (MiB)
+[03/03/2023-18:02:33] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +332, now: CPU 955, GPU 6155 (MiB)
+[03/03/2023-18:02:36] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:02:36] [I] [TRT] Total Host Persistent Memory: 1664
+[03/03/2023-18:02:36] [I] [TRT] Total Device Persistent Memory: 23040
+[03/03/2023-18:02:36] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:02:36] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 4 MiB
+[03/03/2023-18:02:36] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6510 (MiB)
+[03/03/2023-18:02:36] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1271, GPU 6510 (MiB)
+[03/03/2023-18:02:36] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6510 (MiB)
+[03/03/2023-18:02:36] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6510 (MiB)
+[03/03/2023-18:02:36] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6510 MiB
+[03/03/2023-18:02:36] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6510 (MiB)
+[03/03/2023-18:02:36] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:02:36] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6510 MiB
+[03/03/2023-18:02:37] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +5, now: CPU 1270, GPU 6515 (MiB)
+[03/03/2023-18:02:37] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6515 (MiB)
+[03/03/2023-18:02:37] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1053, GPU 6515 (MiB)
+[03/03/2023-18:02:37] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1053 MiB, GPU 6515 MiB
+[03/03/2023-18:02:37] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1053 MiB, GPU 6515 MiB
+[03/03/2023-18:02:38] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +0, now: CPU 1274, GPU 6515 (MiB)
+[03/03/2023-18:02:38] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1274, GPU 6515 (MiB)
+[03/03/2023-18:02:38] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1274 MiB, GPU 6515 MiB
+The configuration is 1_64_12
+[03/03/2023-18:03:27] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6533 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:03:59] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:04:02] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 408, GPU 5609 (MiB)
+[03/03/2023-18:04:02] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 408 MiB, GPU 5609 MiB
+[03/03/2023-18:04:02] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:04:02] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:04:02] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:04:03] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +224, now: CPU 630, GPU 5833 (MiB)
+[03/03/2023-18:04:05] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +328, now: CPU 956, GPU 6161 (MiB)
+[03/03/2023-18:04:08] [I] [TRT] Some tactics do not have sufficient workspace memory to run. Increasing workspace size may increase performance, please check verbose output.
+[03/03/2023-18:04:09] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:04:09] [I] [TRT] Total Host Persistent Memory: 3200
+[03/03/2023-18:04:09] [I] [TRT] Total Device Persistent Memory: 133120
+[03/03/2023-18:04:09] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:04:09] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 11 MiB
+[03/03/2023-18:04:09] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1274, GPU 6521 (MiB)
+[03/03/2023-18:04:09] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1275, GPU 6521 (MiB)
+[03/03/2023-18:04:09] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1274, GPU 6521 (MiB)
+[03/03/2023-18:04:09] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1052, GPU 6521 (MiB)
+[03/03/2023-18:04:09] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1052 MiB, GPU 6521 MiB
+[03/03/2023-18:04:09] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1052, GPU 6521 (MiB)
+[03/03/2023-18:04:09] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:04:09] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1052 MiB, GPU 6521 MiB
+[03/03/2023-18:04:10] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +5, now: CPU 1274, GPU 6526 (MiB)
+[03/03/2023-18:04:10] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1275, GPU 6526 (MiB)
+[03/03/2023-18:04:10] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6526 (MiB)
+[03/03/2023-18:04:10] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1057 MiB, GPU 6526 MiB
+[03/03/2023-18:04:10] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1059 MiB, GPU 6526 MiB
+[03/03/2023-18:04:11] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +0, now: CPU 1280, GPU 6526 (MiB)
+[03/03/2023-18:04:11] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1280, GPU 6526 (MiB)
+[03/03/2023-18:04:11] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1280 MiB, GPU 6526 MiB
+The configuration is 3_150_16
+[03/03/2023-18:05:17] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1063, GPU 6536 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:05:48] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:05:51] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 407, GPU 5612 (MiB)
+[03/03/2023-18:05:51] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 407 MiB, GPU 5612 MiB
+[03/03/2023-18:05:51] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:05:51] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:05:51] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:05:52] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +223, now: CPU 629, GPU 5835 (MiB)
+[03/03/2023-18:05:54] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +327, now: CPU 955, GPU 6162 (MiB)
+[03/03/2023-18:05:57] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:05:57] [I] [TRT] Total Host Persistent Memory: 2192
+[03/03/2023-18:05:57] [I] [TRT] Total Device Persistent Memory: 0
+[03/03/2023-18:05:57] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:05:57] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 5 MiB
+[03/03/2023-18:05:57] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +1, GPU +0, now: CPU 1271, GPU 6521 (MiB)
+[03/03/2023-18:05:57] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +1, now: CPU 1271, GPU 6522 (MiB)
+[03/03/2023-18:05:57] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6522 (MiB)
+[03/03/2023-18:05:57] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6522 (MiB)
+[03/03/2023-18:05:57] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6522 MiB
+[03/03/2023-18:05:57] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6522 (MiB)
+[03/03/2023-18:05:57] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:05:57] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6522 MiB
+[03/03/2023-18:05:58] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +3, now: CPU 1270, GPU 6525 (MiB)
+[03/03/2023-18:05:58] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6525 (MiB)
+[03/03/2023-18:05:59] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1052, GPU 6526 (MiB)
+[03/03/2023-18:05:59] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1052 MiB, GPU 6526 MiB
+[03/03/2023-18:05:59] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1052 MiB, GPU 6526 MiB
+[03/03/2023-18:05:59] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +219, GPU +1, now: CPU 1271, GPU 6527 (MiB)
+[03/03/2023-18:05:59] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6527 (MiB)
+[03/03/2023-18:05:59] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1271 MiB, GPU 6527 MiB
+The configuration is 3_64_16
+[03/03/2023-18:06:55] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1058, GPU 6537 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:07:22] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:07:27] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5614 (MiB)
+[03/03/2023-18:07:27] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5614 MiB
+[03/03/2023-18:07:27] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:07:27] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:07:27] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:07:28] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +222, now: CPU 628, GPU 5836 (MiB)
+[03/03/2023-18:07:30] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +328, now: CPU 955, GPU 6164 (MiB)
+[03/03/2023-18:07:33] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:07:33] [I] [TRT] Total Host Persistent Memory: 3200
+[03/03/2023-18:07:33] [I] [TRT] Total Device Persistent Memory: 9728
+[03/03/2023-18:07:33] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:07:33] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 4 MiB
+[03/03/2023-18:07:33] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6521 (MiB)
+[03/03/2023-18:07:33] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6521 (MiB)
+[03/03/2023-18:07:33] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6521 (MiB)
+[03/03/2023-18:07:33] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6521 (MiB)
+[03/03/2023-18:07:33] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6521 MiB
+[03/03/2023-18:07:33] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6521 (MiB)
+[03/03/2023-18:07:33] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:07:33] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6521 MiB
+[03/03/2023-18:07:34] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +4, now: CPU 1270, GPU 6525 (MiB)
+[03/03/2023-18:07:34] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6525 (MiB)
+[03/03/2023-18:07:34] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1052, GPU 6525 (MiB)
+[03/03/2023-18:07:34] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1052 MiB, GPU 6525 MiB
+[03/03/2023-18:07:34] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1052 MiB, GPU 6525 MiB
+[03/03/2023-18:07:35] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +0, now: CPU 1274, GPU 6525 (MiB)
+[03/03/2023-18:07:35] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1274, GPU 6525 (MiB)
+[03/03/2023-18:07:35] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1274 MiB, GPU 6525 MiB
+The configuration is 3_32_16
+[03/03/2023-18:08:27] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6535 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:08:52] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:08:54] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 408, GPU 5613 (MiB)
+[03/03/2023-18:08:54] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 408 MiB, GPU 5613 MiB
+[03/03/2023-18:08:54] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:08:54] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:08:54] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:08:55] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +227, now: CPU 630, GPU 5840 (MiB)
+[03/03/2023-18:08:57] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +322, now: CPU 957, GPU 6162 (MiB)
+[03/03/2023-18:09:02] [I] [TRT] Some tactics do not have sufficient workspace memory to run. Increasing workspace size may increase performance, please check verbose output.
+[03/03/2023-18:09:03] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:09:03] [I] [TRT] Total Host Persistent Memory: 2192
+[03/03/2023-18:09:03] [I] [TRT] Total Device Persistent Memory: 0
+[03/03/2023-18:09:03] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:09:03] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 18 MiB
+[03/03/2023-18:09:03] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1275, GPU 6523 (MiB)
+[03/03/2023-18:09:03] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1275, GPU 6523 (MiB)
+[03/03/2023-18:09:03] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1275, GPU 6523 (MiB)
+[03/03/2023-18:09:04] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1053, GPU 6523 (MiB)
+[03/03/2023-18:09:04] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1053 MiB, GPU 6523 MiB
+[03/03/2023-18:09:04] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1053, GPU 6523 (MiB)
+[03/03/2023-18:09:04] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:09:04] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1053 MiB, GPU 6523 MiB
+[03/03/2023-18:09:04] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +4, now: CPU 1275, GPU 6527 (MiB)
+[03/03/2023-18:09:04] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1275, GPU 6527 (MiB)
+[03/03/2023-18:09:04] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6527 (MiB)
+[03/03/2023-18:09:04] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1057 MiB, GPU 6527 MiB
+[03/03/2023-18:09:04] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1059 MiB, GPU 6527 MiB
+[03/03/2023-18:09:05] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +220, GPU +0, now: CPU 1279, GPU 6527 (MiB)
+[03/03/2023-18:09:05] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1279, GPU 6527 (MiB)
+[03/03/2023-18:09:05] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1279 MiB, GPU 6527 MiB
+The configuration is 6_150_16
+[03/03/2023-18:10:30] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1063, GPU 6539 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:11:04] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:11:10] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 408, GPU 5613 (MiB)
+[03/03/2023-18:11:10] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 408 MiB, GPU 5613 MiB
+[03/03/2023-18:11:10] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:11:10] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:11:10] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:11:11] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +223, now: CPU 630, GPU 5836 (MiB)
+[03/03/2023-18:11:12] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +329, now: CPU 956, GPU 6165 (MiB)
+[03/03/2023-18:11:17] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:11:17] [I] [TRT] Total Host Persistent Memory: 3200
+[03/03/2023-18:11:17] [I] [TRT] Total Device Persistent Memory: 102400
+[03/03/2023-18:11:17] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 18 MiB
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1274, GPU 6523 (MiB)
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1274, GPU 6523 (MiB)
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1274, GPU 6523 (MiB)
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1052, GPU 6524 (MiB)
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1052 MiB, GPU 6524 MiB
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1052, GPU 6524 (MiB)
+[03/03/2023-18:11:17] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1052 MiB, GPU 6524 MiB
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +5, now: CPU 1274, GPU 6529 (MiB)
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1274, GPU 6529 (MiB)
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6529 (MiB)
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1057 MiB, GPU 6529 MiB
+[03/03/2023-18:11:17] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1058 MiB, GPU 6529 MiB
+[03/03/2023-18:11:18] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +0, now: CPU 1279, GPU 6529 (MiB)
+[03/03/2023-18:11:18] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1279, GPU 6529 (MiB)
+[03/03/2023-18:11:18] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1279 MiB, GPU 6529 MiB
+The configuration is 6_128_16
+[03/03/2023-18:12:30] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1062, GPU 6540 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:12:57] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:13:00] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 407, GPU 5615 (MiB)
+[03/03/2023-18:13:00] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 407 MiB, GPU 5615 MiB
+[03/03/2023-18:13:00] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:13:00] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:13:00] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:13:01] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +228, now: CPU 629, GPU 5843 (MiB)
+[03/03/2023-18:13:03] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +324, now: CPU 955, GPU 6167 (MiB)
+[03/03/2023-18:13:06] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:13:06] [I] [TRT] Total Host Persistent Memory: 3200
+[03/03/2023-18:13:06] [I] [TRT] Total Device Persistent Memory: 36352
+[03/03/2023-18:13:06] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 17 MiB
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1271, GPU 6528 (MiB)
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6528 (MiB)
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1271, GPU 6528 (MiB)
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1049, GPU 6528 (MiB)
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1049 MiB, GPU 6528 MiB
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1049, GPU 6528 (MiB)
+[03/03/2023-18:13:06] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1049 MiB, GPU 6528 MiB
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +0, now: CPU 1271, GPU 6528 (MiB)
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6528 (MiB)
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1049, GPU 6528 (MiB)
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1049 MiB, GPU 6528 MiB
+[03/03/2023-18:13:06] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1049 MiB, GPU 6528 MiB
+[03/03/2023-18:13:07] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +5, now: CPU 1271, GPU 6533 (MiB)
+[03/03/2023-18:13:07] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6533 (MiB)
+[03/03/2023-18:13:07] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1271 MiB, GPU 6533 MiB
+The configuration is 6_70_16
+[03/03/2023-18:14:05] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1063, GPU 6543 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:14:40] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:14:47] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5625 (MiB)
+[03/03/2023-18:14:47] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5625 MiB
+[03/03/2023-18:14:47] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:14:47] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:14:47] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:14:48] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +223, now: CPU 628, GPU 5848 (MiB)
+[03/03/2023-18:14:49] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +329, now: CPU 955, GPU 6177 (MiB)
+[03/03/2023-18:14:52] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:14:52] [I] [TRT] Total Host Persistent Memory: 1664
+[03/03/2023-18:14:52] [I] [TRT] Total Device Persistent Memory: 14848
+[03/03/2023-18:14:52] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:14:52] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 4 MiB
+[03/03/2023-18:14:52] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6534 (MiB)
+[03/03/2023-18:14:52] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1271, GPU 6534 (MiB)
+[03/03/2023-18:14:52] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6534 (MiB)
+[03/03/2023-18:14:52] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6534 (MiB)
+[03/03/2023-18:14:52] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6534 MiB
+[03/03/2023-18:14:52] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6534 (MiB)
+[03/03/2023-18:14:52] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:14:52] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6534 MiB
+[03/03/2023-18:14:53] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +5, now: CPU 1270, GPU 6539 (MiB)
+[03/03/2023-18:14:53] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6539 (MiB)
+[03/03/2023-18:14:53] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1053, GPU 6539 (MiB)
+[03/03/2023-18:14:53] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1053 MiB, GPU 6539 MiB
+[03/03/2023-18:14:53] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1053 MiB, GPU 6539 MiB
+[03/03/2023-18:14:54] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +218, GPU +0, now: CPU 1271, GPU 6539 (MiB)
+[03/03/2023-18:14:54] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1272, GPU 6539 (MiB)
+[03/03/2023-18:14:54] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1272 MiB, GPU 6539 MiB
+The configuration is 6_32_16
+[03/03/2023-18:15:47] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6548 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:16:16] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:16:20] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5626 (MiB)
+[03/03/2023-18:16:20] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5626 MiB
+[03/03/2023-18:16:20] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:16:20] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:16:20] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:16:20] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +223, now: CPU 628, GPU 5849 (MiB)
+[03/03/2023-18:16:22] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +328, now: CPU 955, GPU 6177 (MiB)
+[03/03/2023-18:16:25] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:16:25] [I] [TRT] Total Host Persistent Memory: 2192
+[03/03/2023-18:16:25] [I] [TRT] Total Device Persistent Memory: 0
+[03/03/2023-18:16:25] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:16:25] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 4 MiB
+[03/03/2023-18:16:25] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6534 (MiB)
+[03/03/2023-18:16:25] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6534 (MiB)
+[03/03/2023-18:16:25] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6534 (MiB)
+[03/03/2023-18:16:25] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6534 (MiB)
+[03/03/2023-18:16:25] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6534 MiB
+[03/03/2023-18:16:25] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6534 (MiB)
+[03/03/2023-18:16:25] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:16:25] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6534 MiB
+[03/03/2023-18:16:26] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +2, now: CPU 1270, GPU 6536 (MiB)
+[03/03/2023-18:16:26] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6536 (MiB)
+[03/03/2023-18:16:26] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1050, GPU 6536 (MiB)
+[03/03/2023-18:16:26] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1050 MiB, GPU 6536 MiB
+[03/03/2023-18:16:26] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1050 MiB, GPU 6536 MiB
+[03/03/2023-18:16:27] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +0, now: CPU 1271, GPU 6536 (MiB)
+[03/03/2023-18:16:27] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6536 (MiB)
+[03/03/2023-18:16:27] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1271 MiB, GPU 6536 MiB
+The configuration is 6_16_16
+[03/03/2023-18:17:21] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6549 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:17:56] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:18:09] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5627 (MiB)
+[03/03/2023-18:18:09] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5627 MiB
+[03/03/2023-18:18:09] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:18:09] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:18:09] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:18:10] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +224, now: CPU 628, GPU 5851 (MiB)
+[03/03/2023-18:18:12] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +328, now: CPU 955, GPU 6179 (MiB)
+[03/03/2023-18:18:16] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:18:16] [I] [TRT] Total Host Persistent Memory: 2192
+[03/03/2023-18:18:16] [I] [TRT] Total Device Persistent Memory: 0
+[03/03/2023-18:18:16] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:18:16] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 4 MiB
+[03/03/2023-18:18:16] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6539 (MiB)
+[03/03/2023-18:18:16] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6539 (MiB)
+[03/03/2023-18:18:16] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6539 (MiB)
+[03/03/2023-18:18:17] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6539 (MiB)
+[03/03/2023-18:18:17] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6539 MiB
+[03/03/2023-18:18:17] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6539 (MiB)
+[03/03/2023-18:18:17] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:18:17] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6539 MiB
+[03/03/2023-18:18:17] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +0, now: CPU 1270, GPU 6539 (MiB)
+[03/03/2023-18:18:17] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6539 (MiB)
+[03/03/2023-18:18:18] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6539 (MiB)
+[03/03/2023-18:18:18] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1048 MiB, GPU 6539 MiB
+[03/03/2023-18:18:18] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1048 MiB, GPU 6539 MiB
+[03/03/2023-18:18:18] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +1, now: CPU 1270, GPU 6540 (MiB)
+[03/03/2023-18:18:18] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6540 (MiB)
+[03/03/2023-18:18:18] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1270 MiB, GPU 6540 MiB
+The configuration is 6_8_16
+[03/03/2023-18:19:14] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6549 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:19:40] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:19:49] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5628 (MiB)
+[03/03/2023-18:19:49] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5628 MiB
+[03/03/2023-18:19:49] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:19:49] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:19:49] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:19:50] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +228, now: CPU 628, GPU 5856 (MiB)
+[03/03/2023-18:19:52] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +323, now: CPU 955, GPU 6179 (MiB)
+[03/03/2023-18:19:56] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:19:56] [I] [TRT] Total Host Persistent Memory: 4224
+[03/03/2023-18:19:56] [I] [TRT] Total Device Persistent Memory: 24064
+[03/03/2023-18:19:56] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:19:56] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 5 MiB
+[03/03/2023-18:19:56] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6537 (MiB)
+[03/03/2023-18:19:56] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1271, GPU 6537 (MiB)
+[03/03/2023-18:19:56] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6537 (MiB)
+[03/03/2023-18:19:56] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6537 (MiB)
+[03/03/2023-18:19:56] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6537 MiB
+[03/03/2023-18:19:56] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6537 (MiB)
+[03/03/2023-18:19:56] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:19:56] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6537 MiB
+[03/03/2023-18:19:57] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +0, now: CPU 1270, GPU 6537 (MiB)
+[03/03/2023-18:19:57] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6537 (MiB)
+[03/03/2023-18:19:57] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6537 (MiB)
+[03/03/2023-18:19:57] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1048 MiB, GPU 6537 MiB
+[03/03/2023-18:19:57] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1048 MiB, GPU 6537 MiB
+[03/03/2023-18:19:58] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +4, now: CPU 1270, GPU 6541 (MiB)
+[03/03/2023-18:19:58] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6541 (MiB)
+[03/03/2023-18:19:58] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1270 MiB, GPU 6541 MiB
+The configuration is 6_32_32
+[03/03/2023-18:20:49] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6551 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:21:24] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:21:37] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5629 (MiB)
+[03/03/2023-18:21:37] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5629 MiB
+[03/03/2023-18:21:37] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:21:37] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:21:37] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:21:38] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +228, now: CPU 628, GPU 5857 (MiB)
+[03/03/2023-18:21:39] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +323, now: CPU 955, GPU 6180 (MiB)
+[03/03/2023-18:21:44] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:21:44] [I] [TRT] Total Host Persistent Memory: 4224
+[03/03/2023-18:21:44] [I] [TRT] Total Device Persistent Memory: 20480
+[03/03/2023-18:21:44] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:21:44] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 4 MiB
+[03/03/2023-18:21:44] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6539 (MiB)
+[03/03/2023-18:21:44] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6539 (MiB)
+[03/03/2023-18:21:44] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6539 (MiB)
+[03/03/2023-18:21:44] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6539 (MiB)
+[03/03/2023-18:21:44] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6539 MiB
+[03/03/2023-18:21:44] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6539 (MiB)
+[03/03/2023-18:21:44] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:21:44] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6539 MiB
+[03/03/2023-18:21:45] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +2, now: CPU 1270, GPU 6541 (MiB)
+[03/03/2023-18:21:45] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6541 (MiB)
+[03/03/2023-18:21:45] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1050, GPU 6541 (MiB)
+[03/03/2023-18:21:45] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1050 MiB, GPU 6541 MiB
+[03/03/2023-18:21:45] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1050 MiB, GPU 6541 MiB
+[03/03/2023-18:21:46] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +220, GPU +0, now: CPU 1270, GPU 6541 (MiB)
+[03/03/2023-18:21:46] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1271, GPU 6541 (MiB)
+[03/03/2023-18:21:46] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1271 MiB, GPU 6541 MiB
+The configuration is 6_16_32
+[03/03/2023-18:22:37] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6554 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:23:07] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:23:17] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5633 (MiB)
+[03/03/2023-18:23:17] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5633 MiB
+[03/03/2023-18:23:17] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:23:17] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:23:17] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:23:18] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +223, now: CPU 628, GPU 5856 (MiB)
+[03/03/2023-18:23:19] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +327, now: CPU 955, GPU 6183 (MiB)
+[03/03/2023-18:23:23] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:23:23] [I] [TRT] Total Host Persistent Memory: 3200
+[03/03/2023-18:23:23] [I] [TRT] Total Device Persistent Memory: 19456
+[03/03/2023-18:23:23] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:23:23] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 4 MiB
+[03/03/2023-18:23:23] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6540 (MiB)
+[03/03/2023-18:23:23] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6540 (MiB)
+[03/03/2023-18:23:23] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6540 (MiB)
+[03/03/2023-18:23:23] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6540 (MiB)
+[03/03/2023-18:23:23] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6540 MiB
+[03/03/2023-18:23:23] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6540 (MiB)
+[03/03/2023-18:23:23] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:23:23] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6540 MiB
+[03/03/2023-18:23:24] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +1, now: CPU 1270, GPU 6541 (MiB)
+[03/03/2023-18:23:24] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6541 (MiB)
+[03/03/2023-18:23:24] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1050, GPU 6541 (MiB)
+[03/03/2023-18:23:24] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1050 MiB, GPU 6541 MiB
+[03/03/2023-18:23:24] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1050 MiB, GPU 6541 MiB
+[03/03/2023-18:23:25] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +220, GPU +1, now: CPU 1270, GPU 6542 (MiB)
+[03/03/2023-18:23:25] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6542 (MiB)
+[03/03/2023-18:23:25] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1270 MiB, GPU 6542 MiB
+The configuration is 6_8_32
+[03/03/2023-18:24:16] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6554 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:24:52] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:24:55] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 407, GPU 5634 (MiB)
+[03/03/2023-18:24:55] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 407 MiB, GPU 5634 MiB
+[03/03/2023-18:24:55] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:24:55] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:24:55] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:24:56] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +227, now: CPU 629, GPU 5861 (MiB)
+[03/03/2023-18:24:58] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +326, now: CPU 955, GPU 6187 (MiB)
+[03/03/2023-18:25:01] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:25:01] [I] [TRT] Total Host Persistent Memory: 2176
+[03/03/2023-18:25:01] [I] [TRT] Total Device Persistent Memory: 56320
+[03/03/2023-18:25:01] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:25:01] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 8 MiB
+[03/03/2023-18:25:01] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1271, GPU 6543 (MiB)
+[03/03/2023-18:25:01] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6543 (MiB)
+[03/03/2023-18:25:01] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1271, GPU 6543 (MiB)
+[03/03/2023-18:25:01] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1049, GPU 6543 (MiB)
+[03/03/2023-18:25:01] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1049 MiB, GPU 6543 MiB
+[03/03/2023-18:25:01] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1049, GPU 6543 (MiB)
+[03/03/2023-18:25:01] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:25:01] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1049 MiB, GPU 6543 MiB
+[03/03/2023-18:25:02] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +1, now: CPU 1270, GPU 6544 (MiB)
+[03/03/2023-18:25:02] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1271, GPU 6544 (MiB)
+[03/03/2023-18:25:02] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1049, GPU 6544 (MiB)
+[03/03/2023-18:25:02] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1049 MiB, GPU 6544 MiB
+[03/03/2023-18:25:02] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1049 MiB, GPU 6544 MiB
+[03/03/2023-18:25:03] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +1, now: CPU 1271, GPU 6545 (MiB)
+[03/03/2023-18:25:03] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6545 (MiB)
+[03/03/2023-18:25:03] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1271 MiB, GPU 6545 MiB
+The configuration is 16_32_32
+[03/03/2023-18:25:57] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6557 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:26:25] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:26:35] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5631 (MiB)
+[03/03/2023-18:26:35] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5631 MiB
+[03/03/2023-18:26:35] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:26:35] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:26:35] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:26:36] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +227, now: CPU 628, GPU 5858 (MiB)
+[03/03/2023-18:26:37] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +325, now: CPU 955, GPU 6183 (MiB)
+[03/03/2023-18:26:42] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:26:42] [I] [TRT] Total Host Persistent Memory: 4224
+[03/03/2023-18:26:42] [I] [TRT] Total Device Persistent Memory: 52736
+[03/03/2023-18:26:42] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:26:42] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 6 MiB
+[03/03/2023-18:26:42] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +1, GPU +0, now: CPU 1271, GPU 6541 (MiB)
+[03/03/2023-18:26:42] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6541 (MiB)
+[03/03/2023-18:26:42] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6541 (MiB)
+[03/03/2023-18:26:43] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6541 (MiB)
+[03/03/2023-18:26:43] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6541 MiB
+[03/03/2023-18:26:43] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6541 (MiB)
+[03/03/2023-18:26:43] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:26:43] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6541 MiB
+[03/03/2023-18:26:43] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +0, now: CPU 1270, GPU 6541 (MiB)
+[03/03/2023-18:26:43] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6541 (MiB)
+[03/03/2023-18:26:43] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6541 (MiB)
+[03/03/2023-18:26:43] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1048 MiB, GPU 6541 MiB
+[03/03/2023-18:26:43] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1048 MiB, GPU 6541 MiB
+[03/03/2023-18:26:44] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +5, now: CPU 1270, GPU 6546 (MiB)
+[03/03/2023-18:26:44] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6546 (MiB)
+[03/03/2023-18:26:44] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1270 MiB, GPU 6546 MiB
+The configuration is 16_16_32
+[03/03/2023-18:27:34] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6554 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:28:00] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:28:04] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5633 (MiB)
+[03/03/2023-18:28:04] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5633 MiB
+[03/03/2023-18:28:04] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:28:04] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:28:04] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:28:05] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +228, now: CPU 628, GPU 5861 (MiB)
+[03/03/2023-18:28:07] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +326, now: CPU 955, GPU 6187 (MiB)
+[03/03/2023-18:28:11] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:28:11] [I] [TRT] Total Host Persistent Memory: 2192
+[03/03/2023-18:28:11] [I] [TRT] Total Device Persistent Memory: 0
+[03/03/2023-18:28:11] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:28:11] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 6 MiB
+[03/03/2023-18:28:11] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6543 (MiB)
+[03/03/2023-18:28:11] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1271, GPU 6543 (MiB)
+[03/03/2023-18:28:11] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6543 (MiB)
+[03/03/2023-18:28:11] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6543 (MiB)
+[03/03/2023-18:28:11] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6543 MiB
+[03/03/2023-18:28:11] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1048, GPU 6543 (MiB)
+[03/03/2023-18:28:11] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:28:11] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1048 MiB, GPU 6543 MiB
+[03/03/2023-18:28:12] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +4, now: CPU 1270, GPU 6547 (MiB)
+[03/03/2023-18:28:12] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1270, GPU 6547 (MiB)
+[03/03/2023-18:28:12] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1053, GPU 6547 (MiB)
+[03/03/2023-18:28:12] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1053 MiB, GPU 6547 MiB
+[03/03/2023-18:28:12] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1053 MiB, GPU 6547 MiB
+[03/03/2023-18:28:13] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +220, GPU +0, now: CPU 1273, GPU 6547 (MiB)
+[03/03/2023-18:28:13] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1274, GPU 6547 (MiB)
+[03/03/2023-18:28:13] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1274 MiB, GPU 6547 MiB
+The configuration is 16_8_32
+[03/03/2023-18:29:06] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6557 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:29:33] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:29:41] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 407, GPU 5641 (MiB)
+[03/03/2023-18:29:41] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 407 MiB, GPU 5641 MiB
+[03/03/2023-18:29:41] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:29:41] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:29:41] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:29:41] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +223, now: CPU 629, GPU 5864 (MiB)
+[03/03/2023-18:29:42] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +331, now: CPU 955, GPU 6195 (MiB)
+[03/03/2023-18:29:46] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:29:46] [I] [TRT] Total Host Persistent Memory: 1664
+[03/03/2023-18:29:46] [I] [TRT] Total Device Persistent Memory: 107520
+[03/03/2023-18:29:46] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:29:46] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 12 MiB
+[03/03/2023-18:29:46] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1271, GPU 6551 (MiB)
+[03/03/2023-18:29:46] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6551 (MiB)
+[03/03/2023-18:29:46] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1271, GPU 6551 (MiB)
+[03/03/2023-18:29:46] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1049, GPU 6551 (MiB)
+[03/03/2023-18:29:46] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1049 MiB, GPU 6551 MiB
+[03/03/2023-18:29:46] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1049, GPU 6551 (MiB)
+[03/03/2023-18:29:46] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:29:46] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1049 MiB, GPU 6551 MiB
+[03/03/2023-18:29:46] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +2, now: CPU 1271, GPU 6553 (MiB)
+[03/03/2023-18:29:46] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6553 (MiB)
+[03/03/2023-18:29:47] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1051, GPU 6554 (MiB)
+[03/03/2023-18:29:47] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1051 MiB, GPU 6554 MiB
+[03/03/2023-18:29:47] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1051 MiB, GPU 6554 MiB
+[03/03/2023-18:29:47] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +220, GPU +0, now: CPU 1271, GPU 6554 (MiB)
+[03/03/2023-18:29:47] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6554 (MiB)
+[03/03/2023-18:29:47] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1271 MiB, GPU 6554 MiB
+The configuration is 16_32_64
+[03/03/2023-18:30:42] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1058, GPU 6566 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:31:15] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:31:19] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5644 (MiB)
+[03/03/2023-18:31:19] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5644 MiB
+[03/03/2023-18:31:19] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:31:19] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:31:19] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:31:20] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +224, now: CPU 628, GPU 5868 (MiB)
+[03/03/2023-18:31:22] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +328, now: CPU 955, GPU 6196 (MiB)
+[03/03/2023-18:31:26] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:31:26] [I] [TRT] Total Host Persistent Memory: 1664
+[03/03/2023-18:31:26] [I] [TRT] Total Device Persistent Memory: 103936
+[03/03/2023-18:31:26] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:31:26] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 8 MiB
+[03/03/2023-18:31:26] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +1, GPU +0, now: CPU 1271, GPU 6555 (MiB)
+[03/03/2023-18:31:26] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6555 (MiB)
+[03/03/2023-18:31:26] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6555 (MiB)
+[03/03/2023-18:31:26] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6555 (MiB)
+[03/03/2023-18:31:26] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6555 MiB
+[03/03/2023-18:31:26] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1049, GPU 6555 (MiB)
+[03/03/2023-18:31:26] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:31:26] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1049 MiB, GPU 6555 MiB
+[03/03/2023-18:31:27] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +0, now: CPU 1270, GPU 6555 (MiB)
+[03/03/2023-18:31:27] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1271, GPU 6555 (MiB)
+[03/03/2023-18:31:27] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1049, GPU 6555 (MiB)
+[03/03/2023-18:31:27] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1049 MiB, GPU 6555 MiB
+[03/03/2023-18:31:27] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1049 MiB, GPU 6555 MiB
+[03/03/2023-18:31:27] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +0, now: CPU 1270, GPU 6555 (MiB)
+[03/03/2023-18:31:27] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1271, GPU 6555 (MiB)
+[03/03/2023-18:31:27] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1271 MiB, GPU 6555 MiB
+The configuration is 16_16_64
+[03/03/2023-18:32:19] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6567 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:32:46] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:32:56] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 406, GPU 5646 (MiB)
+[03/03/2023-18:32:56] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 406 MiB, GPU 5646 MiB
+[03/03/2023-18:32:56] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:32:56] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:32:56] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:32:56] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +223, now: CPU 628, GPU 5869 (MiB)
+[03/03/2023-18:32:58] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +327, GPU +327, now: CPU 955, GPU 6196 (MiB)
+[03/03/2023-18:33:01] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:33:01] [I] [TRT] Total Host Persistent Memory: 2192
+[03/03/2023-18:33:01] [I] [TRT] Total Device Persistent Memory: 0
+[03/03/2023-18:33:01] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:33:01] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 8 MiB
+[03/03/2023-18:33:01] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +1, GPU +0, now: CPU 1271, GPU 6555 (MiB)
+[03/03/2023-18:33:01] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6555 (MiB)
+[03/03/2023-18:33:01] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1270, GPU 6555 (MiB)
+[03/03/2023-18:33:01] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1048, GPU 6555 (MiB)
+[03/03/2023-18:33:01] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1048 MiB, GPU 6555 MiB
+[03/03/2023-18:33:01] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1049, GPU 6555 (MiB)
+[03/03/2023-18:33:01] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:33:01] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1049 MiB, GPU 6555 MiB
+[03/03/2023-18:33:02] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +221, GPU +3, now: CPU 1270, GPU 6558 (MiB)
+[03/03/2023-18:33:02] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1271, GPU 6558 (MiB)
+[03/03/2023-18:33:02] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1052, GPU 6558 (MiB)
+[03/03/2023-18:33:02] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1052 MiB, GPU 6558 MiB
+[03/03/2023-18:33:02] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1052 MiB, GPU 6558 MiB
+[03/03/2023-18:33:03] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +0, now: CPU 1274, GPU 6558 (MiB)
+[03/03/2023-18:33:03] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1274, GPU 6558 (MiB)
+[03/03/2023-18:33:03] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1274 MiB, GPU 6558 MiB
+The configuration is 16_8_64
+[03/03/2023-18:33:58] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6567 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:34:24] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:34:31] [I] [TRT] [MemUsageChange] Init CUDA: CPU +389, GPU +0, now: CPU 407, GPU 5644 (MiB)
+[03/03/2023-18:34:31] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 407 MiB, GPU 5644 MiB
+[03/03/2023-18:34:31] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:34:31] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:34:31] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:34:32] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +226, now: CPU 629, GPU 5870 (MiB)
+[03/03/2023-18:34:33] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +325, now: CPU 955, GPU 6195 (MiB)
+[03/03/2023-18:34:36] [I] [TRT] Some tactics do not have sufficient workspace memory to run. Increasing workspace size may increase performance, please check verbose output.
+[03/03/2023-18:34:37] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:34:37] [I] [TRT] Total Host Persistent Memory: 1664
+[03/03/2023-18:34:37] [I] [TRT] Total Device Persistent Memory: 209920
+[03/03/2023-18:34:37] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:34:37] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 13 MiB
+[03/03/2023-18:34:37] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1273, GPU 6557 (MiB)
+[03/03/2023-18:34:37] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1274, GPU 6557 (MiB)
+[03/03/2023-18:34:37] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1273, GPU 6557 (MiB)
+[03/03/2023-18:34:37] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1051, GPU 6557 (MiB)
+[03/03/2023-18:34:37] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1051 MiB, GPU 6557 MiB
+[03/03/2023-18:34:37] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1051, GPU 6557 (MiB)
+[03/03/2023-18:34:37] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:34:37] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1051 MiB, GPU 6557 MiB
+[03/03/2023-18:34:38] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +4, now: CPU 1273, GPU 6561 (MiB)
+[03/03/2023-18:34:38] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1273, GPU 6561 (MiB)
+[03/03/2023-18:34:38] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1056, GPU 6561 (MiB)
+[03/03/2023-18:34:38] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1056 MiB, GPU 6561 MiB
+[03/03/2023-18:34:38] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1056 MiB, GPU 6561 MiB
+[03/03/2023-18:34:39] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +217, GPU +1, now: CPU 1273, GPU 6562 (MiB)
+[03/03/2023-18:34:39] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1274, GPU 6562 (MiB)
+[03/03/2023-18:34:39] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1274 MiB, GPU 6562 MiB
+The configuration is 32_32_64
+[03/03/2023-18:35:47] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1060, GPU 6572 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+&&&& RUNNING TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+[03/03/2023-18:36:23] [I] Building and running a GPU inference engine for MNIST API
+[03/03/2023-18:36:35] [I] [TRT] [MemUsageChange] Init CUDA: CPU +390, GPU +0, now: CPU 407, GPU 5646 (MiB)
+[03/03/2023-18:36:35] [I] [TRT] [MemUsageSnapshot] Builder begin: CPU 407 MiB, GPU 5646 MiB
+[03/03/2023-18:36:35] [I] [TRT] ---------- Layers Running on DLA ----------
+[03/03/2023-18:36:35] [I] [TRT] ---------- Layers Running on GPU ----------
+[03/03/2023-18:36:35] [I] [TRT] [GpuLayer] (Unnamed Layer* 0) [Convolution]
+[03/03/2023-18:36:36] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +222, now: CPU 629, GPU 5868 (MiB)
+[03/03/2023-18:36:38] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +326, GPU +328, now: CPU 955, GPU 6196 (MiB)
+[03/03/2023-18:36:44] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[03/03/2023-18:36:44] [I] [TRT] Total Host Persistent Memory: 2192
+[03/03/2023-18:36:44] [I] [TRT] Total Device Persistent Memory: 0
+[03/03/2023-18:36:44] [I] [TRT] Total Scratch Memory: 0
+[03/03/2023-18:36:44] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 12 MiB
+[03/03/2023-18:36:44] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1271, GPU 6554 (MiB)
+[03/03/2023-18:36:44] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6554 (MiB)
+[03/03/2023-18:36:44] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1271, GPU 6554 (MiB)
+[03/03/2023-18:36:44] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1049, GPU 6554 (MiB)
+[03/03/2023-18:36:44] [I] [TRT] [MemUsageSnapshot] Builder end: CPU 1049 MiB, GPU 6554 MiB
+[03/03/2023-18:36:44] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1049, GPU 6554 (MiB)
+[03/03/2023-18:36:44] [I] [TRT] Loaded engine size: 0 MB
+[03/03/2023-18:36:44] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine begin: CPU 1049 MiB, GPU 6554 MiB
+[03/03/2023-18:36:45] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +222, GPU +1, now: CPU 1271, GPU 6555 (MiB)
+[03/03/2023-18:36:45] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 1271, GPU 6555 (MiB)
+[03/03/2023-18:36:45] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1050, GPU 6555 (MiB)
+[03/03/2023-18:36:45] [I] [TRT] [MemUsageSnapshot] deserializeCudaEngine end: CPU 1050 MiB, GPU 6555 MiB
+[03/03/2023-18:36:45] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation begin: CPU 1050 MiB, GPU 6555 MiB
+[03/03/2023-18:36:46] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +220, GPU +1, now: CPU 1270, GPU 6556 (MiB)
+[03/03/2023-18:36:46] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 1271, GPU 6556 (MiB)
+[03/03/2023-18:36:46] [I] [TRT] [MemUsageSnapshot] ExecutionContext creation end: CPU 1271 MiB, GPU 6556 MiB
+The configuration is 32_8_64
+[03/03/2023-18:37:45] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 1057, GPU 6544 (MiB)
+&&&& PASSED TensorRT.sample_mnist_api [TensorRT v8200] # ./mbnet
+ 

@@ -1,0 +1,127 @@
+==9330== NVPROF is profiling process 9330, command: ./mbnet
+==9330== Warning: Profiling results might be incorrect with current version of nvcc compiler used to compile cuda app. Compile with nvcc compiler 9.0 or later version to get correct profiling results. Ignore this warning if code is already compiled with the recommended nvcc version 
+==9330== Profiling application: ./mbnet
+==9330== Profiling result:
+==9330== Metric result:
+Invocations                               Metric Name                        Metric Description         Min         Max         Avg
+Device "NVIDIA Tegra X2 (0)"
+    Kernel: trt_maxwell_scudnn_128x128_relu_large_nn_v0
+          3                                       ipc                              Executed IPC    3.758545    3.835909    3.804606
+    Kernel: trt_maxwell_scudnn_128x128_relu_large_nn_v1
+          3                                       ipc                              Executed IPC    3.759676    3.806629    3.790794
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=3, int=4, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    3.436293    3.523895    3.496578
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=2, int=3, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    3.743839    3.784190    3.768801
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=2, int=4, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    4.037265    4.083803    4.066521
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=3, int=5, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    3.328666    3.385661    3.363186
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=4, int=4, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    3.196123    3.236906    3.215976
+    Kernel: void cask_trt::computeOffsetsKernel<bool=0, bool=0>(cask_trt::ComputeOffsetsParams)
+         25                                       ipc                              Executed IPC    1.834602    2.829855    2.573087
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=3, int=5, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    3.760747    3.852688    3.823484
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=2, int=5, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+         10                                       ipc                              Executed IPC    3.986946    4.062651    4.039660
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=5, int=5, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    3.247311    3.395443    3.339393
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=6, int=4, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    2.948476    3.093780    3.032683
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=4, int=5, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    3.377828    3.563149    3.492661
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=4>, fused::KpqkPtrWriter<float, int=1, int=1, int=4>, float, float, int=5, int=3, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    3.318980    3.461534    3.415923
+    Kernel: void DSE::vector_fft<int=1, int=2, int=128, int=8, int=8, int=1, float, float, float2>(float2*, float2, int, int3, float2*)
+          3                                       ipc                              Executed IPC    1.525915    1.578503    1.547250
+    Kernel: void cudnn::cnn::im2col4d_kernel<float, long>(cudnn::cnn::im2col4d_params, cudnnConvolutionStruct, cudnnTensorStruct, float const *, cudnnTensorStruct*)
+          3                                       ipc                              Executed IPC    2.610392    2.717739    2.670478
+    Kernel: trt_maxwell_scudnn_128x64_relu_medium_nn_v0
+          3                                       ipc                              Executed IPC    3.776018    3.864383    3.825426
+    Kernel: trt_maxwell_scudnn_128x64_relu_medium_nn_v1
+          3                                       ipc                              Executed IPC    3.742191    3.823688    3.795872
+    Kernel: trt_maxwell_scudnn_128x32_relu_large_nn_v0
+          3                                       ipc                              Executed IPC    3.772364    3.851809    3.823640
+    Kernel: trt_maxwell_scudnn_128x64_relu_large_nn_v0
+          3                                       ipc                              Executed IPC    3.802240    3.855981    3.837404
+    Kernel: trt_maxwell_scudnn_128x32_relu_large_nn_v1
+          3                                       ipc                              Executed IPC    3.087578    3.257299    3.198461
+    Kernel: trt_maxwell_scudnn_128x64_relu_large_nn_v1
+          3                                       ipc                              Executed IPC    3.718722    3.816028    3.783425
+    Kernel: void fft2d_c2r_32x32<float, bool=0, bool=0, unsigned int=0, bool=0, bool=0>(float*, float2 const *, int, int, int, int, int, int, int, int, int, float, float, cudnn::reduced_divisor, bool, float*, float*, int2, int, int)
+         27                                       ipc                              Executed IPC    1.036227    2.244261    1.824375
+    Kernel: void gemv2N_kernel<int, int, float2, float2, float2, int=128, int=8, int=4, int=4, int=1, cublasGemvParams<cublasGemvTensorStridedBatched<float2 const >, cublasGemvTensorStridedBatched<float2>, float2>>(float2 const )
+         27                                       ipc                              Executed IPC    1.867051    1.925549    1.902628
+    Kernel: void genericReformat::copyPackedKernel<float, float, bool=1, bool=1, genericReformat::ArrayN<int=4>, int=4>(unsigned int, unsigned int, void const *, genericReformat::ArrayN<genericReformat::ArrayN<int=4>>, genericReformat::ArrayNWithReducedDivisors<genericReformat::ArrayN<int=4>>, void const *, int, int, int, float const *, void*, void const *, genericReformat::ArrayNWithReducedDivisors, genericReformat::ArrayNWithReducedDivisors, void const *, int, int, int, float const , int=4)
+          3                                       ipc                              Executed IPC    3.283985    3.537346    3.451343
+    Kernel: void explicit_convolve_sgemm<float, int, int=128, int=6, int=7, int=3, int=3, int=5, int=0, bool=0>(int, int, int, float const *, int, float const *, int, float*, kernel_conv_params, __int64, int, __int64, int, float, float, int, float const *, float const *)
+          3                                       ipc                              Executed IPC    3.239728    3.311360    3.284019
+    Kernel: void genericReformat::copyPackedKernel<float, float, bool=1, bool=1, genericReformat::IdentityCoordMapper<int=4>, int=4>(unsigned int, unsigned int, void const *, genericReformat::ArrayN<genericReformat::IdentityCoordMapper<int=4>>, genericReformat::ArrayNWithReducedDivisors<genericReformat::IdentityCoordMapper<int=4>>, genericReformat::ArrayN, int, int, int, float const *, void*, genericReformat::ArrayN, genericReformat::ArrayNWithReducedDivisors, genericReformat::ArrayNWithReducedDivisors, genericReformat::ArrayN, int, int, int, float const , int=4)
+          3                                       ipc                              Executed IPC    3.212661    3.441885    3.363588
+    Kernel: void DSE::regular_fft_pad<int=0, int=1, int=128, int=16, int=32, int=1, float, float, float2>(float2*, float*, int, int3, float*, int, float*, float*, int, int, int, int, int, bool)
+          6                                       ipc                              Executed IPC    1.212460    1.434801    1.344056
+    Kernel: void fft2d_r2c_32x32<float, bool=0, unsigned int=0, bool=0>(float2*, float const *, int, int, int, int, int, int, int, int, int, cudnn::reduced_divisor, bool, int2, int, int)
+         27                                       ipc                              Executed IPC    0.469235    1.135937    0.940240
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=2, int=4, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    2.699999    2.770116    2.733612
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=4, int=4, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+         10                                       ipc                              Executed IPC    3.505672    3.668996    3.624331
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=2, int=5, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+         10                                       ipc                              Executed IPC    3.994531    4.082581    4.053920
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=5, int=2, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    4.010392    4.111593    4.079572
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=5, int=5, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    3.470279    3.637477    3.578431
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=5, int=4, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    3.141803    3.288118    3.239865
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=4>, fused::KpqkPtrWriter<float, int=1, int=1, int=4>, float, float, int=5, int=3, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                                       ipc                              Executed IPC    3.118203    3.205552    3.183148
+    Kernel: trt_maxwell_scudnn_128x128_relu_small_nn_v0
+          3                                       ipc                              Executed IPC    3.759172    3.819761    3.797455
+    Kernel: trt_maxwell_scudnn_128x128_relu_small_nn_v1
+          3                                       ipc                              Executed IPC    3.813485    3.866532    3.844601
+    Kernel: void op_generic_tensor_kernel<int=3, float, float, float, int=256, cudnnGenericOp_t=0, cudnnNanPropagation_t=0, int=0>(cudnnTensorStruct, float*, cudnnTensorStruct, float const *, cudnnTensorStruct, float const *, float, float, float, cudnnActivationStruct, reducedDivisorArray, int)
+         15                                       ipc                              Executed IPC    3.651173    3.785668    3.738825
+    Kernel: void DSE::vector_fft<int=0, int=1, int=128, int=8, int=8, int=1, float, float, float2>(float2*, float2, int, int3, float2*)
+          6                                       ipc                              Executed IPC    1.964020    2.408742    2.191663
+    Kernel: trt_maxwell_scudnn_128x64_relu_interior_nn_v0
+          3                                       ipc                              Executed IPC    3.749236    3.848269    3.810182
+    Kernel: trt_maxwell_scudnn_128x64_relu_interior_nn_v1
+          3                                       ipc                              Executed IPC    3.736304    3.825436    3.795593
+    Kernel: void gemv2T_kernel_val<int, int, float2, float2, float2, int=128, int=16, int=2, int=2, bool=0, cublasGemvParams<cublasGemvTensorStridedBatched<float2 const >, cublasGemvTensorStridedBatched<float2>, float2>>(float2 const , float2, float2)
+          3                                       ipc                              Executed IPC    3.665145    3.701818    3.685635
+    Kernel: trt_maxwell_scudnn_128x128_relu_interior_nn_v0
+          3                                       ipc                              Executed IPC    3.750367    3.822404    3.794104
+    Kernel: trt_maxwell_scudnn_128x128_relu_interior_nn_v1
+          3                                       ipc                              Executed IPC    3.804596    3.847943    3.829816
+    Kernel: void DSE::regular_fft_clip<int=1, int=2, int=128, int=16, int=32, int=1, float, float, float2>(float*, float2*, int, int3, float2*, int, float2*, float2*, int, int, int, int, int, float, float, bool, int, float, float)
+          3                                       ipc                              Executed IPC    1.029959    1.046087    1.039129
+    Kernel: trt_maxwell_scudnn_128x128_relu_medium_nn_v0
+          3                                       ipc                              Executed IPC    3.753174    3.824429    3.798150
+    Kernel: void CUTENSOR_NAMESPACE::permutationKernelPLC3<CUTENSOR_NAMESPACE::VectorWrite2DTensorView<unsigned char=0, unsigned char=1, bool=0, unsigned int=4, float, float, CUTENSOR_NAMESPACE::GeneralUnarySmall<float>>, CUTENSOR_NAMESPACE::VectorRead2DTensorView<unsigned char=1, unsigned char=0, bool=0, unsigned int=4, float, float, CUTENSOR_NAMESPACE::GeneralUnarySmall<float>>, CUTENSOR_NAMESPACE::ThreadLevelElementwise<CUTENSOR_NAMESPACE::ElementwiseConfig2DCommonCase<CUTENSOR_NAMESPACE::GeneralUnarySmall<float>, CUTENSOR_NAMESPACE::GeneralBinary<float>, int=2, int=64, int=64, int=256, char=4, bool=0, bool=1, bool=1, bool=1, bool=0>, float>, CUTENSOR_NAMESPACE::ElementwiseRuntimePLC3<float, float, float, float>::Params>(unsigned int=4)
+          6                                       ipc                              Executed IPC    2.927679    3.220122    3.094007
+    Kernel: trt_maxwell_scudnn_128x128_relu_medium_nn_v1
+          3                                       ipc                              Executed IPC    3.798869    3.846433    3.830065
+    Kernel: void implicit_convolve_sgemm<float, float, int=1024, int=5, int=5, int=3, int=3, int=3, int=1, bool=0, bool=0, bool=1>(int, int, int, float const *, int, float*, float const *, kernel_conv_params, __int64, int, float, float, int, float const *, float const *, bool, int, int)
+          6                                       ipc                              Executed IPC    3.808563    3.891819    3.867550
+    Kernel: trt_maxwell_scudnn_128x32_relu_small_nn_v0
+          3                                       ipc                              Executed IPC    3.736963    3.849510    3.810728
+    Kernel: trt_maxwell_scudnn_128x32_relu_small_nn_v1
+          3                                       ipc                              Executed IPC    3.167867    3.366346    3.282599
+    Kernel: trt_maxwell_scudnn_128x64_relu_small_nn_v0
+          3                                       ipc                              Executed IPC    3.764689    3.842651    3.812824
+    Kernel: trt_maxwell_scudnn_128x64_relu_small_nn_v1
+          3                                       ipc                              Executed IPC    3.731198    3.839591    3.799460
+    Kernel: void transpose_readWrite_alignment_kernel<float2, float2, int=1, bool=0, int=6, int=4, int=4>(cublasTransposeParams<float2>, float2 const *, float2*, float2 const *)
+          9                                       ipc                              Executed IPC    2.358114    4.036177    3.164601
+    Kernel: trt_maxwell_scudnn_128x32_relu_interior_nn_v0
+          3                                       ipc                              Executed IPC    3.871743    3.979553    3.941639
+    Kernel: trt_maxwell_scudnn_128x32_relu_interior_nn_v1
+      10003                                       ipc                              Executed IPC    2.055804    3.430449    3.334334
+    Kernel: void fft2d_r2c_32x32<float, bool=0, unsigned int=5, bool=1>(float2*, float const *, int, int, int, int, int, int, int, int, int, cudnn::reduced_divisor, bool, int2, int, int)
+          3                                       ipc                              Executed IPC    1.426155    1.572516    1.491469
+    Kernel: trt_maxwell_scudnn_128x32_relu_medium_nn_v0
+          3                                       ipc                              Executed IPC    3.732401    3.818832    3.780853
+    Kernel: trt_maxwell_scudnn_128x32_relu_medium_nn_v1
+          3                                       ipc                              Executed IPC    3.138359    3.287989    3.233308

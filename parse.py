@@ -49,7 +49,10 @@ class Parse:
         else:
             time = self.parse_time(elem[1])  # obtains time
 
-        dict[header] = time  # add it to header
+        if header in dict:
+            dict[header] = dict[header] + time
+        else:
+            dict[header] = time  # add it to header
         total_time = total_time + time  # sum all times
         return total_time
 
@@ -82,8 +85,24 @@ class Parse:
                         total_time = self.takeRecord(elem, record, total_time)
 
             record['Total_time'] = "{:.3f}".format(total_time)
-            record['Kernel_time\n'] = "{:.3f}".format(float(record['Total_time']) -
-                                                      float(record['HtoD']) - float(record['DtoH']))
+            record['Kernel_time\n'] = "{:.3f}".format(total_time)
+
+            if "HtoD" in record:
+                record['Kernel_time\n'] = "{:.3f}".format(
+                    float(record['Kernel_time\n']) - float(record['HtoD']))
+
+            if "DtoH" in record:
+                record['Kernel_time\n'] = "{:.3f}".format(
+                    float(record['Kernel_time\n']) - float(record['DtoH']))
+
+            if "memset" in record:
+                record['Kernel_time\n'] = "{:.3f}".format(
+                    float(record['Kernel_time\n']) - float(record['memset']))
+
+            if "DtoD]" in record:
+                record['Kernel_time\n'] = "{:.3f}".format(
+                    float(record['Kernel_time\n']) - float(record['DtoD]']))
+
             csv_writer.writerow(record)
             csv_file.close()
 
@@ -120,7 +139,7 @@ class metricsParse(Parse):
 
                         if header[-1] == '(' or header[-1] == '<':
                             header = header[0:-1]
-                        if header == 'gemmSN_NN_kernel':
+                        if header == 'cask_cudnn::computeOffsetsKernel':
                             header += '\n'
 
                     if elem[1] == metric:
@@ -144,6 +163,7 @@ if __name__ == '__main__':
     for j in range(0, len(csv_file.nvprof_paths)):
         for i in range(0, len(C)):
             if j == 2:
+                print(j)
                 log_file = csv_file.nvprof_paths[j] + '/nvprof_comp_' + \
                     str(C[i]) + '_' + str(HW[i]) + \
                     '_' + str(K[i]) + '.txt'
@@ -152,28 +172,28 @@ if __name__ == '__main__':
                 parser.parse_file()
         print(csv_file.nvprof_paths[j] + " parsing finished")
 
-    # for metric in csv_file.metrics:
-    #     for i in range(0, len(C)):
+    for metric in csv_file.metrics:
+        for i in range(0, len(C)):
 
-    #         with open('metrics/'+metric+'_sum.csv', 'a') as output:
-    #             with open("metrics/" + metric + "_sum.csv", 'r') as file:
-    #                 headers = file.readlines()[0].split(
-    #                     ',')  # get all headers
-    #             csv_writer = csv.DictWriter(output, fieldnames=headers)
+            with open('metrics/'+metric+'_sum.csv', 'a') as output:
+               	with open("metrics/" + metric + "_sum.csv", 'r') as file:
+                     headers = file.readlines()[0].split(
+                         ',')  # get all headers
+                csv_writer = csv.DictWriter(output, fieldnames=headers)
 
-    #             dict = {'Configuration': '(' + str(
-    #                     C[i])+'_'+str(HW[i])+'_'+str(K[i]) + ')'}
+                dict = {'Configuration': '(' + str(
+                         C[i])+'_'+str(HW[i])+'_'+str(K[i]) + ')'}
 
-    #             for path in csv_file.nvprof_paths:
-    #                 if path == 'direct_shared' or path == 'unroll_cublass':
-    #                     log_file = 'metrics/'+path+'/nvprof_comp_' + \
-    #                         str(C[i])+'_'+str(HW[i])+'_'+str(K[i])+'.txt'
+                for path in csv_file.nvprof_paths:
+                    if path == 'tenssort':
+                        log_file = 'metrics/'+path+'/nvprof_comp_' + \
+                            str(C[i])+'_'+str(HW[i])+'_'+str(K[i])+'.txt'
 
-    #                     parser = metricsParse(log_file, int(
-    #                         C[i]), int(HW[i]), int(K[i]))
+                        parser = metricsParse(log_file, int(
+                            C[i]), int(HW[i]), int(K[i]))
 
-    #                     dict = parser.parse_file(dict, metric)
+                        dict = parser.parse_file(dict, metric)
 
-    #             csv_writer.writerow(dict)
-    #             output.close()
-    #     print(metric + " parsing finished")
+                csv_writer.writerow(dict)
+                output.close()
+        print(metric + " parsing finished")

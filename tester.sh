@@ -10,7 +10,7 @@ K=(3 6 6 6 6 6 9 9 12 12 16 16 16 16 16 16 16 16 16 32 32 32 32 32 32 64 64 64 6
 #input file to change macro define
 in_file=mbnet.h
 
-is_metrics=false
+is_metrics=true
 
 # This block of code required to clear all macro defines
 sed -i 's/define ARRAY_NAIVE .*/define ARRAY_NAIVE 0/' $in_file
@@ -53,8 +53,6 @@ for j in ${!out_path[@]}; do
    then
        echo 'skip cublas_unroll'
        continue
-       sed -i 's/define DIRECT .*/define DIRECT 1/' $in_file
-       sed -i 's/define CONV_SHARED .*/define CONV_SHARED 1/' $in_file
    fi
 
    if [[ $j -eq 4 ]]
@@ -64,13 +62,13 @@ for j in ${!out_path[@]}; do
        sed -i 's/define HW .*/define HW '${HW[$i]}'/' "S-LeNet-conv/${in_file}" # change HW
        sed -i 's/define K .*/define K '${K[$i]}'/' "S-LeNet-conv/${in_file}" # change K
 
-       g++ -std=c++11 -o mbnet -I /usr/local/cuda/targets/x86_64-linux/include/ -I /usr/local/cuda/include -L/$CUDA_HOME/lib64 S-LeNet-conv/*.cpp S-LeNet-conv/*.cc -lnvinfer -lcuda -lcudart -lnvonnxparser -pthread -lprotobuf -lpthread -w # compile it
+        g++ -std=c++11 -o mbnet -I /usr/local/cuda-10.2/targets/aarch64-linux/include/ -I/usr/local/cuda-10.2/include -L/usr/local/cuda-10.2/targets/aarch64-linux/lib/ S-LeNet-conv/*.cpp S-LeNet-conv/*.cc -lnvinfer -lcuda -lcudart -lnvonnxparser -pthread -lprotobuf -lpthread -w  # compile it
        if [[ "$is_metrics" = true ]]
        then
 	   #echo 'metrics run'
-           nvprof --aggregate-mode on --log-file metrics/${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --metrics sm_efficiency ./mbnet #,achieved_occupancy,warp_execution_efficiency,inst_per_warp,gld_efficiency,gst_efficiency,shared_efficiency,shared_utilization,l2_utilization,global_hit_rate,tex_cache_hit_rate,tex_utilization,ipc,inst_issued,inst_executed,issue_slot_utilization,dram_utilization ./mbnet # stroe nvprof into the txt file
+           /usr/local/cuda-10.2/bin/nvprof --aggregate-mode on --log-file metrics/${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --metrics inst_issued ./mbnet #sm_efficiency,achieved_occupancy,warp_execution_efficiency,inst_per_warp,gld_efficiency,gst_efficiency,shared_efficiency,shared_utilization,l2_utilization,global_hit_rate,tex_cache_hit_rate,	tex_utilization,ipc,inst_issued,inst_executed,issue_slot_utilization,dram_utilization ./mbnet # stroe nvprof into the txt file
        else
-           nvprof --log-file ${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt ./mbnet # stroe nvprof into the txt file 
+           sudo /usr/local/cuda-10.2/bin/nvprof --log-file trace/${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --print-gpu-trace ./mbnet # stroe nvprof into the txt file 
            #echo "it wors"
        fi
     done
@@ -80,13 +78,13 @@ for j in ${!out_path[@]}; do
        sed -i 's/define HW .*/define HW '${HW[$i]}'/' ${in_file} # change HW
        sed -i 's/define K .*/define K '${K[$i]}'/' ${in_file} # change K
 
-       nvcc mbnet.cu -o mbnet -lcublas # compile it
+       /usr/local/cuda-10.2/bin/nvcc mbnet.cu -o mbnet -lcublas # compile it
        if [[ "$is_metrics" = true ]]
        then
 	   #echo 'metrics run'
-           nvprof --aggregate-mode on --log-file metrics/${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --metrics sm_efficiency ./mbnet #,achieved_occupancy,warp_execution_efficiency,inst_per_warp,gld_efficiency,gst_efficiency,shared_efficiency,shared_utilization,l2_utilization,global_hit_rate,tex_cache_hit_rate,tex_utilization,ipc,inst_issued,inst_executed,issue_slot_utilization,dram_utilization ./mbnet # stroe nvprof into the txt file
+           sudo /usr/local/cuda-10.2/bin/nvprof --aggregate-mode on --log-file metrics/${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --metrics achieved_occupancy ./mbnet #sm_efficiency,achieved_occupancy,warp_execution_efficiency,inst_per_warp,gld_efficiency,gst_efficiency,shared_efficiency,shared_utilization,l2_utilization,global_hit_rate,tex_cache_hit_rate,tex_utilization,ipc,inst_issued,inst_executed,issue_slot_utilization,dram_utilization ./mbnet # stroe nvprof into the txt file
        else
-           nvprof --log-file ${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt ./mbnet # stroe nvprof into the txt file 
+           sudo /usr/local/cuda-10.2/bin/nvprof --log-file trace/${out_path[$j]}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --print-gpu-trace ./mbnet # stroe nvprof into the txt file 
            #echo "it wors"
        fi
     done
