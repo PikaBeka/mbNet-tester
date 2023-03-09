@@ -1,8 +1,6 @@
-==19615== NVPROF is profiling process 19615, command: ./mbnet
-==19615== Profiling application: ./mbnet
-==19615== Profiling result:
-==19615== Metric result:
-Invocations                               Metric Name                        Metric Description         Min         Max         Avg
-Device "NVIDIA Tegra X2 (0)"
-    Kernel: convolution_naive(float[400][400]*, float[5][5][1]*, float[396][396]*)
-      10000                        achieved_occupancy                        Achieved Occupancy    0.676242    0.906078    0.756234
+==17339== NVPROF is profiling process 17339, command: ./mbnet
+==17339== Warning: ERR_NVGPUCTRPERM - The user does not have permission to profile on the target device. See the following link for instructions to enable permissions and get more information: https://developer.nvidia.com/ERR_NVGPUCTRPERM 
+==17339== Profiling application: ./mbnet
+==17339== Profiling result:
+No events/metrics were profiled.
+==17339== Warning: Some profiling data are not recorded.

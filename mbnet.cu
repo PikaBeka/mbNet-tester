@@ -2,16 +2,30 @@
 #include <stdlib.h>
 #include <math.h>
 #include <sys/param.h>
+#include <iostream>
+#include <cmath>
 
 #include <cuda.h>
 #include <cuda_runtime.h>
 #include <curand.h>
 #include <cublas_v2.h>
 #include <cuda_runtime_api.h>
+#include <cudnn.h>
 
 #include "cublas_utils.h"
 
 #include "mbnet.h"
+
+#define CHECK_CUDNN(expression)                                    \
+    {                                                              \
+        cudnnStatus_t status = (expression);                       \
+        if (status != CUDNN_STATUS_SUCCESS)                        \
+        {                                                          \
+            std::cerr << "Error on line " << __LINE__ << ": "      \
+                      << cudnnGetErrorString(status) << std::endl; \
+            std::exit(EXIT_FAILURE);                               \
+        }                                                          \
+    }
 
 /*Function to fill input and weight matrix with random values*/
 void fillWithValues(float *input, float *weight)
@@ -66,9 +80,9 @@ void verification(float *input, float *weight, float *output)
                         }
                     }
                 }
-                if (output[i * PQ * PQ + j * PQ + k] != tempC)
+                if (round(output[i * PQ * PQ + j * PQ + k]) != tempC)
                 {
-                    printf("The error is here. The actual result is %f, we get %f on (%d, %d, %d)\n", output[i * PQ * PQ + j * PQ + k], tempC, i, j, k);
+                    printf("The error is here. The actual result is %f, we get %f on (%d, %d, %d)\n", tempC, output[i * PQ * PQ + j * PQ + k], i, j, k);
                     exit(-1);
                 }
             }
@@ -86,6 +100,9 @@ void verification(float *input, float *weight, float *output)
 #else
     printf("Global direct convolution finished. It is checked with %d images, and correct with image sizes (%d, %d, %d) and kernel (%d, %d, %d) resulting in (%d, %d, %d)\n", N, C, HW, HW, K, RS, RS, K, PQ, PQ);
 #endif
+
+#elif CUDNN
+    printf("CUDNN convolution finished. It is checked with %d images, and correct with image sizes (%d, %d, %d) and kernel (%d, %d, %d) resulting in (%d, %d, %d)\n", N, C, HW, HW, K, RS, RS, K, PQ, PQ);
 #else
 #if GEMM_GLOBAL
     printf("Unroll globall gemm convolution finished. It is checked with %d images, and correct with image sizes (%d, %d, %d) and kernel (%d, %d, %d) resulting in (%d, %d, %d)\n", N, C, HW, HW, K, RS, RS, K, PQ, PQ);
@@ -365,6 +382,103 @@ void pass(float *input, float *weight, float *output)
 #endif
                                                            (float(*)[PQ][PQ])d_output,
                                                            (float(*)[C][RS][RS])d_weight);
+
+#elif CUDNN
+        cudnnHandle_t cudnn;
+        CHECK_CUDNN(cudnnCreate(&cudnn));
+
+        // Initialize CUDA
+        cudaSetDevice(0);
+
+        // Create input tensor
+        cudnnTensorDescriptor_t input_descriptor;
+        CHECK_CUDNN(cudnnCreateTensorDescriptor(&input_descriptor));
+        CHECK_CUDNN(cudnnSetTensor4dDescriptor(input_descriptor,
+                                               CUDNN_TENSOR_NCHW,
+                                               CUDNN_DATA_FLOAT,
+                                               1,
+                                               C,
+                                               HW,
+                                               HW));
+
+        // Create convolutional layer
+        cudnnConvolutionDescriptor_t convolution_descriptor;
+        CHECK_CUDNN(cudnnCreateConvolutionDescriptor(&convolution_descriptor));
+        cudnnSetConvolution2dDescriptor(convolution_descriptor,
+                                        0,
+                                        0,
+                                        1,
+                                        1,
+                                        1,
+                                        1,
+                                        CUDNN_CROSS_CORRELATION,
+                                        CUDNN_DATA_FLOAT);
+
+        // Create filter tensor
+        cudnnFilterDescriptor_t filter_descriptor;
+        CHECK_CUDNN(cudnnCreateFilterDescriptor(&filter_descriptor));
+        CHECK_CUDNN(cudnnSetFilter4dDescriptor(filter_descriptor,
+                                               CUDNN_DATA_FLOAT,
+                                               CUDNN_TENSOR_NCHW,
+                                               K,
+                                               C,
+                                               RS,
+                                               RS));
+
+        // Create output tensor
+        int batch_size, channels, height, width;
+        CHECK_CUDNN(cudnnGetConvolution2dForwardOutputDim(convolution_descriptor,
+                                                          input_descriptor,
+                                                          filter_descriptor,
+                                                          &batch_size,
+                                                          &channels,
+                                                          &height,
+                                                          &width));
+
+        cudnnTensorDescriptor_t output_descriptor;
+        CHECK_CUDNN(cudnnCreateTensorDescriptor(&output_descriptor));
+        CHECK_CUDNN(cudnnSetTensor4dDescriptor(output_descriptor,
+                                               CUDNN_TENSOR_NCHW,
+                                               CUDNN_DATA_FLOAT,
+                                               batch_size,
+                                               channels,
+                                               height,
+                                               width));
+
+        // Allocate memory for workspace
+        size_t workspace_size;
+        CHECK_CUDNN(cudnnGetConvolutionForwardWorkspaceSize(cudnn,
+                                                            input_descriptor,
+                                                            filter_descriptor,
+                                                            convolution_descriptor,
+                                                            output_descriptor,
+                                                            CUDNN_CONVOLUTION_FWD_ALGO_GEMM,
+                                                            &workspace_size));
+        void *workspace_data;
+        cudaMalloc(&workspace_data, workspace_size);
+
+        // Perform convolution
+        float alpha = 1.0f, beta = 0.0f;
+        CHECK_CUDNN(cudnnConvolutionForward(cudnn,
+                                            &alpha,
+                                            input_descriptor,
+                                            d_input,
+                                            filter_descriptor,
+                                            d_weight,
+                                            convolution_descriptor,
+                                            CUDNN_CONVOLUTION_FWD_ALGO_GEMM,
+                                            workspace_data,
+                                            workspace_size,
+                                            &beta,
+                                            output_descriptor,
+                                            d_output));
+
+        cudaFree(workspace_data);
+        cudnnDestroyTensorDescriptor(input_descriptor);
+        cudnnDestroyTensorDescriptor(output_descriptor);
+        cudnnDestroyFilterDescriptor(filter_descriptor);
+        cudnnDestroyConvolutionDescriptor(convolution_descriptor);
+        cudnnDestroy(cudnn);
 #else
         // im2col_gpu_kernel_ext<<<(N1+K1-1)/K1, K1>>>(PQ*PQ, d_input, HW, HW, RS, RS, 0, 0, STRIDE, STRIDE, 1, 1, PQ, PQ,ic_workspace);
         ///*
