@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ==9207== NVPROF is profiling process 9207, command: ./mbnet
 ==9207== Profiling application: ./mbnet
 ==9207== Profiling result:
@@ -41,3 +42,5 @@
                     0.00%  1.0130us         5     202ns     166ns     279ns  cuDeviceGetUuid
                     0.00%     905ns         5     181ns     117ns     349ns  cuModuleGetLoadingMode
                     0.00%     684ns         4     171ns     144ns     248ns  cuDriverGetVersion
+=======
+>>>>>>> b69f29ab4fd788aa49f4114ab62ef44da404f60d

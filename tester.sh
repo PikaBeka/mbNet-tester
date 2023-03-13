@@ -59,7 +59,7 @@ if [[ "${method}" == "unroll_cublass" ]]; then
 	echo 'Running mbnet with unroll_cublass method\n'
 fi
 
-if [[ "${method}" == "tenssort" ]]; then
+if [[ "${method}" == "tensorrt" ]]; then
 	echo 'Running mbnet with tenssort method\n'
 fi
 
@@ -69,7 +69,7 @@ if [[ "${method}" == "cudnn" ]]; then
 fi
 
 for i in ${!C[@]}; do # loop to place all configuration files into use
-    if [[ "${method}" == "tenssort" ]]; then
+    if [[ "${method}" == "tensorrt" ]]; then
         sed -i 's/define C .*/define C '${C[$i]}'/' "S-LeNet-conv/${in_file}" # change C
         sed -i 's/define HW .*/define HW '${HW[$i]}'/' "S-LeNet-conv/${in_file}" # change HW
         sed -i 's/define K .*/define K '${K[$i]}'/' "S-LeNet-conv/${in_file}" # change K
@@ -78,19 +78,19 @@ for i in ${!C[@]}; do # loop to place all configuration files into use
         sed -i 's/define C .*/define C '${C[$i]}'/' ${in_file} # change C
         sed -i 's/define HW .*/define HW '${HW[$i]}'/' ${in_file} # change HW
         sed -i 's/define K .*/define K '${K[$i]}'/' ${in_file} # change K
-        nvcc mbnet.cu -o mbnet -lcublas -lcudnn # compile it
+        /usr/local/cuda-10.2/bin/nvcc mbnet.cu -o mbnet -lcublas -lcudnn # compile it
     fi
 
     if [[ "$is_metrics" = true ]]
     then
     #echo 'metrics run'
-        nvprof --aggregate-mode on --log-file metrics/${method}}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --metrics inst_issued ./mbnet #sm_efficiency,achieved_occupancy,warp_execution_efficiency,inst_per_warp,gld_efficiency,gst_efficiency,shared_efficiency,shared_utilization,l2_utilization,global_hit_rate,tex_cache_hit_rate,	tex_utilization,ipc,inst_issued,inst_executed,issue_slot_utilization,dram_utilization ./mbnet # stroe nvprof into the txt file
+        /usr/local/cuda-10.2/bin/nvprof --aggregate-mode on --log-file metrics/${method}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --metrics inst_issued ./mbnet #sm_efficiency,achieved_occupancy,warp_execution_efficiency,inst_per_warp,gld_efficiency,gst_efficiency,shared_efficiency,shared_utilization,l2_utilization,global_hit_rate,tex_cache_hit_rate,	tex_utilization,ipc,inst_issued,inst_executed,issue_slot_utilization,dram_utilization ./mbnet # stroe nvprof into the txt file
     else
         if [[ "$is_trace" = true ]]
         then
-            nvprof --log-file trace/${method}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --print-gpu-trace ./mbnet
+            /usr/local/cuda-10.2/bin/nvprof --log-file trace/${method}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt --print-gpu-trace ./mbnet
         else
-            nvprof --log-file ${method}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt ./mbnet # stroe nvprof into the txt file 
+            /usr/local/cuda-10.2/bin/nvprof --log-file ${method}/nvprof_comp_${C[$i]}_${HW[$i]}_${K[$i]}.txt ./mbnet # stroe nvprof into the txt file 
         fi
     fi
 done

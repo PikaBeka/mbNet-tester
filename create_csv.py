@@ -2,8 +2,8 @@ import csv
 import os
 
 nvprof_paths = ['direct_shared',
-                'unroll_cublass', 'tenssort']  # folder paths
-
+                'unroll_cublass', 'tensorrt', 'cudnn']  # folder paths
+AreMetrics = True
 
 # this function finds a name of the kernel
 def takeName(possible_header):
@@ -85,8 +85,6 @@ for i in range(0, len(nvprof_paths)):  # for each kernel method
         writer.writerow(header)
     print('Created csv file ' + method)
 
-AreMetrics = True
-
 metrics = ['sm_efficiency', 'achieved_occupancy', 'warp_execution_efficiency', 'inst_per_warp', 'gld_efficiency', 'gst_efficiency', 'shared_efficiency', 'shared_utilization',
            'l2_utilization', 'global_hit_rate', 'tex_cache_hit_rate', 'tex_utilization', 'ipc', 'inst_issued', 'inst_executed', 'issue_slot_utilization', 'dram_utilization']
 
@@ -100,7 +98,7 @@ for metric in metrics:  # we create csv file for every metrics
         for path in nvprof_paths:  # traverse each metrics txt file
 
             # we are interested only in this method, remove if there is more
-            if path != 'tenssort':
+            if path != 'tensorrt':
                 continue
 
             files = os.listdir('metrics/'+path)  # list directories
