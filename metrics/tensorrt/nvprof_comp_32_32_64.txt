@@ -1,0 +1,169 @@
+==501== NVPROF is profiling process 501, command: ./mbnet
+==501== Warning: Profiling results might be incorrect with current version of nvcc compiler used to compile cuda app. Compile with nvcc compiler 9.0 or later version to get correct profiling results. Ignore this warning if code is already compiled with the recommended nvcc version 
+==501== Profiling application: ./mbnet
+==501== Profiling result:
+==501== Metric result:
+Invocations                               Metric Name                        Metric Description         Min         Max         Avg
+Device "NVIDIA Tegra X2 (0)"
+    Kernel: trt_maxwell_scudnn_128x128_relu_large_nn_v0
+          3                               inst_issued                       Instructions Issued     3507989     3508122     3508035
+    Kernel: trt_maxwell_scudnn_128x128_relu_large_nn_v1
+          3                               inst_issued                       Instructions Issued     3504946     3505117     3505005
+    Kernel: trt_maxwell_scudnn_128x64_sliced1x2_ldg4_relu_exp_small_nhwc_tn_v1
+          3                               inst_issued                       Instructions Issued     1717649     1717822     1717708
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=3, int=4, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1945953     1946067     1945997
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=2, int=3, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1945958     1946230     1946094
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=2, int=4, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1657931     1658081     1657967
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=3, int=5, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1976455     1976688     1976576
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=4, int=4, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1681632     1681739     1681665
+    Kernel: void cask_trt::computeOffsetsKernel<bool=0, bool=0>(cask_trt::ComputeOffsetsParams)
+         28                               inst_issued                       Instructions Issued        2975        2990        2978
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=3, int=5, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1716010     1716234     1716092
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=2, int=5, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+         10                               inst_issued                       Instructions Issued     1711610     1711817     1711677
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=5, int=5, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1851324     1851483     1851408
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=3, int=5, int=4, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+      10010                               inst_issued                       Instructions Issued     2031682     2032158     2031762
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=4, int=4, int=4, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1712115     1712204     1712151
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=6, int=4, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1719565     1719714     1719602
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=4, int=5, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1590054     1590185     1590098
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=2, int=5, int=4, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1758812     1759001     1758854
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=5, int=5, int=4, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1892750     1892941     1892819
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=2, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=2, int=5, int=4, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=2, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1846283     1846462     1846374
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=4, int=6, int=4, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1771560     1771783     1771645
+    Kernel: trt_maxwell_scudnn_128x64_sliced1x2_ldg4_relu_exp_interior_nhwc_tn_v1
+          3                               inst_issued                       Instructions Issued     1694854     1694859     1694856
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=4>, fused::KpqkPtrWriter<float, int=1, int=1, int=4>, float, float, int=5, int=3, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     3179844     3179989     3179922
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=4, int=4, int=8, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1818521     1818711     1818575
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=4, int=3, int=8, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1754708     1754947     1754796
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=4, int=6, int=8, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1815556     1815857     1815618
+    Kernel: void implicit_convolve_sgemm<float, float, int=128, int=6, int=7, int=3, int=3, int=5, int=1, bool=0, bool=0, bool=1>(int, int, int, float const *, int, float*, float const *, kernel_conv_params, __int64, int, float, float, int, float const *, float const *, bool, int, int)
+          3                               inst_issued                       Instructions Issued     4367795     4367901     4367843
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=4>, fused::KpqkPtrWriter<float, int=1, int=1, int=4>, float, float, int=3, int=4, int=8, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     3123873     3124130     3124010
+    Kernel: void cudnn::cnn::im2col4d_kernel<float, long>(cudnn::cnn::im2col4d_params, cudnnConvolutionStruct, cudnnTensorStruct, float const *, cudnnTensorStruct*)
+          3                               inst_issued                       Instructions Issued      639453      639498      639474
+    Kernel: trt_maxwell_scudnn_128x64_relu_medium_nn_v0
+          3                               inst_issued                       Instructions Issued     1882476     1882600     1882540
+    Kernel: trt_maxwell_scudnn_128x64_relu_medium_nn_v1
+          3                               inst_issued                       Instructions Issued     1854410     1854421     1854414
+    Kernel: trt_maxwell_scudnn_128x32_relu_large_nn_v0
+          3                               inst_issued                       Instructions Issued     2249222     2249244     2249235
+    Kernel: trt_maxwell_scudnn_128x64_relu_large_nn_v0
+          3                               inst_issued                       Instructions Issued     1899429     1899555     1899473
+    Kernel: trt_maxwell_scudnn_128x32_relu_large_nn_v1
+          3                               inst_issued                       Instructions Issued     2112817     2112954     2112870
+    Kernel: trt_maxwell_scudnn_128x64_relu_large_nn_v1
+          3                               inst_issued                       Instructions Issued     1871412     1871447     1871429
+    Kernel: void fft2d_c2r_32x32<float, bool=0, bool=0, unsigned int=0, bool=0, bool=0>(float*, float2 const *, int, int, int, int, int, int, int, int, int, float, float, cudnn::reduced_divisor, bool, float*, float*, int2, int, int)
+          3                               inst_issued                       Instructions Issued       78510       78514       78512
+    Kernel: trt_maxwell_scudnn_128x32_sliced1x4_ldg4_relu_exp_interior_nhwc_tn_v1
+          3                               inst_issued                       Instructions Issued     1776848     1777056     1776975
+    Kernel: void gemv2N_kernel<int, int, float2, float2, float2, int=128, int=8, int=4, int=4, int=1, cublasGemvParams<cublasGemvTensorStridedBatched<float2 const >, cublasGemvTensorStridedBatched<float2>, float2>>(float2 const )
+          3                               inst_issued                       Instructions Issued     2254496     2254614     2254572
+    Kernel: void genericReformat::copyPackedKernel<float, float, bool=1, bool=1, genericReformat::ArrayN<int=4>, int=4>(unsigned int, unsigned int, void const *, genericReformat::ArrayN<genericReformat::ArrayN<int=4>>, genericReformat::ArrayNWithReducedDivisors<genericReformat::ArrayN<int=4>>, void const *, int, int, int, float const *, void*, void const *, genericReformat::ArrayNWithReducedDivisors, genericReformat::ArrayNWithReducedDivisors, void const *, int, int, int, float const , int=4)
+          3                               inst_issued                       Instructions Issued      159519      159547      159532
+    Kernel: void explicit_convolve_sgemm<float, int, int=128, int=6, int=7, int=3, int=3, int=5, int=0, bool=0>(int, int, int, float const *, int, float const *, int, float*, kernel_conv_params, __int64, int, __int64, int, float, float, int, float const *, float const *)
+          3                               inst_issued                       Instructions Issued     3446839     3446986     3446888
+    Kernel: void genericReformat::copyPackedKernel<float, float, bool=0, bool=1, genericReformat::IdentityCoordMapper<int=4>, int=4>(unsigned int, unsigned int, void const *, genericReformat::ArrayN<genericReformat::IdentityCoordMapper<int=4>>, genericReformat::ArrayNWithReducedDivisors<genericReformat::IdentityCoordMapper<int=4>>, genericReformat::ArrayN, int, int, int, float const *, void*, genericReformat::ArrayN, genericReformat::ArrayNWithReducedDivisors, genericReformat::ArrayNWithReducedDivisors, genericReformat::ArrayN, int, int, int, float const , int=4)
+          3                               inst_issued                       Instructions Issued      215568      215600      215584
+    Kernel: void fft2d_r2c_32x32<float, bool=0, unsigned int=0, bool=0>(float2*, float const *, int, int, int, int, int, int, int, int, int, cudnn::reduced_divisor, bool, int2, int, int)
+          3                               inst_issued                       Instructions Issued       33232       33232       33232
+    Kernel: trt_maxwell_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1
+          3                               inst_issued                       Instructions Issued     1827920     1827920     1827920
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=2, int=4, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     2014720     2014921     2014775
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=4, int=4, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+         10                               inst_issued                       Instructions Issued     1679287     1679451     1679337
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=2, int=5, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+         10                               inst_issued                       Instructions Issued     1683397     1683659     1683487
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=5, int=2, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1683338     1683706     1683484
+    Kernel: maxwell_scudnn_128x32_relu_small_nn_v1
+          3                               inst_issued                       Instructions Issued     1988016     1988120     1988075
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=5, int=5, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1813332     1813493     1813367
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=5, int=4, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1774047     1774183     1774089
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=2, int=4, int=4, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1706601     1706774     1706653
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=4, int=5, int=4, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1835320     1835556     1835405
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=2, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=2, int=6, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=2, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1656862     1656996     1656908
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=3, int=5, int=4, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1769974     1770128     1770051
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=3, int=4, int=8, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     2133163     2133442     2133279
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=4>, fused::KpqkPtrWriter<float, int=1, int=1, int=4>, float, float, int=5, int=3, int=2, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     3207519     3207673     3207552
+    Kernel: trt_maxwell_scudnn_128x128_relu_small_nn_v0
+          3                               inst_issued                       Instructions Issued     3445685     3445830     3445756
+    Kernel: trt_maxwell_scudnn_128x128_relu_small_nn_v1
+          3                               inst_issued                       Instructions Issued     3442406     3442630     3442501
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=3, int=5, int=8, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+         10                               inst_issued                       Instructions Issued     1799951     1800161     1800029
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=4, int=4, int=8, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1550756     1550982     1550857
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=2>, fused::KpqkPtrWriter<float, int=1, int=1, int=2>, float, float, int=5, int=3, int=8, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1817756     1817781     1817762
+    Kernel: void op_generic_tensor_kernel<int=3, float, float, float, int=256, cudnnGenericOp_t=0, cudnnNanPropagation_t=0, int=0>(cudnnTensorStruct, float*, cudnnTensorStruct, float const *, cudnnTensorStruct, float const *, float, float, float, cudnnActivationStruct, reducedDivisorArray, int)
+         12                               inst_issued                       Instructions Issued      221091      221187      221143
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=6, int=5, int=8, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1904269     1904481     1904369
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=5, int=6, int=8, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     1905984     1906132     1906015
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=4>, fused::KpqkPtrWriter<float, int=1, int=1, int=4>, float, float, int=3, int=5, int=8, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     3317476     3317706     3317583
+    Kernel: trt_maxwell_scudnn_128x64_relu_interior_nn_v0
+          3                               inst_issued                       Instructions Issued     1780556     1780658     1780591
+    Kernel: trt_maxwell_scudnn_128x64_relu_interior_nn_v1
+          3                               inst_issued                       Instructions Issued     1766650     1766678     1766662
+    Kernel: trt_maxwell_scudnn_128x128_relu_interior_nn_v0
+          3                               inst_issued                       Instructions Issued     3387892     3388022     3387936
+    Kernel: trt_maxwell_scudnn_128x128_relu_interior_nn_v1
+          3                               inst_issued                       Instructions Issued     3385409     3385592     3385476
+    Kernel: trt_maxwell_scudnn_128x128_relu_medium_nn_v0
+          3                               inst_issued                       Instructions Issued     3490936     3491191     3491048
+    Kernel: void CUTENSOR_NAMESPACE::permutationKernelPLC3<CUTENSOR_NAMESPACE::VectorWrite2DTensorView<unsigned char=0, unsigned char=1, bool=0, unsigned int=4, float, float, CUTENSOR_NAMESPACE::GeneralUnarySmall<float>>, CUTENSOR_NAMESPACE::VectorRead2DTensorView<unsigned char=1, unsigned char=0, bool=0, unsigned int=4, float, float, CUTENSOR_NAMESPACE::GeneralUnarySmall<float>>, CUTENSOR_NAMESPACE::ThreadLevelElementwise<CUTENSOR_NAMESPACE::ElementwiseConfig2DCommonCase<CUTENSOR_NAMESPACE::GeneralUnarySmall<float>, CUTENSOR_NAMESPACE::GeneralBinary<float>, int=2, int=64, int=64, int=256, char=4, bool=0, bool=1, bool=1, bool=1, bool=0>, float>, CUTENSOR_NAMESPACE::ElementwiseRuntimePLC3<float, float, float, float>::Params>(unsigned int=4)
+          6                               inst_issued                       Instructions Issued      150871      190887      170894
+    Kernel: trt_maxwell_scudnn_128x128_relu_medium_nn_v1
+          3                               inst_issued                       Instructions Issued     3487895     3488022     3487966
+    Kernel: trt_maxwell_scudnn_128x32_relu_small_nn_v0
+          3                               inst_issued                       Instructions Issued     2125333     2125442     2125370
+    Kernel: void cask_cudnn::computeOffsetsKernel<bool=0, bool=0>(cask_cudnn::ComputeOffsetsParams)
+          3                               inst_issued                       Instructions Issued        2975        2992        2981
+    Kernel: trt_maxwell_scudnn_128x32_relu_small_nn_v1
+          3                               inst_issued                       Instructions Issued     1988230     1988339     1988270
+    Kernel: trt_maxwell_scudnn_128x64_relu_small_nn_v0
+          3                               inst_issued                       Instructions Issued     1837453     1837455     1837454
+    Kernel: trt_maxwell_scudnn_128x64_relu_small_nn_v1
+          3                               inst_issued                       Instructions Issued     1809035     1809051     1809043
+    Kernel: trt_maxwell_scudnn_128x32_relu_interior_nn_v0
+          3                               inst_issued                       Instructions Issued     2011616     2011634     2011625
+    Kernel: trt_maxwell_scudnn_128x32_relu_interior_nn_v1
+          3                               inst_issued                       Instructions Issued     1895416     1895449     1895432
+    Kernel: void fft2d_r2c_32x32<float, bool=0, unsigned int=5, bool=1>(float2*, float const *, int, int, int, int, int, int, int, int, int, cudnn::reduced_divisor, bool, int2, int, int)
+          3                               inst_issued                       Instructions Issued     1683712     1683715     1683713
+    Kernel: trt_maxwell_scudnn_128x32_relu_medium_nn_v0
+          3                               inst_issued                       Instructions Issued     2215383     2215523     2215429
+    Kernel: trt_maxwell_scudnn_128x32_relu_medium_nn_v1
+          3                               inst_issued                       Instructions Issued     2078822     2078900     2078858

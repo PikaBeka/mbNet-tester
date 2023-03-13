@@ -1,0 +1,1 @@
+Configuration,cudnn::cnn::conv2d_grouped_direct_kernel,memset,HtoD,DtoH,explicit_convolve_sgemm,cudnn::cnn::im2col4d_kernel,Total_time,Kernel_time

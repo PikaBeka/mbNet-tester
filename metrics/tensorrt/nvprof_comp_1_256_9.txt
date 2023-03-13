@@ -1,0 +1,99 @@
+==32149== NVPROF is profiling process 32149, command: ./mbnet
+==32149== Warning: Profiling results might be incorrect with current version of nvcc compiler used to compile cuda app. Compile with nvcc compiler 9.0 or later version to get correct profiling results. Ignore this warning if code is already compiled with the recommended nvcc version 
+==32149== Profiling application: ./mbnet
+==32149== Profiling result:
+==32149== Metric result:
+Invocations                               Metric Name                        Metric Description         Min         Max         Avg
+Device "NVIDIA Tegra X2 (0)"
+    Kernel: void fft2d_r2c_32x32<float, bool=0, unsigned int=0, bool=0>(float2*, float const *, int, int, int, int, int, int, int, int, int, cudnn::reduced_divisor, bool, int2, int, int)
+        243                               inst_issued                       Instructions Issued        1360        1365        1361
+    Kernel: void DSE::vector_fft<int=1, int=2, int=256, int=16, int=16, int=1, float, float, float2>(float2*, float2, int, int3, float2*)
+          3                               inst_issued                       Instructions Issued      368053      368055      368053
+    Kernel: void DSE::vector_fft<int=0, int=1, int=256, int=16, int=16, int=1, float, float, float2>(float2*, float2, int, int3, float2*)
+          6                               inst_issued                       Instructions Issued       42145      375032      208576
+    Kernel: trt_maxwell_scudnn_128x128_relu_large_nn_v0
+          3                               inst_issued                       Instructions Issued    15670306    15670574    15670468
+    Kernel: trt_maxwell_scudnn_128x128_relu_large_nn_v1
+          3                               inst_issued                       Instructions Issued    15284563    15284759    15284685
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=2, int=4, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     5041270     5041598     5041462
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=3, int=4, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     4699879     4700520     4700128
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=4, int=4, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+      10010                               inst_issued                       Instructions Issued     4382198     4383255     4382379
+    Kernel: void cask_trt::computeOffsetsKernel<bool=0, bool=0>(cask_trt::ComputeOffsetsParams)
+         24                               inst_issued                       Instructions Issued      218748      219130      218771
+    Kernel: void fused::fusedConvolutionReluKernel<fused::SrcChwcPtr_FltTex_Reader<float, int=1, int=1, int=1, int=1>, fused::KpqkPtrWriter<float, int=1, int=1, int=1>, float, float, int=5, int=5, int=1, int=5, int=5, int=1, int=1>(fused::ConvolutionParams<floatSrcType, int=1, int=1Type>)
+          5                               inst_issued                       Instructions Issued     5122300     5122488     5122402
+    Kernel: trt_maxwell_scudnn_128x128_relu_small_nn_v0
+          3                               inst_issued                       Instructions Issued    15447699    15447738    15447715
+    Kernel: trt_maxwell_scudnn_128x128_relu_small_nn_v1
+          3                               inst_issued                       Instructions Issued    15042036    15042316    15042139
+    Kernel: void op_generic_tensor_kernel<int=3, float, float, float, int=256, cudnnGenericOp_t=0, cudnnNanPropagation_t=0, int=0>(cudnnTensorStruct, float*, cudnnTensorStruct, float const *, cudnnTensorStruct, float const *, float, float, float, cudnnActivationStruct, reducedDivisorArray, int)
+         15                               inst_issued                       Instructions Issued     2180237     2180819     2180508
+    Kernel: void cudnn::cnn::conv2d_grouped_direct_kernel<bool=0, bool=1, bool=0, bool=0, int=0, int=0, int, float, float, float, float, float, float>(cudnn::cnn::GroupedDirectFpropParams, float const *, float const *, float*, float, float*, float const * const *, float const *, cudnnActivationStruct)
+          3                               inst_issued                       Instructions Issued    13397173    13397437    13397335
+    Kernel: trt_maxwell_scudnn_128x64_relu_interior_nn_v0
+          3                               inst_issued                       Instructions Issued     7149361     7149467     7149398
+    Kernel: trt_maxwell_scudnn_128x64_relu_interior_nn_v1
+          3                               inst_issued                       Instructions Issued     7705911     7705962     7705937
+    Kernel: void gemv2T_kernel_val<int, int, float2, float2, float2, int=128, int=16, int=2, int=2, bool=0, cublasGemvParams<cublasGemvTensorStridedBatched<float2 const >, cublasGemvTensorStridedBatched<float2>, float2>>(float2 const , float2, float2)
+          3                               inst_issued                       Instructions Issued    54061527    54061702    54061633
+    Kernel: void DSE::regular_fft_pad<int=0, int=1, int=256, int=16, int=16, int=1, float, float, float2>(float2*, float*, int, int3, float*, int, float*, float*, int, int, int, int, int, bool)
+          6                               inst_issued                       Instructions Issued       79504      581396      330413
+    Kernel: trt_maxwell_scudnn_128x128_relu_interior_nn_v0
+          3                               inst_issued                       Instructions Issued    15129440    15129716    15129613
+    Kernel: trt_maxwell_scudnn_128x128_relu_interior_nn_v1
+          3                               inst_issued                       Instructions Issued    14827375    14827578    14827445
+    Kernel: trt_maxwell_scudnn_128x64_relu_medium_nn_v0
+          3                               inst_issued                       Instructions Issued     7495258     7495286     7495271
+    Kernel: trt_maxwell_scudnn_128x64_relu_medium_nn_v1
+          3                               inst_issued                       Instructions Issued     8000201     8000365     8000275
+    Kernel: trt_maxwell_scudnn_128x128_relu_medium_nn_v0
+          3                               inst_issued                       Instructions Issued    15606626    15606888    15606714
+    Kernel: trt_maxwell_scudnn_128x128_relu_medium_nn_v1
+          3                               inst_issued                       Instructions Issued    15217000    15217354    15217126
+    Kernel: void CUTENSOR_NAMESPACE::permutationKernelPLC3<CUTENSOR_NAMESPACE::VectorWrite2DTensorView<unsigned char=0, unsigned char=1, bool=0, unsigned int=4, float, float, CUTENSOR_NAMESPACE::GeneralUnarySmall<float>>, CUTENSOR_NAMESPACE::VectorRead2DTensorView<unsigned char=1, unsigned char=0, bool=0, unsigned int=4, float, float, CUTENSOR_NAMESPACE::GeneralUnarySmall<float>>, CUTENSOR_NAMESPACE::ThreadLevelElementwise<CUTENSOR_NAMESPACE::ElementwiseConfig2DCommonCase<CUTENSOR_NAMESPACE::GeneralUnarySmall<float>, CUTENSOR_NAMESPACE::GeneralBinary<float>, int=2, int=64, int=64, int=256, char=4, bool=0, bool=1, bool=1, bool=1, bool=0>, float>, CUTENSOR_NAMESPACE::ElementwiseRuntimePLC3<float, float, float, float>::Params>(unsigned int=4)
+          3                               inst_issued                       Instructions Issued    11653188    11653256    11653231
+    Kernel: void implicit_convolve_sgemm<float, float, int=1024, int=5, int=5, int=3, int=3, int=3, int=1, bool=0, bool=0, bool=1>(int, int, int, float const *, int, float*, float const *, kernel_conv_params, __int64, int, float, float, int, float const *, float const *, bool, int, int)
+          6                               inst_issued                       Instructions Issued     6981515     6981752     6981626
+    Kernel: trt_maxwell_scudnn_128x32_relu_large_nn_v0
+          3                               inst_issued                       Instructions Issued     4712053     4712209     4712114
+    Kernel: trt_maxwell_scudnn_128x64_relu_large_nn_v0
+          3                               inst_issued                       Instructions Issued     7545046     7545085     7545063
+    Kernel: trt_maxwell_scudnn_128x32_relu_large_nn_v1
+          3                               inst_issued                       Instructions Issued     4492294     4492334     4492312
+    Kernel: trt_maxwell_scudnn_128x64_relu_large_nn_v1
+          3                               inst_issued                       Instructions Issued     8063806     8063825     8063815
+    Kernel: void fft2d_c2r_32x32<float, bool=0, bool=0, unsigned int=0, bool=0, bool=0>(float*, float2 const *, int, int, int, int, int, int, int, int, int, float, float, cudnn::reduced_divisor, bool, float*, float*, int2, int, int)
+        243                               inst_issued                       Instructions Issued       11560       11572       11568
+    Kernel: trt_maxwell_scudnn_128x32_relu_small_nn_v0
+          3                               inst_issued                       Instructions Issued     4535236     4535260     4535246
+    Kernel: void gemv2N_kernel<int, int, float2, float2, float2, int=128, int=8, int=4, int=4, int=1, cublasGemvParams<cublasGemvTensorStridedBatched<float2 const >, cublasGemvTensorStridedBatched<float2>, float2>>(float2 const )
+        243                               inst_issued                       Instructions Issued      448959      449070      448969
+    Kernel: trt_maxwell_scudnn_128x32_relu_small_nn_v1
+          3                               inst_issued                       Instructions Issued     4267542     4267645     4267593
+    Kernel: trt_maxwell_scudnn_128x64_relu_small_nn_v0
+          3                               inst_issued                       Instructions Issued     7368023     7368047     7368031
+    Kernel: trt_maxwell_scudnn_128x64_relu_small_nn_v1
+          3                               inst_issued                       Instructions Issued     7833151     7833192     7833168
+    Kernel: void transpose_readWrite_alignment_kernel<float2, float2, int=1, bool=0, int=6, int=4, int=4>(cublasTransposeParams<float2>, float2 const *, float2*, float2 const *)
+          9                               inst_issued                       Instructions Issued      813602     2386393     1862136
+    Kernel: void genericReformat::copyPackedKernel<float, float, bool=1, bool=1, genericReformat::ArrayN<int=4>, int=4>(unsigned int, unsigned int, void const *, genericReformat::ArrayN<genericReformat::ArrayN<int=4>>, genericReformat::ArrayNWithReducedDivisors<genericReformat::ArrayN<int=4>>, void const *, int, int, int, float const *, void*, void const *, genericReformat::ArrayNWithReducedDivisors, genericReformat::ArrayNWithReducedDivisors, void const *, int, int, int, float const , int=4)
+          3                               inst_issued                       Instructions Issued      293695      293734      293708
+    Kernel: trt_maxwell_scudnn_128x32_relu_interior_nn_v0
+          3                               inst_issued                       Instructions Issued     4316488     4316609     4316529
+    Kernel: void CUTENSOR_NAMESPACE::permutationKernelPLC3<CUTENSOR_NAMESPACE::VectorWrite2DTensorView<unsigned char=0, unsigned char=1, bool=1, unsigned int=4, float, float, CUTENSOR_NAMESPACE::GeneralUnarySmall<float>>, CUTENSOR_NAMESPACE::VectorRead2DTensorView<unsigned char=0, unsigned char=1, bool=1, unsigned int=4, float, float, CUTENSOR_NAMESPACE::GeneralUnarySmall<float>>, CUTENSOR_NAMESPACE::ThreadLevelElementwise<CUTENSOR_NAMESPACE::ElementwiseConfig1DCommonCase<CUTENSOR_NAMESPACE::GeneralUnarySmall<float>, CUTENSOR_NAMESPACE::GeneralBinary<float>, int=1, int=256, int=1, int=64, char=4, bool=1, bool=0, bool=1, bool=1, bool=0>, float>, CUTENSOR_NAMESPACE::ElementwiseRuntimePLC3<float, float, float, float>::Params>(unsigned int=4)
+          3                               inst_issued                       Instructions Issued      322807      323130      322991
+    Kernel: trt_maxwell_scudnn_128x32_relu_interior_nn_v1
+          3                               inst_issued                       Instructions Issued     4144272     4144399     4144342
+    Kernel: void fft2d_r2c_32x32<float, bool=0, unsigned int=5, bool=1>(float2*, float const *, int, int, int, int, int, int, int, int, int, cudnn::reduced_divisor, bool, int2, int, int)
+          3                               inst_issued                       Instructions Issued        7948        7948        7948
+    Kernel: void genericReformat::copyPackedKernel<float, float, bool=1, bool=1, genericReformat::IdentityCoordMapper<int=4>, int=4>(unsigned int, unsigned int, void const *, genericReformat::ArrayN<genericReformat::IdentityCoordMapper<int=4>>, genericReformat::ArrayNWithReducedDivisors<genericReformat::IdentityCoordMapper<int=4>>, genericReformat::ArrayN, int, int, int, float const *, void*, genericReformat::ArrayN, genericReformat::ArrayNWithReducedDivisors, genericReformat::ArrayNWithReducedDivisors, genericReformat::ArrayN, int, int, int, float const , int=4)
+          3                               inst_issued                       Instructions Issued     2447758     2448094     2447885
+    Kernel: trt_maxwell_scudnn_128x32_relu_medium_nn_v0
+          3                               inst_issued                       Instructions Issued     4662329     4662476     4662415
+    Kernel: trt_maxwell_scudnn_128x32_relu_medium_nn_v1
+          3                               inst_issued                       Instructions Issued     4430633     4430695     4430666
+    Kernel: void DSE::regular_fft_clip<int=1, int=2, int=256, int=16, int=16, int=1, float, float, float2>(float*, float2*, int, int3, float2*, int, float2*, float2*, int, int, int, int, int, float, float, bool, int, float, float)
+          3                               inst_issued                       Instructions Issued     1133392     1133453     1133432

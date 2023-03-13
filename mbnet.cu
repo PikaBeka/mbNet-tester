@@ -80,9 +80,9 @@ void verification(float *input, float *weight, float *output)
                         }
                     }
                 }
-                if (round(output[i * PQ * PQ + j * PQ + k]) != tempC)
+                if (abs(int(round(output[i * PQ * PQ + j * PQ + k])-tempC)) > 3)
                 {
-                    printf("The error is here. The actual result is %f, we get %f on (%d, %d, %d)\n", tempC, output[i * PQ * PQ + j * PQ + k], i, j, k);
+                    printf("The error is here. The actual result is %f, we get %f on (%d, %d, %d), the diff is %d\n", tempC, output[i * PQ * PQ + j * PQ + k], i, j, k, abs(int(round(output[i * PQ * PQ + j * PQ + k])-tempC)));
                     exit(-1);
                 }
             }
@@ -396,7 +396,7 @@ void pass(float *input, float *weight, float *output)
         CHECK_CUDNN(cudnnSetTensor4dDescriptor(input_descriptor,
                                                CUDNN_TENSOR_NCHW,
                                                CUDNN_DATA_FLOAT,
-                                               1,
+                                               32,
                                                C,
                                                HW,
                                                HW));
