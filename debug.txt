@@ -1,7 +1,4 @@
 Running mbnet with cudnn method\n
-The error is here. The actual result is 49000.000000, we get 49001.136719 on (0, 0, 0)
-The error is here. The actual result is 68486.000000, we get 68491.718750 on (0, 0, 0)
-The error is here. The actual result is 73749.000000, we get 73751.992188 on (0, 0, 0)
-The error is here. The actual result is 56744.000000, we get 56739.398438 on (0, 0, 0)
-The error is here. The actual result is 65410.000000, we get 65408.425781 on (0, 0, 0)
-The error is here. The actual result is 63953.000000, we get 63955.117188 on (0, 0, 0)
+CUDNN convolution finished. It is checked with 10000 images, and correct with image sizes (1, 256, 256) and kernel (3, 5, 5) resulting in (3, 252, 252)
+CUDNN convolution finished. It is checked with 10000 images, and correct with image sizes (1, 400, 400) and kernel (6, 5, 5) resulting in (6, 396, 396)
+CUDNN convolution finished. It is checked with 10000 images, and correct with image sizes (1, 320, 320) and kernel (6, 5, 5) resulting in (6, 316, 316)

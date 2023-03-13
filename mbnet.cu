@@ -32,14 +32,17 @@ void fillWithValues(float *input, float *weight)
 {
     srand(time(0));
 
-    for (int i = 0; i < C; i++)
+    for (int b = 0; b < BATCH; b++)
     {
-        for (int j = 0; j < HW; j++)
+        for (int i = 0; i < C; i++)
         {
-            for (int k = 0; k < HW; k++)
+            for (int j = 0; j < HW; j++)
             {
-                input[i * HW * HW + j * HW + k] = (float)(rand() % 100) - 100.0;
-                // input[i * HW * HW + j * HW + k] = 1.0f;
+                for (int k = 0; k < HW; k++)
+                {
+                    input[b * C * HW * HW + i * HW * HW + j * HW + k] = (float)(rand() % 100) - 100.0;
+                    // input[i * HW * HW + j * HW + k] = 1.0f;
+                }
             }
         }
     }
@@ -63,27 +66,30 @@ void fillWithValues(float *input, float *weight)
 /*Function to verify the */
 void verification(float *input, float *weight, float *output)
 {
-    for (int i = 0; i < K; i++)
+    for (int b = 0; b < BATCH; b++)
     {
-        for (int j = 0; j < PQ; j++)
+        for (int i = 0; i < K; i++)
         {
-            for (int k = 0; k < PQ; k++)
+            for (int j = 0; j < PQ; j++)
             {
-                float tempC = 0.0f;
-                for (int l = 0; l < C; l++)
+                for (int k = 0; k < PQ; k++)
                 {
-                    for (int m = 0; m < RS; m++)
+                    float tempC = 0.0f;
+                    for (int l = 0; l < C; l++)
                     {
-                        for (int t = 0; t < RS; t++)
+                        for (int m = 0; m < RS; m++)
                         {
-                            tempC += weight[i * C * RS * RS + l * RS * RS + m * RS + t] * input[l * HW * HW + (j + m) * HW + (k + t)];
+                            for (int t = 0; t < RS; t++)
+                            {
+                                tempC += weight[i * C * RS * RS + l * RS * RS + m * RS + t] * input[b * C * HW * HW * l * HW * HW + (j + m) * HW + (k + t)];
+                            }
                         }
                     }
-                }
-                if (round(output[i * PQ * PQ + j * PQ + k]) != tempC)
-                {
-                    printf("The error is here. The actual result is %f, we get %f on (%d, %d, %d)\n", tempC, output[i * PQ * PQ + j * PQ + k], i, j, k);
-                    exit(-1);
+                    if (round(output[i * PQ * PQ + j * PQ + k]) != tempC)
+                    {
+                        printf("The error is here. The actual result is %f, we get %f on (%d, %d, %d)\n", tempC, output[b * K * PQ * PQ + i * PQ * PQ + j * PQ + k], i, j, k);
+                        exit(-1);
+                    }
                 }
             }
         }
@@ -352,13 +358,13 @@ void pass(float *input, float *weight, float *output)
     fillWithValues(input, weight);
     float *d_input, *d_weight, *d_output;
 
-    cudaMalloc((void **)&d_input, C * HW * HW * sizeof(float));
+    cudaMalloc((void **)&d_input, BATCH * C * HW * HW * sizeof(float));
     cudaMalloc((void **)&d_weight, RS * RS * K * C * sizeof(float));
-    cudaMalloc((void **)&d_output, PQ * PQ * K * sizeof(float));
+    cudaMalloc((void **)&d_output, BATCH * PQ * PQ * K * sizeof(float));
 
-    cudaMemcpy(d_input, input, C * HW * HW * sizeof(float), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_input, input, BATCH * C * HW * HW * sizeof(float), cudaMemcpyHostToDevice);
     cudaMemcpy(d_weight, weight, RS * RS * K * C * sizeof(float), cudaMemcpyHostToDevice);
-    for (int batch = 0; batch < N; batch++)
+    for (int batch = 0; batch < N / BATCH; batch++)
     {
 #if ARRAY_NAIVE
         int threads = min(64, HW * HW);
@@ -396,7 +402,7 @@ void pass(float *input, float *weight, float *output)
         CHECK_CUDNN(cudnnSetTensor4dDescriptor(input_descriptor,
                                                CUDNN_TENSOR_NCHW,
                                                CUDNN_DATA_FLOAT,
-                                               1,
+                                               BATCH,
                                                C,
                                                HW,
                                                HW));
@@ -531,7 +537,7 @@ void pass(float *input, float *weight, float *output)
         cudaFree(gemm_C);
 #endif
     }
-    cudaMemcpy(output, d_output, PQ * PQ * K * sizeof(float), cudaMemcpyDeviceToHost);
+    cudaMemcpy(output, d_output, BATCH * PQ * PQ * K * sizeof(float), cudaMemcpyDeviceToHost);
     cudaError_t err = cudaGetLastError();
 
     if (err != cudaSuccess)
@@ -548,9 +554,9 @@ void pass(float *input, float *weight, float *output)
 
 int main()
 {
-    float *input = (float *)malloc(sizeof(float) * C * HW * HW);
+    float *input = (float *)malloc(sizeof(float) * BATCH * C * HW * HW);
     float *weight = (float *)malloc(sizeof(float) * RS * RS * K * C);
-    float *output = (float *)malloc(PQ * PQ * K * sizeof(float));
+    float *output = (float *)malloc(BATCH * PQ * PQ * K * sizeof(float));
 
     pass(input, weight, output);
 

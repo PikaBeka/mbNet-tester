@@ -1,1 +1,43 @@
-======== Error: Application returned non-zero code 255
+==9280== NVPROF is profiling process 9280, command: ./mbnet
+==9280== Profiling application: ./mbnet
+==9280== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   69.47%  2.66229s      1000  2.6623ms  2.6536ms  2.7938ms  void explicit_convolve_sgemm<float, int, int=1024, int=5, int=5, int=3, int=3, int=3, int=0, bool=0>(int, int, int, float const *, int, float const *, int, float*, kernel_conv_params, __int64, int, __int64, int, float, float, int, bool, float const *, float const *)
+                   30.18%  1.15663s      1000  1.1566ms  1.1513ms  1.1623ms  void cudnn::cnn::im2col4d_kernel<float, long>(cudnn::cnn::im2col4d_params, cudnnConvolutionStruct, cudnnTensorStruct, float const *, cudnnTensorStruct*)
+                    0.28%  10.814ms         1  10.814ms  10.814ms  10.814ms  [CUDA memcpy DtoH]
+                    0.05%  1.8715ms      1000  1.8710us  1.3430us  10.362us  [CUDA memset]
+                    0.01%  464.59us         2  232.29us  1.1830us  463.40us  [CUDA memcpy HtoD]
+      API calls:   48.93%  4.11897s      7004  588.09us     541ns  11.867ms  cudaFree
+                   35.96%  3.02654s      1000  3.0265ms  2.8418ms  3.4598ms  cudaFreeHost
+                    8.23%  692.79ms      1000  692.79us  657.91us  1.2874ms  cudaHostAlloc
+                    4.09%  344.08ms      5003  68.775us  1.4480us  86.705ms  cudaMalloc
+                    1.01%  84.961ms      1000  84.960us  76.113us  262.72us  cudaGetDeviceProperties
+                    0.40%  34.032ms     16000  2.1260us  1.6520us  42.374us  cudaStreamDestroy
+                    0.40%  33.859ms     16000  2.1160us  1.4060us  1.3885ms  cudaStreamCreateWithFlags
+                    0.33%  27.635ms      2000  13.817us  3.7370us  8.0182ms  cudaLaunchKernel
+                    0.15%  12.273ms         3  4.0911ms  80.640us  11.696ms  cudaMemcpy
+                    0.11%  8.9859ms     19000     472ns     303ns  20.504us  cudaEventCreateWithFlags
+                    0.10%  8.5821ms      5000  1.7160us     677ns  393.17us  cudaDeviceSynchronize
+                    0.09%  7.9883ms     19000     420ns     267ns  435.86us  cudaEventDestroy
+                    0.07%  5.7068ms     19014     300ns     205ns  484.22us  cudaDeviceGetAttribute
+                    0.06%  5.3650ms      1000  5.3650us  3.9250us  40.621us  cudaMemsetAsync
+                    0.02%  1.5221ms      3002     507ns     212ns  25.808us  cudaGetDevice
+                    0.01%  1.1191ms      1000  1.1190us     876ns  22.907us  cudaHostGetDevicePointer
+                    0.01%  864.58us      1000     864ns     628ns  4.5850us  cudaSetDevice
+                    0.01%  506.37us       493  1.0270us      98ns  48.815us  cuDeviceGetAttribute
+                    0.00%  362.65us      2001     181ns     109ns     936ns  cudaGetLastError
+                    0.00%  281.84us         2  140.92us  54.301us  227.54us  cuModuleUnload
+                    0.00%  281.60us      1536     183ns     108ns  4.5240us  cuGetProcAddress
+                    0.00%  219.69us      1000     219ns     160ns  1.3320us  cudaGetDeviceCount
+                    0.00%  163.49us      1000     163ns     131ns  1.9270us  cudaDriverGetVersion
+                    0.00%  120.52us         5  24.104us  12.894us  37.993us  cuDeviceGetName
+                    0.00%  87.679us         1  87.679us  87.679us  87.679us  cudaGetSymbolAddress
+                    0.00%  8.5050us         4  2.1260us  1.4980us  2.4490us  cuInit
+                    0.00%  8.1650us         1  8.1650us  8.1650us  8.1650us  cuDeviceGetPCIBusId
+                    0.00%  3.2130us         7     459ns     167ns  1.7410us  cuDeviceGetCount
+                    0.00%  1.6710us         5     334ns     193ns     559ns  cuDeviceTotalMem
+                    0.00%  1.4240us         2     712ns     698ns     726ns  cuDevicePrimaryCtxRelease
+                    0.00%  1.2160us         6     202ns     123ns     524ns  cuDeviceGet
+                    0.00%     925ns         5     185ns     132ns     296ns  cuModuleGetLoadingMode
+                    0.00%     906ns         5     181ns     152ns     214ns  cuDeviceGetUuid
+                    0.00%     656ns         4     164ns     136ns     185ns  cuDriverGetVersion
