@@ -40,8 +40,8 @@ void fillWithValues(float *input, float *weight)
             {
                 for (int k = 0; k < HW; k++)
                 {
-                    input[b * C * HW * HW + i * HW * HW + j * HW + k] = (float)(rand() % 100) - 100.0;
-                    // input[i * HW * HW + j * HW + k] = 1.0f;
+                   input[b * C * HW * HW + i * HW * HW + j * HW + k] = (float)(rand()%100)-100.0;
+                   //input[i * HW * HW + j * HW + k] = 1.0f;
                 }
             }
         }
@@ -55,8 +55,8 @@ void fillWithValues(float *input, float *weight)
             {
                 for (int k = 0; k < RS; k++)
                 {
-                    weight[i * (C * RS * RS) + t * (RS * RS) + j * RS + k] = (float)(rand() % 100) - 100.0;
-                    // weight[i * (C * RS * RS) + t * (RS * RS) + j * RS + k] = 1.0f;
+                    weight[i * (C * RS * RS) + t * (RS * RS) + j * RS + k] = (float)(rand()%100)-100.0;
+                    //weight[i * (C * RS * RS) + t * (RS * RS) + j * RS + k] = 1.0f;
                 }
             }
         }
@@ -81,11 +81,11 @@ void verification(float *input, float *weight, float *output)
                         {
                             for (int t = 0; t < RS; t++)
                             {
-                                tempC += weight[i * C * RS * RS + l * RS * RS + m * RS + t] * input[b * C * HW * HW * l * HW * HW + (j + m) * HW + (k + t)];
+                                tempC += weight[i * C * RS * RS + l * RS * RS + m * RS + t] * input[b * C * HW * HW + l * HW * HW + (j + m) * HW + (k + t)];
                             }
                         }
                     }
-                    if (abs(int(round(output[i * PQ * PQ + j * PQ + k]) - tempC)) > 3)
+                    if (abs(int(round(output[i * PQ * PQ + j * PQ + k]) - tempC)) > 1)
                     {
                         printf("The error is here. The actual result is %f, we get %f on (%d, %d, %d), the diff is %d\n", tempC, output[i * PQ * PQ + j * PQ + k], i, j, k, abs(int(round(output[i * PQ * PQ + j * PQ + k]) - tempC)));
                         exit(-1);
@@ -364,39 +364,11 @@ void pass(float *input, float *weight, float *output)
 
     cudaMemcpy(d_input, input, BATCH * C * HW * HW * sizeof(float), cudaMemcpyHostToDevice);
     cudaMemcpy(d_weight, weight, RS * RS * K * C * sizeof(float), cudaMemcpyHostToDevice);
-    for (int batch = 0; batch < N / BATCH; batch++)
-    {
-#if ARRAY_NAIVE
-        int threads = min(64, HW * HW);
-        int total = K * (PQ * PQ);
-        convolution_naive<<<(total + threads - 1) / threads, threads>>>((float(*)[HW][HW])d_input, (float(*)[C][RS][RS])d_weight, (float(*)[PQ][PQ])d_output);
 
-#elif ARRAY_TILING
-        dim3 threads(TILE_S, TILE_S);
-        dim3 blocks((PQ + LIM - 1) / LIM, (PQ + LIM - 1) / LIM, K);
-        convolution_tiling<<<blocks, threads>>>((float(*)[HW][HW])d_input, (float(*)[C][RS][RS])d_weight, (float(*)[PQ][PQ])d_output);
+    cudnnHandle_t cudnn;
+    CHECK_CUDNN(cudnnCreate(&cudnn));
 
-#elif DIRECT
-#if CONV_SHARED
-        const dim3 numBlocks(CONV_NB);
-        const dim3 threadsPerBlock(CONV_TPB);
-        kernel_conv_filter<<<numBlocks, threadsPerBlock>>>((float(*)[HW][HW])d_input,
-#else
-        int total = K * PQ * PQ;
-        int threads = 64;
-        kernel_conv_filter<<<(total + threads - 1) / threads, threads>>>((float(*)[HW][HW])d_input,
-#endif
-                                                           (float(*)[PQ][PQ])d_output,
-                                                           (float(*)[C][RS][RS])d_weight);
-
-#elif CUDNN
-        cudnnHandle_t cudnn;
-        CHECK_CUDNN(cudnnCreate(&cudnn));
-
-        // Initialize CUDA
-        cudaSetDevice(0);
-
-        // Create input tensor
+ // Create input tensor
         cudnnTensorDescriptor_t input_descriptor;
         CHECK_CUDNN(cudnnCreateTensorDescriptor(&input_descriptor));
         CHECK_CUDNN(cudnnSetTensor4dDescriptor(input_descriptor,
@@ -431,7 +403,7 @@ void pass(float *input, float *weight, float *output)
                                                RS,
                                                RS));
 
-        // Create output tensor
+// Create output tensor
         int batch_size, channels, height, width;
         CHECK_CUDNN(cudnnGetConvolution2dForwardOutputDim(convolution_descriptor,
                                                           input_descriptor,
@@ -450,6 +422,45 @@ void pass(float *input, float *weight, float *output)
                                                channels,
                                                height,
                                                width));
+    for (int batch = 0; batch < N / BATCH; batch++)
+    {
+#if ARRAY_NAIVE
+        int threads = min(64, HW * HW);
+        int total = K * (PQ * PQ);
+        convolution_naive<<<(total + threads - 1) / threads, threads>>>((float(*)[HW][HW])d_input, (float(*)[C][RS][RS])d_weight, (float(*)[PQ][PQ])d_output);
+
+#elif ARRAY_TILING
+        dim3 threads(TILE_S, TILE_S);
+        dim3 blocks((PQ + LIM - 1) / LIM, (PQ + LIM - 1) / LIM, K);
+        convolution_tiling<<<blocks, threads>>>((float(*)[HW][HW])d_input, (float(*)[C][RS][RS])d_weight, (float(*)[PQ][PQ])d_output);
+
+#elif DIRECT
+#if CONV_SHARED
+        const dim3 numBlocks(CONV_NB);
+        const dim3 threadsPerBlock(CONV_TPB);
+        kernel_conv_filter<<<numBlocks, threadsPerBlock>>>((float(*)[HW][HW])d_input,
+#else
+        int total = K * PQ * PQ;
+        int threads = 64;
+        kernel_conv_filter<<<(total + threads - 1) / threads, threads>>>((float(*)[HW][HW])d_input,
+#endif
+                                                           (float(*)[PQ][PQ])d_output,
+                                                           (float(*)[C][RS][RS])d_weight);
+
+#elif CUDNN
+
+        // Initialize CUDA
+        //cudaSetDevice(0);
+
+	cudnnConvolutionFwdAlgo_t convolution_algorithm = CUDNN_CONVOLUTION_FWD_ALGO_WINOGRAD_NONFUSED;
+	//CHECK_CUDNN(cudnnGetConvolutionForwarAlgorithm_v7(cudnn,
+        //                                                    input_descriptor,
+        //                                                    filter_descriptor,
+        //                                                    convolution_descriptor,
+        //                                                    output_descriptor,
+        //                                                    CUDNN_CONVOLUTION_FWD_PREFER_FASTEST,
+	//						    0,
+        //                                                    &convolution_algorithm));
 
         // Allocate memory for workspace
         size_t workspace_size;
@@ -458,10 +469,10 @@ void pass(float *input, float *weight, float *output)
                                                             filter_descriptor,
                                                             convolution_descriptor,
                                                             output_descriptor,
-                                                            CUDNN_CONVOLUTION_FWD_ALGO_GEMM,
+                                                            convolution_algorithm,
                                                             &workspace_size));
         void *workspace_data;
-        cudaMalloc(&workspace_data, workspace_size);
+        cudaMalloc(&workspace_data, workspace_size*sizeof(float));
 
         // Perform convolution
         float alpha = 1.0f, beta = 0.0f;
@@ -472,19 +483,14 @@ void pass(float *input, float *weight, float *output)
                                             filter_descriptor,
                                             d_weight,
                                             convolution_descriptor,
-                                            CUDNN_CONVOLUTION_FWD_ALGO_GEMM,
+                                            convolution_algorithm,
                                             workspace_data,
                                             workspace_size,
                                             &beta,
                                             output_descriptor,
                                             d_output));
 
-        cudaFree(workspace_data);
-        cudnnDestroyTensorDescriptor(input_descriptor);
-        cudnnDestroyTensorDescriptor(output_descriptor);
-        cudnnDestroyFilterDescriptor(filter_descriptor);
-        cudnnDestroyConvolutionDescriptor(convolution_descriptor);
-        cudnnDestroy(cudnn);
+	cudaFree(workspace_data);
 #else
         // im2col_gpu_kernel_ext<<<(N1+K1-1)/K1, K1>>>(PQ*PQ, d_input, HW, HW, RS, RS, 0, 0, STRIDE, STRIDE, 1, 1, PQ, PQ,ic_workspace);
         ///*
@@ -546,6 +552,13 @@ void pass(float *input, float *weight, float *output)
     }
 
     verification(input, weight, output);
+
+
+    cudnnDestroyTensorDescriptor(input_descriptor);
+    cudnnDestroyTensorDescriptor(output_descriptor);
+    cudnnDestroyFilterDescriptor(filter_descriptor);
+    cudnnDestroyConvolutionDescriptor(convolution_descriptor);
+    cudnnDestroy(cudnn);
 
     cudaFree(d_output);
     cudaFree(d_weight);

@@ -1,0 +1,5 @@
+==27268== NVPROF is profiling process 27268, command: ./mbnet
+==27268== Warning: ERR_NVGPUCTRPERM - The user does not have permission to profile on the target device. See the following link for instructions to enable permissions and get more information: https://developer.nvidia.com/ERR_NVGPUCTRPERM 
+==27268== Profiling application: ./mbnet
+==27268== Profiling result:
+No events/metrics were profiled.

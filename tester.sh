@@ -78,7 +78,7 @@ for i in ${!C[@]}; do # loop to place all configuration files into use
         sed -i 's/define C .*/define C '${C[$i]}'/' ${in_file} # change C
         sed -i 's/define HW .*/define HW '${HW[$i]}'/' ${in_file} # change HW
         sed -i 's/define K .*/define K '${K[$i]}'/' ${in_file} # change K
-        /usr/local/cuda-10.2/bin/nvcc mbnet.cu -o mbnet -lcublas -lcudnn # compile it
+        /usr/local/cuda-10.2/bin/nvcc mbnet.cu -o mbnet -lcudart -lcublas -lcudnn -lstdc++ -lm # compile it
     fi
 
     if [[ "$is_metrics" = true ]]

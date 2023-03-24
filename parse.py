@@ -160,16 +160,16 @@ if __name__ == '__main__':
     K = [3, 6, 6, 6, 6, 6, 9, 9, 12, 12, 16, 16, 16, 16, 16,
          16, 16, 16, 16, 32, 32, 32, 32, 32, 32, 64, 64, 64, 64, 64]
 
-    #for j in range(0, len(csv_file.nvprof_paths)):
-    #    for i in range(0, len(C)):
-    #        if j == 3:
-    #            log_file = csv_file.nvprof_paths[j] + '/nvprof_comp_' + \
-    #                str(C[i]) + '_' + str(HW[i]) + \
-    #                '_' + str(K[i]) + '.txt'
-    #            parser = Parse(log_file, int(C[i]), int(
-    #                HW[i]), int(K[i]), csv_file.nvprof_paths[j]+'_sum.csv')
-    #            parser.parse_file()
-    #    print(csv_file.nvprof_paths[j] + " parsing finished")
+    for j in range(0, len(csv_file.nvprof_paths)):
+        for i in range(0, len(C)):
+            if j == 3:
+                log_file = csv_file.nvprof_paths[j] + '/nvprof_comp_' + \
+                    str(C[i]) + '_' + str(HW[i]) + \
+                    '_' + str(K[i]) + '.txt'
+                parser = Parse(log_file, int(C[i]), int(
+                    HW[i]), int(K[i]), csv_file.nvprof_paths[j]+'_sum.csv')
+                parser.parse_file()
+        print(csv_file.nvprof_paths[j] + " parsing finished")
 
     for metric in csv_file.metrics:
         for i in range(0, len(C)):

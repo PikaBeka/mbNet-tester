@@ -3,7 +3,7 @@ import os
 
 nvprof_paths = ['direct_shared',
                 'unroll_cublass', 'tensorrt', 'cudnn']  # folder paths
-AreMetrics = True
+AreMetrics = False
 
 # this function finds a name of the kernel
 def takeName(possible_header):
